@@ -1,0 +1,1229 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="석수민 — 백엔드·퀀트 개발자 이력서">
+<link rel="alternate" hreflang="ko" href="https://seoksoomin2003-prog.github.io/resume/">
+<link rel="alternate" hreflang="en" href="https://seoksoomin2003-prog.github.io/resume/en.html">
+<title>석수민 이력서</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: single 960px column, sticky section nav, grey bands alternate with white like a portfolio site; prints as a 2-page A4 resume. */
+:root {
+  --bg: #ffffff;
+  --band: #f7f8fa;
+  --panel: #f2f4f7;
+  --line: #e5e8ec;
+  --fg: #1b2330;
+  --sub: #4e5968;
+  --mute: #8b95a1;
+  --accent: #0b63d6;
+  --accent-soft: #e8f1fd;
+  --ok: #12a46b;
+  --violet: #7b4fe0;
+  --font: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101317; --band: #161a20; --panel: #1d222a; --line: #2a313b;
+    --fg: #eef1f5; --sub: #b3bcc7; --mute: #7d8794;
+    --accent: #5aa2ff; --accent-soft: #1b2b44; --ok: #3ccf91; --violet: #a98bff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101317; --band: #161a20; --panel: #1d222a; --line: #2a313b;
+  --fg: #eef1f5; --sub: #b3bcc7; --mute: #7d8794;
+  --accent: #5aa2ff; --accent-soft: #1b2b44; --ok: #3ccf91; --violet: #a98bff;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font); font-size: 16px; line-height: 1.65;
+  letter-spacing: -0.01em; word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+.wrap {
+  max-width: 960px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Nav */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav .wrap { display: flex; align-items: center; gap: 24px; height: 60px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.brand i { width: 28px; height: 28px; border-radius: 8px; background: var(--accent); color: #fff; display: grid; place-items: center; font-style: normal; font-size: 14px; font-weight: 800; }
+.nav ul { display: flex; gap: 4px; list-style: none; margin: 0 0 0 auto; padding: 0; overflow-x: auto; scrollbar-width: none; }
+.nav ul::-webkit-scrollbar { display: none; }
+.nav ul a { display: block; padding: 6px 12px; border-radius: 8px; font-size: 14px; color: var(--sub); text-decoration: none; white-space: nowrap; }
+.nav ul a:hover, .nav ul a:focus-visible { background: var(--panel); color: var(--fg); }
+
+/* Hero */
+.hero { padding-block: 72px 56px; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) 430px; grid-template-areas: "text net" "facts net"; gap: 28px 40px; align-items: start; }
+.hero-text { grid-area: text; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: 0.02em; }
+.eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+h1 { font-size: clamp(36px, 6vw, 54px); line-height: 1.2; letter-spacing: -0.035em; font-weight: 800; margin: 14px 0 18px; text-wrap: balance; }
+.lead { font-size: 19px; font-weight: 600; margin: 0 0 10px; color: var(--fg); }
+.intro { color: var(--sub); margin: 0; max-width: 34em; }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; height: 46px; padding: 0 20px; border-radius: 12px; font-size: 15px; font-weight: 600; text-decoration: none; border: 1px solid var(--line); background: var(--bg); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn:focus-visible { outline: 3px solid var(--accent-soft); outline-offset: 2px; }
+.facts { grid-area: facts; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 24px; background: var(--panel); border-radius: 16px; padding: 4px 20px; margin: 0; }
+.facts div { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.facts div:nth-last-child(-n+2) { border-bottom: 0; }
+@media screen { .facts .gh-host { display: none; } }
+
+/* Interest network: 3D canvas next to the intro (screen only) */
+.net-wrap { grid-area: net; margin: 0; }
+.net-stage { position: relative; height: 560px; border: 1px solid var(--line); border-radius: 20px; overflow: hidden;
+  background: radial-gradient(110% 80% at 50% 42%, var(--accent-soft), transparent 72%), var(--band); }
+#net { display: block; width: 100%; height: 100%; cursor: grab; touch-action: pan-y; outline: none; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+.net-zoom button, .net-pan button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+#net.dragging { cursor: grabbing; }
+#net.pointing { cursor: pointer; }
+#net:focus-visible { box-shadow: inset 0 0 0 3px var(--accent-soft); }
+.net-head { position: absolute; top: 12px; left: 16px; right: 16px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--mute); pointer-events: none; }
+.net-head b { color: var(--sub); font-weight: 700; }
+.net-legend { display: flex; gap: 12px; }
+.net-legend i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; }
+.net-zoom { position: absolute; right: 12px; bottom: 12px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.net-zoom button { width: 32px; height: 32px; padding: 0; border-radius: 9px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); font: 600 17px/1 var(--font); cursor: pointer; display: grid; place-items: center; }
+.net-zoom button:hover { background: var(--panel); }
+.net-zoom button:focus-visible { outline: 3px solid var(--accent-soft); outline-offset: 1px; }
+.net-zoom output { font-size: 11px; color: var(--mute); font-variant-numeric: tabular-nums; }
+.net-zoom .net-full { margin-bottom: 4px; }
+.net-pan { position: absolute; left: 12px; bottom: 12px; display: none; grid-template-columns: repeat(3, 32px); grid-template-rows: repeat(3, 32px); gap: 3px; }
+.net-stage.zoomed .net-pan { display: grid; }
+.net-pan button { padding: 0; border-radius: 9px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); font: 600 15px/1 var(--font); cursor: pointer; }
+.net-pan button:hover { background: var(--panel); }
+.net-pan button:focus-visible { outline: 3px solid var(--accent-soft); outline-offset: 1px; }
+.net-pan [data-p=up] { grid-area: 1 / 2; } .net-pan [data-p=left] { grid-area: 2 / 1; }
+.net-pan [data-p=right] { grid-area: 2 / 3; } .net-pan [data-p=down] { grid-area: 3 / 2; }
+.net-zoom svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.net-full .ic-exit, .net-stage.is-full .net-full .ic-enter { display: none; }
+.net-stage.is-full .net-full .ic-exit { display: block; }
+/* Full screen: the native API when the page allows it, otherwise a fixed overlay */
+.net-stage.is-full { position: fixed; inset: 0; z-index: 100; height: auto; border: 0; border-radius: 0; }
+.net-stage:fullscreen { height: 100%; border-radius: 0; }
+.net-stage.is-full #net { touch-action: none; }
+html.net-lock, html.net-lock body { overflow: hidden; }
+/* Without JavaScript (phone file previews, messenger viewers): a looping picture of the graph instead of an empty canvas. */
+.net-still, .net-nojs { display: none; }
+html:not(.js) .net-still { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+html:not(.js) #net, html:not(.js) .net-zoom, html:not(.js) .net-pan, html:not(.js) .net-cap { display: none; }
+html:not(.js) .net-nojs { display: block; margin: 10px 4px 0; font-size: 13.5px; line-height: 1.55; color: var(--sub); }
+html:not(.js) .net-stage { --band: #f7f8fa; --accent-soft: #e8f1fd; --sub: #4e5968; --mute: #8b95a1; --line: #e5e8ec; background: #f7f8fa; }
+.net-cap { margin: 10px 4px 0; min-height: 3.3em; font-size: 13.5px; line-height: 1.55; color: var(--sub); }
+.net-cap b { color: var(--fg); }
+.proj { scroll-margin-top: 76px; transition: border-color .3s, box-shadow .3s; }
+.proj.flash { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+.facts dt { font-size: 12px; color: var(--mute); margin-bottom: 2px; }
+.facts dd { margin: 0; font-size: 14.5px; font-weight: 600; overflow-wrap: anywhere; }
+
+/* Sections */
+section { padding-block: 72px; }
+section.band { background: var(--band); }
+.sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 28px; }
+h2 { font-size: clamp(26px, 4vw, 34px); letter-spacing: -0.03em; font-weight: 800; margin: 0; }
+.sec-head span { color: var(--mute); font-size: 14px; }
+
+/* Strengths */
+.strengths { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.strength { background: var(--bg); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+.strength b { display: block; font-size: 17px; margin-bottom: 6px; }
+.strength p { margin: 0; color: var(--sub); font-size: 14.5px; }
+.strength em { font-style: normal; color: var(--accent); font-weight: 700; }
+
+/* Projects */
+.projects { display: grid; gap: 18px; }
+.proj { background: var(--bg); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 28px; break-inside: avoid; }
+.proj-meta { display: flex; flex-direction: column; gap: 10px; }
+.proj-body, .proj-meta, .gallery { min-width: 0; }
+.tag { align-self: flex-start; font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); }
+.tag.team { background: var(--panel); color: var(--sub); }
+.tag.award { background: #fff4d6; color: #9a6400; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tag.award { background: #3a2e10; color: #f5c451; } }
+.period { font-family: var(--mono); font-size: 12.5px; color: var(--mute); }
+.proj h3 { font-size: 21px; line-height: 1.35; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
+.role { font-size: 13.5px; color: var(--sub); }
+.repo { font-size: 13px; color: var(--accent); text-decoration: none; font-weight: 600; overflow-wrap: anywhere; }
+.repo:hover { text-decoration: underline; }
+.proj-body > p { margin: 0 0 14px; color: var(--sub); }
+.checks { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
+.checks li { position: relative; padding-left: 24px; font-size: 14.5px; }
+.checks li::before { content: ""; position: absolute; left: 2px; top: 0.55em; width: 10px; height: 6px; border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); }
+.checks b { font-weight: 700; }
+.metrics { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.metric { background: var(--panel); border-radius: 10px; padding: 8px 12px; font-size: 13px; color: var(--sub); }
+.metric strong { display: block; font-size: 16px; color: var(--fg); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--sub); }
+/* Project card: GitHub link, running screen, flow diagram, why / did / gained / lost / learned rows */
+.proj-meta .repo { display: flex; align-items: center; gap: 10px; margin-top: 4px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--band); color: var(--fg); text-decoration: none; transition: border-color .2s; }
+.proj-meta .repo:hover { border-color: var(--accent); text-decoration: none; }
+.repo svg { width: 20px; height: 20px; flex: none; fill: currentColor; }
+.repo span { display: flex; flex-direction: column; min-width: 0; }
+.repo b { font-size: 13px; line-height: 1.3; overflow-wrap: anywhere; }
+.repo small { font-size: 11.5px; font-weight: 600; color: var(--accent); }
+.shot { margin: 0 0 16px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--panel); }
+.shot .bar { display: flex; align-items: center; gap: 6px; height: 28px; padding: 0 12px; border-bottom: 1px solid var(--line); background: var(--band); }
+.shot .bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+.shot .bar span { margin-left: 8px; font: 11.5px var(--mono); color: var(--mute); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.shot img { display: block; width: 100%; height: auto; cursor: zoom-in; }
+.gallery .bar .url { min-width: 0; }
+.gallery .bar .count { flex: none; padding-left: 8px; margin-left: auto; font: 11px var(--mono); color: var(--mute); font-variant-numeric: tabular-nums; }
+.gallery .stage { position: relative; }
+.gallery .slides { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; outline: none; }
+.gallery .slides::-webkit-scrollbar { display: none; }
+.gallery .slides:focus-visible { box-shadow: inset 0 0 0 3px var(--accent); }
+.gallery .slide { flex: 0 0 100%; aspect-ratio: 16 / 10; scroll-snap-align: start; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #0e1116; }
+.gallery .slide img { width: 100%; height: 100%; object-fit: contain; }
+.gallery.phones .slide { aspect-ratio: 4 / 3; padding: 14px 0; background: var(--band); }
+.gallery.phones .slide img { width: auto; height: 100%; aspect-ratio: 9 / 16; object-fit: cover; object-position: top; border-radius: 18px; border: 1px solid var(--line); background: #fff; }
+.gallery .nav { position: absolute; top: 50%; width: 40px; height: 40px; margin-top: -20px; padding: 0 0 3px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .28); background: rgba(14, 17, 22, .66); color: #fff; font: 500 26px/1 var(--font); cursor: pointer; display: grid; place-items: center; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); transition: background .2s; }
+.gallery .nav:hover { background: rgba(14, 17, 22, .88); }
+.gallery .nav:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.gallery .prev { left: 10px; } .gallery .next { right: 10px; }
+.gallery figcaption { display: flex; flex-wrap: wrap; align-items: center; gap: 3px 10px; }
+.gallery figcaption .cap { flex-basis: 100%; font-size: 13px; font-weight: 600; color: var(--fg); }
+.gallery .dots { margin-left: auto; display: flex; align-items: center; gap: 5px; }
+.gallery .dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 4px; background: var(--line); cursor: pointer; transition: width .2s, background .2s; }
+.gallery .dots button[aria-current="true"] { width: 20px; background: var(--accent); }
+.shot figcaption { padding: 8px 12px; border-top: 1px solid var(--line); background: var(--bg); font-size: 12px; color: var(--mute); }
+.flow { list-style: none; margin: 0 0 16px; padding: 14px 14px 14px 32px; display: flex; flex-wrap: wrap; gap: 10px 26px; background: var(--band); border: 1px solid var(--line); border-radius: 12px; }
+.flow li { position: relative; padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); line-height: 1.3; }
+.flow li b { display: block; font-size: 12.5px; }
+.flow li span { font-size: 11px; color: var(--mute); }
+.flow li::before { content: "→"; position: absolute; left: -19px; top: 50%; transform: translateY(-50%); font-size: 13px; color: var(--mute); }
+.flow li.mine { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.flow:has(+ .flow-note) { margin-bottom: 6px; }
+.flow-note { display: flex; align-items: center; gap: 6px; margin: 0 2px 16px; font-size: 11.5px; color: var(--mute); }
+.flow-note i { width: 12px; height: 12px; border-radius: 3px; border: 2px solid var(--accent); }
+.story { margin: 0 0 14px; display: grid; gap: 12px; }
+.story > div { display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 12px; align-items: baseline; padding: 0 12px; }
+.story dt { font-size: 12.5px; font-weight: 700; color: var(--accent); }
+.story dd { margin: 0; font-size: 14.5px; }
+.story dd > p { margin: 0 0 10px; color: var(--sub); }
+.story .checks, .story .metrics { margin-bottom: 0; }
+.story > div:nth-child(n+4) { padding: 10px 12px; border-radius: 10px; background: var(--band); }
+.story > div:nth-child(n+4) dd { color: var(--sub); }
+.lightbox { padding: 0; border: 0; background: transparent; max-width: 96vw; max-height: 94vh; }
+.lightbox::backdrop { background: rgba(10, 12, 16, .82); }
+.lightbox img { display: block; max-width: 96vw; max-height: 94vh; border-radius: 10px; cursor: zoom-out; }
+
+/* Skills */
+.skills { margin: 0; border-top: 1px solid var(--line); }
+.skills div { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.skills dt { font-weight: 700; font-size: 15px; }
+.skills dd { margin: 0; color: var(--sub); font-size: 15px; }
+
+/* Education */
+.edu { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 16px; padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.edu b { font-size: 17px; }
+.edu p { margin: 2px 0 0; color: var(--sub); }
+
+footer { padding-block: 40px 56px; color: var(--mute); font-size: 13px; }
+
+@media screen and (max-width: 760px) {
+  .hero { padding-block: 40px 40px; }
+  .hero .wrap { grid-template-columns: 1fr; grid-template-areas: "text" "net" "facts"; gap: 24px; }
+  .net-stage { height: 500px; }
+  .net-zoom { flex-direction: row; gap: 6px; }
+  .net-zoom .net-full { margin: 0 4px 0 0; }
+  .net-zoom output { display: none; }
+  .net-zoom button { width: 36px; height: 36px; }
+  .net-pan { grid-template-columns: repeat(3, 34px); grid-template-rows: repeat(3, 34px); }
+  .facts { grid-template-columns: 1fr; }
+  .facts div:nth-last-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .facts div:last-child { border-bottom: 0; }
+  .strengths { grid-template-columns: 1fr; }
+  .proj { grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 22px; }
+  .gallery .nav { width: 34px; height: 34px; margin-top: -17px; font-size: 22px; }
+  .flow { padding-left: 28px; gap: 8px 24px; }
+  .story > div { grid-template-columns: 1fr; gap: 4px; }
+  .skills div, .edu { grid-template-columns: 1fr; gap: 4px; }
+  section { padding-block: 52px; }
+  .brand span { display: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/* Print: A4 resume, always light */
+@page { size: A4; margin: 14mm 13mm; }
+@media print {
+  :root, :root[data-theme="dark"] {
+    --bg: #ffffff; --band: #ffffff; --panel: #f3f5f8; --line: #e3e7ec;
+    --fg: #141b25; --sub: #3f4a58; --mute: #7a8592; --accent: #0b63d6; --accent-soft: #e8f1fd;
+    color-scheme: light;
+  }
+  body { font-size: 10.5pt; line-height: 1.55; -webkit-print-color-adjust: exact; print-color-adjust: exact; display: flex; flex-direction: column; }
+  .hero { order: 0; } #about { order: 1; } #skills { order: 2; } #education { order: 3; } #projects { order: 4; }
+  .sec-head { break-after: avoid; }
+  .strengths { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .skills div { grid-template-columns: 30mm minmax(0, 1fr); gap: 10px; }
+  .edu { grid-template-columns: 30mm minmax(0, 1fr); gap: 10px; }
+  body::before, .nav, .cta { display: none; }
+  .wrap { max-width: none; padding: 0; }
+  .hero { padding-block: 0 18px; }
+  .hero .wrap { grid-template-columns: minmax(0, 1fr) 62mm; grid-template-areas: "text facts"; gap: 10mm; }
+  .net-wrap { display: none; }
+  .facts { display: block; padding: 6px 22px; }
+  .facts div:nth-last-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .facts div:last-child { border-bottom: 0; }
+  h1 { font-size: 26pt; margin: 6px 0 8px; }
+  .lead { font-size: 12pt; }
+  section { padding-block: 7px; }
+  .sec-head { margin-bottom: 7px; }
+  h2 { font-size: 15pt; }
+  .strength { padding: 12px; border-radius: 10px; }
+  .strength b { font-size: 11pt; }
+  .strength p, .checks li { font-size: 9.5pt; }
+  .projects { display: block; } .proj + .proj { margin-top: 8px; }
+  .proj { padding: 11px 14px; border-radius: 12px; grid-template-columns: 40mm minmax(0, 1fr); gap: 12px; line-height: 1.45; }
+  .proj-meta { gap: 6px; }
+  .proj .checks li { font-size: 9pt; }
+  .proj .chip { padding: 2px 7px; }
+  .proj h3 { font-size: 12.5pt; }
+  .proj { display: block; break-inside: avoid; }
+  .proj-meta { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; margin-bottom: 6px; break-after: avoid; }
+  .proj-meta .role { flex-basis: 100%; }
+  .proj-meta .repo { margin: 0; }
+  .shot, .flow, .story > div { break-inside: avoid; }
+  .shot { margin-bottom: 8px; border-radius: 8px; }
+  .shot .bar { display: none; }
+  .gallery .slides { display: block; overflow: hidden; }
+  .gallery .slide:not(:first-child) { display: none; }
+  .gallery .bar .count { display: none; }
+  .gallery .slide { aspect-ratio: auto; height: 56mm; }
+  .gallery .slide img { object-fit: cover; object-position: top; }
+  .gallery.phones .slide { height: 62mm; padding: 4px 0; aspect-ratio: auto; }
+  .gallery.phones .slide:first-child { display: flex; justify-content: center; }
+  .gallery .nav, .gallery .dots { display: none; }
+  .gallery figcaption .cap { font-size: 8pt; }
+  .shot figcaption { padding: 4px 8px; font-size: 7.5pt; }
+  .flow { padding: 6px 8px 6px 20px; gap: 4px 18px; margin-bottom: 8px; }
+  .flow li { padding: 3px 6px; }
+  .flow li b { font-size: 8pt; } .flow li span { font-size: 7pt; }
+  .flow li::before { left: -14px; }
+  .flow-note { margin-bottom: 8px; font-size: 7.5pt; }
+  .story { gap: 6px; } .story > div { grid-template-columns: 13mm minmax(0, 1fr); gap: 8px; }
+  .story > div:nth-child(n+4) { padding: 5px 8px; }
+  .story dt { font-size: 8.5pt; } .story dd { font-size: 9pt; } .story dd > p { font-size: 9pt; margin-bottom: 5px; }
+  .proj-meta .repo { padding: 0; border: 0; background: none; } .repo svg, .repo span { display: none; }
+  .proj-meta .repo::after { content: attr(href); font: 8pt var(--mono); color: var(--accent); }
+  .checks { gap: 4px; margin-bottom: 8px; }
+  .metric { padding: 5px 9px; font-size: 8.5pt; }
+  .metric strong { font-size: 11pt; }
+  .chip { font-size: 8pt; }
+  .skills div { padding: 3px 0; }
+  .facts div { padding: 9px 0; }
+  .intro { font-size: 9.8pt; }
+  .skills dt, .skills dd { font-size: 9.5pt; }
+  .edu { padding: 6px 0; }
+  .proj-body > .shot:first-child { break-before: avoid; }
+  footer { display: none; }
+  a { text-decoration: none; }
+  #projects { break-before: page; }
+}
+</style>
+
+<nav class="nav" aria-label="섹션">
+  <div class="wrap">
+    <a class="brand" href="#top"><i>S</i><span>석수민</span></a>
+    <ul>
+      <li><a href="#about">강점</a></li>
+      <li><a href="#projects">프로젝트</a></li>
+      <li><a href="#skills">기술</a></li>
+      <li><a href="#education">학력</a></li>
+      <li><a href="en.html" hreflang="en" lang="en">EN</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="eyebrow">Backend · Quant Developer</span>
+      <h1>검증할 수 있는 시스템을 만드는<br>개발자 석수민입니다.</h1>
+      <p class="lead">결과를 보기 전에 기준부터 정하고, 장애에도 데이터가 남는 백엔드를 만듭니다.</p>
+      <p class="intro">주식 추천 시스템과 코인 자동매매 봇(바이낸스·빗썸), 해외 수목관리 SaaS를 설계·구현했습니다. Claude Code·Codex 같은 AI 코딩 도구를 페어 프로그래머로 활용해 구현 속도를 높였고, 모든 설계와 검증은 제가 맡았습니다. 팀 프로젝트에서는 PM으로 5인 팀을 이끌고, 결제·인증·동시성처럼 백엔드에서 까다로운 부분을 맡았습니다.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">프로젝트 보기 →</a>
+        <a class="btn" href="https://github.com/seoksoomin2003-prog" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+    <script>document.documentElement.classList.add('js')</script>
+    <figure class="net-wrap">
+      <div class="net-stage">
+        <img class="net-still" src="img/net_spin.webp" alt="관심사 → 프로젝트 → 기술·퀀트로 이어지는 3D 신경망이 천천히 도는 그림">
+        <canvas id="net" tabindex="0" role="img" aria-label="관심사 3개(백엔드, 퀀트, 데이터 시스템)가 프로젝트 7개로, 프로젝트가 기술 스택 50개와 퀀트 개념 18개로 이어지는 3D 신경망 그래프. 방향키로 돌리고 +/− 키로 확대·축소, F 키로 전체화면을 켜고 끌 수 있습니다."></canvas>
+        <div class="net-head">
+          <b>관심사 → 프로젝트 → 기술·퀀트</b>
+          <span class="net-legend">
+            <span><i style="background:var(--accent)"></i>관심사</span>
+            <span><i style="background:var(--violet)"></i>프로젝트</span>
+            <span><i style="background:var(--mute)"></i>기술</span>
+            <span><i style="background:var(--ok)"></i>퀀트 개념</span>
+          </span>
+        </div>
+        <div class="net-zoom" role="group" aria-label="그래프 확대·축소">
+          <button type="button" class="net-full" data-z="full" aria-label="전체화면으로 보기" aria-pressed="false" title="전체화면 (F)"><svg class="ic-enter" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><svg class="ic-exit" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg></button>
+          <button type="button" data-z="in" aria-label="확대" title="확대 (+)">+</button>
+          <button type="button" data-z="out" aria-label="축소" title="축소 (−)">−</button>
+          <button type="button" data-z="reset" aria-label="원래 크기로" title="원래 크기로 (0)">↺</button>
+          <output id="net-zoom-level" aria-live="polite">100%</output>
+        </div>
+        <div class="net-pan" role="group" aria-label="확대한 그래프 이동">
+          <button type="button" data-p="up" aria-label="위쪽 보기" title="위쪽 보기 (↑)">↑</button>
+          <button type="button" data-p="left" aria-label="왼쪽 보기" title="왼쪽 보기 (←)">←</button>
+          <button type="button" data-p="right" aria-label="오른쪽 보기" title="오른쪽 보기 (→)">→</button>
+          <button type="button" data-p="down" aria-label="아래쪽 보기" title="아래쪽 보기 (↓)">↓</button>
+        </div>
+      </div>
+      <figcaption class="net-cap" id="net-cap" aria-live="polite">드래그해서 돌려 보세요. +/− 버튼, ⌘/Ctrl+스크롤, 트랙패드·휴대폰 핀치로 확대할 수 있고, 확대하면 드래그하거나 왼쪽 아래 화살표로 위아래·양옆을 둘러볼 수 있고, 그때는 Shift+드래그로 돌립니다. 오른쪽 아래 전체화면 버튼으로 전체화면을 켜고, 한 번 더 누르면 원래 크기로 돌아옵니다. 노드에 마우스를 올리면 연결이 보이고, 프로젝트 노드를 누르면 해당 카드로 이동합니다.</figcaption>
+      <p class="net-nojs">이 미리보기 앱은 스크립트를 막아 신경망이 저절로 도는 그림으로만 보입니다. Safari·Chrome 같은 브라우저로 열면 손가락으로 돌리고, 확대하고, 노드를 눌러 연결을 볼 수 있습니다.</p>
+    </figure>
+    <dl class="facts">
+      <div><dt>소속</dt><dd>삼육대학교 컴퓨터공학과 3학년</dd></div>
+      <div><dt>이메일</dt><dd>seoksoomin2003@gmail.com</dd></div>
+      <div><dt>GitHub</dt><dd><span class="gh-host">github.com/</span>seoksoomin2003-prog</dd></div>
+      <div><dt>관심 분야</dt><dd>백엔드 · 퀀트 · 데이터 시스템</dd></div>
+    </dl>
+  </div>
+</header>
+
+<section class="band" id="about">
+  <div class="wrap">
+    <div class="sec-head"><h2>강점</h2></div>
+    <div class="strengths">
+      <div class="strength">
+        <b>검증을 먼저 설계합니다</b>
+        <p>판정 기준을 결과 전에 문서로 고정하고, 미래 데이터 누출을 테스트로 막습니다. 기준에 못 미친 모델은 <em>기각한 결과까지</em> 기록합니다.</p>
+      </div>
+      <div class="strength">
+        <b>장애에 강한 백엔드</b>
+        <p>이벤트 소싱, 멱등성, 원자적 기록, 결제 복구로 데이터 유실을 막습니다. 부하 테스트에서 실패율을 <em>17% → 0%</em>로 줄였습니다.</p>
+      </div>
+      <div class="strength">
+        <b>테스트로 품질을 지킵니다</b>
+        <p>개인 프로젝트에서 pytest 테스트 <em>2,400여 개</em>를 작성해 유지하고, CI에서 보안 검사와 함께 돌립니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><h2>프로젝트</h2><span>개인 4 · 팀 3</span></div>
+    <div class="projects">
+
+      <article class="proj" id="p-quant">
+        <div class="proj-meta">
+          <span class="tag">개인</span>
+          <span class="period">2026.11</span>
+          <h3>퀀트 터미널</h3>
+          <span class="role">미국·한국 주식 추천 시스템</span>
+          <a class="repo" href="https://github.com/seoksoomin2003-prog/stock-recommendation-system" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>stock-recommendation-system</b><small>GitHub에서 코드·문서 보기 ↗</small></span></a>
+        </div>
+        <div class="proj-body">
+          <figure class="shot gallery" aria-roledescription="carousel" aria-label="퀀트 터미널 실제 화면 8장"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">127.0.0.1:8765 · 오늘</span><span class="count">1 / 8</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 8" data-url="127.0.0.1:8765 · 오늘" data-cap="오늘: 시장 상태, 할 일 알림, 오늘의 후보 종목"><img src="img/qt.jpg" alt="퀀트 터미널 화면 — 오늘: 시장 상태, 할 일 알림, 오늘의 후보 종목" width="1280" height="800"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 8" data-url="127.0.0.1:8765 · 순위·카드" data-cap="순위·카드: 스윙 점수 상위 50과 점수가 오르내린 이유"><img src="img/qt_rank.jpg" alt="퀀트 터미널 화면 — 순위·카드: 스윙 점수 상위 50과 점수가 오르내린 이유" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 8" data-url="127.0.0.1:8765 · 투자위원회 · MSFT" data-cap="투자위원회: 다섯 투자자 규칙이 MSFT를 각각 판단하고, 위원회가 규칙으로 판정"><img src="img/qt_ic.jpg" alt="퀀트 터미널 화면 — 버핏식·멍거식·그레이엄식·린치식·드러켄밀러식 다섯 의견과 통합 투자위원회 판정(MSFT)" width="1400" height="1225" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 8" data-url="127.0.0.1:8765 · 투자위원회 · 포트폴리오" data-cap="포트폴리오 받아보기: 여섯 포트폴리오를 만들고 MSFT의 비중과 그 이유 표시(가상, 주문 없음)"><img src="img/qt_icport.jpg" alt="퀀트 터미널 화면 — 여섯 포트폴리오에서 MSFT의 비중과 이유" width="1400" height="1036" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="5 / 8" data-url="127.0.0.1:8765 · 차트분석" data-cap="차트분석: 이동평균·볼린저·RSI와 신호 설명"><img src="img/qt_chart.jpg" alt="퀀트 터미널 화면 — 차트분석: 이동평균·볼린저·RSI와 신호 설명" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="6 / 8" data-url="127.0.0.1:8765 · 시장 지도" data-cap="시장 지도: 종목 히트맵과 업종 순환 그래프"><img src="img/qt_map.jpg" alt="퀀트 터미널 화면 — 시장 지도: 종목 히트맵과 업종 순환 그래프" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="7 / 8" data-url="127.0.0.1:8765 · 모델" data-cap="모델: 고정 모델 상위 종목, 전향적 추적, 도전자 모델 비교"><img src="img/qt_model.jpg" alt="퀀트 터미널 화면 — 모델: 고정 모델 상위 종목, 전향적 추적, 도전자 모델 비교" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="8 / 8" data-url="127.0.0.1:8765 · 연구실" data-cap="연구실: 과거 시뮬레이션과 성과 지표(참고용)"><img src="img/qt_lab.jpg" alt="퀀트 터미널 화면 — 연구실: 과거 시뮬레이션과 성과 지표(참고용)" width="1280" height="800" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="이전 화면">‹</button><button type="button" class="nav next" aria-label="다음 화면">›</button></div><figcaption><span class="cap" aria-live="polite">오늘: 시장 상태, 할 일 알림, 오늘의 후보 종목</span><span class="src">실제 구동 화면 · 로컬 웹 터미널 (2026-11-24)</span><span class="dots"></span></figcaption></figure><ol class="flow" aria-label="구조도"><li><b>공개 데이터</b><span>Yahoo·SEC·FRED·KRX·DART</span></li><li><b>정규화</b><span>값마다 출처·상태</span></li><li><b>관문</b><span>데이터·약세장·업종</span></li><li><b>고정 모델 채점</b><span>요인 z점수</span></li><li><b>Top 5</b><span>추천·탈락 이유</span></li><li><b>해시 사슬 장부</b><span>추천 뒤 성과 추적</span></li><li><b>웹 터미널</b><span>텔레그램 알림</span></li></ol>
+          <dl class="story"><div><dt>왜</dt><dd>유료 데이터 없이도 "왜 이 종목인가"를 근거로 설명받고, 그 추천이 실제로 맞았는지 나중에 확인할 수 있는 도구가 필요했습니다. 자동매매는 일부러 넣지 않았습니다. 시스템은 근거와 기록까지만 맡고 매수·매도는 사람이 확인해 결정하는 <b>휴먼 인 더 루프(Human-in-the-loop)</b> 구조로, 데이터 오류나 모델 실수가 그대로 주문이 되지 않게 했습니다.</dd></div><div><dt>한 일</dt><dd><ul class="checks">
+            <li><b>데이터 수집·정규화</b> — Yahoo, SEC EDGAR, FRED, KRX, OpenDART, ECOS를 수집하고 값마다 출처와 상태를 붙여 빈 값을 0으로 채우지 않음</li>
+            <li><b>추천 모델</b> — 모멘텀·퀄리티·가치·저변동성 요인 z점수, 약세장 필터, 업종 한도, ATR 기반 포지션 크기로 Top 5 산출</li>
+            <li><b>투자위원회</b> — 버핏·멍거·그레이엄·린치·드러켄밀러식 다섯 규칙 엔진이 종목을 따로 판단하고, 위원회가 평균이 아닌 규칙으로 판정해 여섯 가상 포트폴리오 작성(점수와 분리, 주문 없음)</li>
+            <li><b>검증 체계</b> — 사전 등록, 미래 데이터 누출 자동 점검, 도전자 모델·SPY 기준선과 5년 백테스트 비교</li>
+            <li><b>운영</b> — 로컬 웹 터미널(API 약 89개), launchd 일일 자동화, fsync 후 rename으로 원자적 기록</li>
+          </ul></dd></div><div><dt>얻은 것</dt><dd><div class="metrics">
+            <div class="metric"><strong>2,065</strong>테스트 통과</div>
+            <div class="metric"><strong>80.0–80.7%</strong>80% 가격 범위 실제 포함률</div>
+            <div class="metric"><strong>96% / 90%</strong>실적 발표일 추정(한/미)</div>
+          </div></dd></div><div><dt>잃은 것</dt><dd>추천 순위가 수익을 낸다는 예측력은 아직 입증하지 못했습니다. 한국 모델은 실험 단계이고, 무료 데이터라 지연·누락에 대비한 처리가 계속 늘었습니다.</dd></div><div><dt>배운 점</dt><dd>"추천"과 "수익 예측"은 다른 주장입니다. 결과를 바꿀 수 없게 미리 기록해 두어야 나중에 스스로를 속이지 않습니다.</dd></div></dl>
+          <div class="chips"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">numpy</span><span class="chip">pytest</span><span class="chip">Vanilla JS</span><span class="chip">launchd</span><span class="chip">Telegram Bot</span></div>
+        </div>
+      </article>
+
+      <article class="proj" id="p-horizon">
+        <div class="proj-meta">
+          <span class="tag">개인</span>
+          <span class="period">2026.05 – 2026.11</span>
+          <h3>Horizon</h3>
+          <span class="role">바이낸스 현물·선물 자동매매 봇 + 코인 방향 예측기</span>
+          <a class="repo" href="https://github.com/seoksoomin2003-prog/horizon_bot_beta" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>horizon_bot_beta</b><small>GitHub에서 코드·문서 보기 ↗</small></span></a>
+        </div>
+        <div class="proj-body">
+          <figure class="shot gallery" aria-roledescription="carousel" aria-label="Horizon 실제 화면 4장"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">127.0.0.1:8791 · 1위 코인 장부</span><span class="count">1 / 4</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 4" data-url="127.0.0.1:8791 · 1위 코인 장부" data-cap="1위 코인 가상 장부(v18): 코인별 7일 기대·위험 점수와 매수·매도 조건"><img src="img/hz.jpg" alt="Horizon 화면 — 1위 코인 가상 장부(v18): 코인별 7일 기대·위험 점수와 매수·매도 조건" width="1120" height="610"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 4" data-url="127.0.0.1:8791 · 방향 예측 기록" data-cap="방향 예측 실시간 채점: 3,970건의 적중률과 확신 상위 적중률"><img src="img/hz_pred.jpg" alt="Horizon 화면 — 방향 예측 실시간 채점: 3,970건의 적중률과 확신 상위 적중률" width="1120" height="418" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 4" data-url="127.0.0.1:8791 · 얼마나 오를까" data-cap="큰 코인 30개 &quot;얼마나 오를까&quot; 예측의 기간별 채점"><img src="img/hz_much.jpg" alt="Horizon 화면 — 큰 코인 30개 &quot;얼마나 오를까&quot; 예측의 기간별 채점" width="1120" height="315" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 4" data-url="127.0.0.1:8791 · 최근 예측" data-cap="최근 예측: 코인 60개 중 확신이 큰 15개"><img src="img/hz_recent.jpg" alt="Horizon 화면 — 최근 예측: 코인 60개 중 확신이 큰 15개" width="1120" height="545" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="이전 화면">‹</button><button type="button" class="nav next" aria-label="다음 화면">›</button></div><figcaption><span class="cap" aria-live="polite">1위 코인 가상 장부(v18): 코인별 7일 기대·위험 점수와 매수·매도 조건</span><span class="src">실제 구동 화면 · 읽기 전용 대시보드, 실시간 기록 중 (2026-11-24)</span><span class="dots"></span></figcaption></figure><ol class="flow" aria-label="구조도"><li><b>바이낸스</b><span>ccxt 시세·주문</span></li><li><b>국면 판단</b><span>ADX·ATR</span></li><li><b>확신도</b><span>0–4점</span></li><li><b>위험 승인</b><span>한도·낙폭</span></li><li><b>슬리피지 확인</b><span>호가 기반</span></li><li><b>주문 실행</b><span>손절·익절</span></li><li><b>상태 저장</b><span>이벤트 소싱 · 15초 대조</span></li><li><b>대시보드</b><span>읽기 전용</span></li></ol>
+          <dl class="story"><div><dt>왜</dt><dd>앞서 만든 빗썸 봇은 테스트도 가상 매매도 없어 전략이 맞는지 증명할 수 없었습니다. 그래서 가상 매매를 기본값으로 두고, 판정 기준부터 정한 뒤 검증하는 봇을 새로 만들었습니다.</dd></div><div><dt>한 일</dt><dd><ul class="checks">
+            <li><b>국면별 전략</b> — ADX·ATR로 추세·횡보·저변동 국면을 나누고 국면마다 다른 진입 규칙과 0–4점 확신도 적용</li>
+            <li><b>위험 관리</b> — 거래당 0.75%, 전체 5% 위험 한도, 낙폭 5%에서 축소·10%에서 중단, 호가 기반 슬리피지 한도</li>
+            <li><b>주문 일관성</b> — 이벤트 소싱 상태, 15초 거래소 대조, 재시작 후 손절 주문 복구, 익절 멱등성</li>
+            <li><b>예측·포트폴리오</b> — numpy로 구현한 릿지 회귀(워크포워드), 비용을 반영한 닫힌 형태 포트폴리오 최적화</li>
+          </ul></dd></div><div><dt>얻은 것</dt><dd><div class="metrics">
+            <div class="metric"><strong>57.5%</strong>확신 상위 10% 8시간 적중률</div>
+            <div class="metric"><strong>38,407건</strong>건당 순수익 +0.227%</div>
+            <div class="metric"><strong>313</strong>pytest 테스트</div>
+          </div></dd></div><div><dt>잃은 것</dt><dd>적중률은 확인했지만 비용을 빼면 수익이 남지 않았습니다. v12–v18 매매 시험이 모두 관문을 넘지 못해, 예측기는 매매와 연결하지 않고 기록만 합니다.</dd></div><div><dt>배운 점</dt><dd>적중률과 수익은 다릅니다. 비용·회전율까지 판정 기준에 넣고, 기각된 결과도 그대로 남겨야 다음 시험이 정직해집니다.</dd></div></dl>
+          <div class="chips"><span class="chip">Python</span><span class="chip">ccxt</span><span class="chip">pandas</span><span class="chip">numpy</span><span class="chip">pytest</span><span class="chip">systemd</span></div>
+        </div>
+      </article>
+
+      <article class="proj" id="p-bithumb">
+        <div class="proj-meta">
+          <span class="tag">개인</span>
+          <span class="period">2026.03</span>
+          <h3>Quantum Bithumb</h3>
+          <span class="role">빗썸 KRW 현물 자동매매 봇</span>
+          <a class="repo" href="https://github.com/seoksoomin2003-prog/quantum-bithumb" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>quantum-bithumb</b><small>GitHub에서 코드·문서 보기 ↗</small></span></a>
+        </div>
+        <div class="proj-body">
+          <ol class="flow" aria-label="구조도"><li><b>캔들 수집</b><span>asyncio 병렬</span></li><li><b>신호</b><span>BTC 레짐·알파 5개</span></li><li><b>승률 보정</b><span>메타 전략</span></li><li><b>리스크</b><span>변동성 가드·사이징</span></li><li><b>주문</b><span>호가 검사·분할 지정가</span></li><li><b>포지션</b><span>JSON 상태·분할 익절</span></li><li><b>알림</b><span>텔레그램</span></li></ol>
+          <dl class="story"><div><dt>왜</dt><dd>국내 거래소에서도 감정이 아닌 규칙으로, 24시간 매매하는 봇을 직접 운영해 보고 싶었습니다.</dd></div><div><dt>한 일</dt><dd><ul class="checks">
+            <li><b>멀티 타임프레임 진입</b> — 4H 추세, 1H 돌파·눌림목 점수, 15m 거래량 확장이 모두 맞을 때 진입</li>
+            <li><b>알파 점수 엔진(v2)</b> — 알파 5개를 합산하고 BTC 레짐·상대강도 로테이션으로 보정</li>
+            <li><b>리스크·주문</b> — ATR 기반 사이징·손절, 노출 한도, 호가창 깊이·슬리피지 검사 후 분할 지정가 주문, 분할 익절</li>
+            <li><b>운영</b> — asyncio 병렬 수집, 재시작 시 거래소 잔고 대조 복구, 텔레그램 경보, EC2 배포 스크립트</li>
+          </ul></dd></div><div><dt>얻은 것</dt><dd><div class="metrics"><div class="metric"><strong>4,700줄</strong>Python (v2 1,900줄)</div><div class="metric"><strong>v1 → v2</strong>구조 재설계</div><div class="metric"><strong>EC2 24시간</strong>systemd 운영</div></div></dd></div><div><dt>잃은 것</dt><dd>테스트·백테스트·가상 매매 없이 실거래로만 돌려 전략이 맞는지 증명할 수 없었고, 성과 기록도 남기지 못했습니다. v2 일부 알파는 지표가 연결되지 않아 발동하지 않았습니다.</dd></div><div><dt>배운 점</dt><dd>검증 수단을 먼저 만들어야 합니다. 이 경험이 Horizon의 가상 매매 기본값, 테스트 313개, 판정 기준 사전 등록으로 이어졌습니다.</dd></div></dl>
+          <div class="chips"><span class="chip">Python</span><span class="chip">pybithumb</span><span class="chip">pandas</span><span class="chip">asyncio</span><span class="chip">Telegram Bot</span><span class="chip">AWS EC2</span><span class="chip">systemd</span></div>
+        </div>
+      </article>
+
+      <article class="proj" id="p-arbor">
+        <div class="proj-meta">
+          <span class="tag">개인</span>
+          <span class="period">2026.06 – 2026.09</span>
+          <h3>ArborAI</h3>
+          <span class="role">해외 수목관리 업체용 AI 견적·업무관리 SaaS</span>
+          <a class="repo" href="https://github.com/seoksoomin2003-prog/tree-service-ai-os" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>tree-service-ai-os</b><small>GitHub에서 코드·문서 보기 ↗</small></span></a>
+        </div>
+        <div class="proj-body">
+          <figure class="shot gallery" aria-roledescription="carousel" aria-label="ArborAI 실제 화면 5장"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">localhost:3000 · AI 견적 3단계</span><span class="count">1 / 5</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 5" data-url="localhost:3000 · AI 견적 3단계" data-cap="AI 견적 ①: 현장 정보에서 위험 요소와 필요 인원·시간 진단"><img src="img/ar_ai.jpg" alt="ArborAI 화면 — AI 견적 ①: 현장 정보에서 위험 요소와 필요 인원·시간 진단" width="1280" height="755"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 5" data-url="localhost:3000 · AI 견적 4단계" data-cap="AI 견적 ②: 가격 엔진이 항목별로 계산한 결정론적 견적서"><img src="img/ar_quote.jpg" alt="ArborAI 화면 — AI 견적 ②: 가격 엔진이 항목별로 계산한 결정론적 견적서" width="1280" height="755" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 5" data-url="localhost:3000 · 작업" data-cap="작업 디스패치: 일정·상태·현장 위치"><img src="img/ar_jobs.jpg" alt="ArborAI 화면 — 작업 디스패치: 일정·상태·현장 위치" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 5" data-url="localhost:3000 · 견적" data-cap="견적 목록: 기본 비용·위험 할증·상태, PDF 생성과 작업 전환"><img src="img/ar_quotes.jpg" alt="ArborAI 화면 — 견적 목록: 기본 비용·위험 할증·상태, PDF 생성과 작업 전환" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="5 / 5" data-url="localhost:3000 · 고객" data-cap="고객 디렉터리(CRM)"><img src="img/ar_customers.jpg" alt="ArborAI 화면 — 고객 디렉터리(CRM)" width="1280" height="800" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="이전 화면">‹</button><button type="button" class="nav next" aria-label="다음 화면">›</button></div><figcaption><span class="cap" aria-live="polite">AI 견적 ①: 현장 정보에서 위험 요소와 필요 인원·시간 진단</span><span class="src">실제 구동 화면 · 로컬 Docker 실행, 테스트 데이터 (2026-11-24)</span><span class="dots"></span></figcaption></figure>
+          <ol class="flow" aria-label="구조도"><li><b>웹·모바일</b><span>Next.js · Expo</span></li><li><b>FastAPI</b><span>테넌트 판별·속도 제한</span></li><li><b>Gemini</b><span>28개 항목만 추출</span></li><li><b>가격 엔진</b><span>14개 지역 단가</span></li><li><b>PostgreSQL</b><span>RLS</span></li><li><b>결제·문서</b><span>Stripe · 견적 PDF</span></li></ol>
+          <dl class="story"><div><dt>왜</dt><dd>수목관리 견적은 나무 높이·전선 거리·장비에 따라 크게 달라 현장마다 손으로 계산합니다. 현장 정보만 넣으면 위험 요소와 견적 초안이 나오게 하고 싶었습니다.</dd></div><div><dt>한 일</dt><dd><ul class="checks">
+            <li><b>AI 견적 미리보기</b> — Gemini는 수고·흉고직경·전선 거리·필요 장비 등 28개 항목만 추출하고, 가격은 결정론적 엔진이 계산해 환각 가격 차단</li>
+            <li><b>지역별 가격 엔진</b> — 14개 지역 프로필, 항목별 금액과 근거, 적용 환율·입력값 스냅샷으로 금액 재현</li>
+            <li><b>멀티테넌트·보안</b> — tenant_id 자동 필터와 PostgreSQL RLS, 4개 역할 RBAC, TOTP 2단계 인증, SSRF 방어</li>
+            <li><b>글로벌화·모바일</b> — 14개 locale(아랍어 RTL), Stripe 구독, Expo 기술자 앱의 오프라인 변경 큐</li>
+          </ul></dd></div><div><dt>얻은 것</dt><dd><div class="metrics">
+            <div class="metric"><strong>73</strong>REST API</div>
+            <div class="metric"><strong>14</strong>locale</div>
+            <div class="metric"><strong>18,500줄</strong>백엔드·웹·모바일</div>
+          </div></dd></div><div><dt>잃은 것</dt><dd>프로토타입에서 멈춰 실제 운영 배포는 하지 않았습니다. 사진은 이미지 자체를 분석하지 않고, 기술자 앱 일부 API는 백엔드와 맞지 않습니다.</dd></div><div><dt>배운 점</dt><dd>AI에는 정보 추출만 맡기고 금액은 결정론적 코드로 계산해야 재현하고 설명할 수 있습니다. 범위를 넓게 잡으면 마무리가 늦어져, 핵심 흐름부터 끝내야 합니다.</dd></div></dl>
+          <div class="chips"><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">Gemini</span><span class="chip">Next.js 15</span><span class="chip">Expo</span><span class="chip">Stripe</span><span class="chip">Docker</span><span class="chip">AWS ECR</span></div>
+        </div>
+      </article>
+
+      <article class="proj" id="p-gig">
+        <div class="proj-meta">
+          <span class="tag team">팀 · 기획·연동</span>
+          <span class="tag award">과육톤 3등 · 우수상</span>
+          <span class="period">2026.11</span>
+          <h3>긱스플리터</h3>
+          <span class="role">생필품 공동구매 소분·정산 웹 앱 · 삼육대학교·서울과학기술대학교 연합 아이디어톤(과육톤) 6조</span>
+          <a class="repo" href="https://github.com/enderpawar/Gwayook-team6" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>Gwayook-team6</b><small>GitHub에서 코드·문서 보기 ↗</small></span></a>
+        </div>
+        <div class="proj-body">
+          <figure class="shot gallery phones" aria-roledescription="carousel" aria-label="긱스플리터 실제 화면 5장"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">gigsplitter.vercel.app · 상품</span><span class="count">1 / 5</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 5" data-url="gigsplitter.vercel.app · 상품" data-cap="첫 화면: 캡처 올리기·샘플 고르기, 30롤 → 7롤 나누기 예시"><img src="img/gs_home.jpg" alt="긱스플리터 화면 — 첫 화면: 캡처 올리기·샘플 고르기, 30롤 → 7롤 나누기 예시" width="540" height="960"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 5" data-url="gigsplitter.vercel.app · 확인" data-cap="값 확인: 판독한 상품명·구성·가격을 사용자가 고치는 단계"><img src="img/gs_check.jpg" alt="긱스플리터 화면 — 값 확인: 판독한 상품명·구성·가격을 사용자가 고치는 단계" width="540" height="960" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 5" data-url="gigsplitter.vercel.app · 나누기" data-cap="나누기: 4명이면 방장 9롤·참여자 7롤, 1롤당 54.6% 절약"><img src="img/gs_split.jpg" alt="긱스플리터 화면 — 나누기: 4명이면 방장 9롤·참여자 7롤, 1롤당 54.6% 절약" width="540" height="960" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 5" data-url="gigsplitter.vercel.app · 나누기 · 정산표" data-cap="정산표: 1원 단위 부담금, 합계가 결제 금액과 일치"><img src="img/gs_settle.jpg" alt="긱스플리터 화면 — 정산표: 1원 단위 부담금, 합계가 결제 금액과 일치" width="540" height="960" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="5 / 5" data-url="gigsplitter.vercel.app · 모집글" data-cap="모집글: 에브리타임에 붙여 넣을 제목·본문 자동 작성"><img src="img/gs_post.jpg" alt="긱스플리터 화면 — 모집글: 에브리타임에 붙여 넣을 제목·본문 자동 작성" width="540" height="960" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="이전 화면">‹</button><button type="button" class="nav next" aria-label="다음 화면">›</button></div><figcaption><span class="cap" aria-live="polite">첫 화면: 캡처 올리기·샘플 고르기, 30롤 → 7롤 나누기 예시</span><span class="src">실제 배포 화면 · 시연용 샘플(롤휴지 30롤) (2026-11-25)</span><span class="dots"></span></figcaption></figure><ol class="flow" aria-label="구조도"><li class="mine"><b>기능정의서·ERD</b><span>PRD v1.1 · 테이블 9개</span></li><li><b>쇼핑몰 캡처</b><span>또는 샘플·직접 입력</span></li><li><b>Gemini 판독</b><span>Node.js API</span></li><li class="mine"><b>프론트↔백 연동</b><span>판독 응답 계약 맞춤</span></li><li><b>값 확인·단가 비교</b><span>React · Vite</span></li><li><b>소분·정산</b><span>1원 단위 정수 연산</span></li><li><b>모집글 복사</b><span>에브리타임·카톡</span></li></ol><p class="flow-note"><i></i>파란 테두리는 제가 맡은 부분입니다.</p>
+          <dl class="story"><div><dt>왜</dt><dd>자취생·기숙사생은 보관 공간과 초기 지출 때문에 비싼 소용량을 삽니다. 대용량을 나누면 싸지만 단가 비교, 수량·돈 나누기, 사람 모으기가 번거로워 이 과정을 캡처 한 장으로 끝내는 서비스를 아이디어톤에서 만들었습니다.</dd></div><div><dt>한 일</dt><dd><ul class="checks">
+            <li><b>기능정의서(PRD)</b> — v1.0 작성: 시연(P0)·운영(P1)·확장(P2) 범위와 단가·소분·정산 계산 규칙 정리</li>
+            <li><b>ERD</b> — 기능정의서 v1.1에 맞춰 테이블 9개로 확장: 비교 기준 분리, 미확인 값 NULL 허용, 공구 상태 7단계, 참여 승인·정산 버전·송금·환불 이력</li>
+            <li><b>백·프론트 연동</b> — 프론트의 캡처 판독을 백엔드 응답 형식에 연결(단위·필드 변환), 모의 응답을 실제 응답과 같게 맞추고 백엔드·프론트 브랜치를 main에 통합</li>
+          </ul></dd></div><div><dt>얻은 것</dt><dd><div class="metrics"><div class="metric"><strong>3등</strong>과육톤 우수상</div><div class="metric"><strong>9개</strong>ERD 테이블 설계</div><div class="metric"><strong>하루</strong>기획부터 연동까지</div></div></dd></div><div><dt>잃은 것</dt><dd>배포본에는 프론트 정적 파일만 올라가 판독 API가 404입니다. 그래서 시연은 캡처 판독 대신 샘플과 직접 입력으로 진행했습니다.</dd></div><div><dt>배운 점</dt><dd>짧은 시간에 팀원이 따로 만들어도 기능정의서·ERD·API 응답 형식을 먼저 맞춰 두면 합치는 비용이 작아집니다.</dd></div></dl>
+          <div class="chips"><span class="chip">React</span><span class="chip">Vite</span><span class="chip">TypeScript</span><span class="chip">Node.js</span><span class="chip">Gemini</span><span class="chip">Mermaid ERD</span><span class="chip">Vercel</span></div>
+        </div>
+      </article>
+
+      <article class="proj" id="p-uni">
+        <div class="proj-meta">
+          <span class="tag team">팀 · 백엔드</span>
+          <span class="period">2026.11</span>
+          <h3>UniConnect</h3>
+          <span class="role">학생단체·브랜드 협찬 매칭 플랫폼 · 2인 팀</span>
+          <a class="repo" href="https://github.com/jennjeong/uniconnect" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>jennjeong/uniconnect</b><small>GitHub에서 코드·문서 보기 ↗</small></span></a>
+        </div>
+        <div class="proj-body">
+          <figure class="shot gallery" aria-roledescription="carousel" aria-label="UniConnect 실제 화면 4장"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">uniconnect-pied.vercel.app/analytics</span><span class="count">1 / 4</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 4" data-url="uniconnect-pied.vercel.app/analytics" data-cap="협찬 성과 분석: 집행액·쿠폰·매장 방문·ROAS"><img src="img/uc.jpg" alt="UniConnect 화면 — 협찬 성과 분석: 집행액·쿠폰·매장 방문·ROAS" width="1280" height="900"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 4" data-url="uniconnect-pied.vercel.app/groups" data-cap="학생단체 찾기: 추천 지수로 매칭"><img src="img/uc_find.jpg" alt="UniConnect 화면 — 학생단체 찾기: 추천 지수로 매칭" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 4" data-url="uniconnect-pied.vercel.app/campaigns" data-cap="행사 일정 캘린더"><img src="img/uc_events.jpg" alt="UniConnect 화면 — 행사 일정 캘린더" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 4" data-url="uniconnect-pied.vercel.app" data-cap="서비스 첫 화면"><img src="img/uc_home.jpg" alt="UniConnect 화면 — 서비스 첫 화면" width="1280" height="800" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="이전 화면">‹</button><button type="button" class="nav next" aria-label="다음 화면">›</button></div><figcaption><span class="cap" aria-live="polite">협찬 성과 분석: 집행액·쿠폰·매장 방문·ROAS</span><span class="src">실제 서비스 화면 · 배포 사이트의 예시 화면(예시 데이터)</span><span class="dots"></span></figcaption></figure><ol class="flow" aria-label="구조도"><li><b>React 화면</b><span>Vite</span></li><li><b>Express API</b><span>Vercel 함수</span></li><li class="mine"><b>결제</b><span>Toss · 멱등 승인·복구</span></li><li class="mine"><b>동시성</b><span>행 단위 저장·버전 재시도</span></li><li class="mine"><b>보안</b><span>TOTP·감사 로그·속도 제한</span></li><li><b>Neon Postgres</b><span>운영 DB</span></li></ol><p class="flow-note"><i></i>파란 테두리는 제가 맡은 부분입니다.</p>
+          <dl class="story"><div><dt>왜</dt><dd>학생단체는 협찬 상대를 찾기 어렵고, 브랜드는 협찬 효과를 증명하기 어렵습니다. 찾기부터 계약, 현장 측정, 성과 리포트까지 한곳에서 처리하려는 팀 프로젝트입니다.</dd></div><div><dt>한 일</dt><dd><p>후반부에 합류해 백엔드의 결제·보안·동시성·운영 안정화를 맡았습니다.</p><ul class="checks">
+            <li><b>동시성·확장성</b> — 참여 데이터를 문서 단위에서 행 단위 저장으로 바꾸고 버전 충돌 재시도 도입</li>
+            <li><b>Toss 결제 안정성</b> — 승인 전 결제키 저장과 Idempotency-Key, cron 기반 미정산 주문 복구, 웹훅 검증, 부분환불</li>
+            <li><b>보안</b> — 운영자 TOTP 2단계 로그인과 감사 로그, scrypt 해시, 시크릿 암호화, 쓰기 API 속도 제한</li>
+          </ul></dd></div><div><dt>얻은 것</dt><dd><div class="metrics">
+            <div class="metric"><strong>17% → 0%</strong>부하 시 실패율</div>
+            <div class="metric"><strong>551MB → 5.3MB</strong>DB 읽기량</div>
+            <div class="metric"><strong>10s → 0.16s</strong>카탈로그 응답</div>
+          </div></dd></div><div><dt>잃은 것</dt><dd>후반부에 합류해 이미 만들어진 문서 단위 저장 구조를 서비스가 돌아가는 중에 바꿔야 했습니다. 결제는 아직 테스트 키로 시연하는 단계입니다.</dd></div><div><dt>배운 점</dt><dd>고치기 전에 먼저 측정합니다. 부하 테스트로 실패율 17%를 확인하고, 고친 뒤 0%를 다시 측정해 개선을 숫자로 보였습니다.</dd></div></dl>
+          <div class="chips"><span class="chip">TypeScript</span><span class="chip">Express 5</span><span class="chip">Neon Postgres</span><span class="chip">Vercel</span><span class="chip">Toss Payments</span><span class="chip">Playwright</span></div>
+        </div>
+      </article>
+
+      <article class="proj" id="p-taxi">
+        <div class="proj-meta">
+          <span class="tag team">팀 · PM · 백엔드</span>
+          <span class="period">2026.10 – 2026.11</span>
+          <h3>삼육대 택시·배달 합승</h3>
+          <span class="role">교내 합승 모집 웹 서비스 · 5인 팀</span>
+          <a class="repo" href="https://github.com/SYU-Taxi-Delivery/taxi-delivery-sharing" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>SYU-Taxi-Delivery</b><small>GitHub에서 코드·문서 보기 ↗</small></span></a>
+        </div>
+        <div class="proj-body">
+          <figure class="shot gallery phones" aria-roledescription="carousel" aria-label="두유팟 실제 화면 4장"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">두유팟 · 모집글 상세</span><span class="count">1 / 4</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 4" data-url="두유팟 · 모집글 상세" data-cap="모집글 상세: 출발지·도착지·출발 시간·정원"><img src="img/tx_detail.jpg" alt="두유팟 화면 — 모집글 상세: 출발지·도착지·출발 시간·정원" width="360" height="640"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 4" data-url="두유팟 · 모집 마감" data-cap="작성자의 모집 마감 확인 창"><img src="img/tx_close.jpg" alt="두유팟 화면 — 작성자의 모집 마감 확인 창" width="360" height="640" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 4" data-url="두유팟 · 내 참여·모집" data-cap="내 참여·모집: 참여 취소된 합승 카드"><img src="img/tx_my.jpg" alt="두유팟 화면 — 내 참여·모집: 참여 취소된 합승 카드" width="360" height="902" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 4" data-url="두유팟 · 로그인 만료" data-cap="로그인 만료 시 다시 로그인 안내"><img src="img/tx_expired.jpg" alt="두유팟 화면 — 로그인 만료 시 다시 로그인 안내" width="375" height="812" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="이전 화면">‹</button><button type="button" class="nav next" aria-label="다음 화면">›</button></div><figcaption><span class="cap" aria-live="polite">모집글 상세: 출발지·도착지·출발 시간·정원</span><span class="src">실제 구동 화면 · 팀 QA(Playwright) 모바일 캡처</span><span class="dots"></span></figcaption></figure><ol class="flow" aria-label="구조도"><li><b>Next.js 화면</b><span>두유팟</span></li><li class="mine"><b>Spring Boot API</b><span>프로젝트 골격</span></li><li class="mine"><b>웹메일 인증</b><span>@syu.ac.kr · SMTP 5초</span></li><li><b>모집·참여 규칙</b><span>정원·시간·중복 검증</span></li><li><b>MySQL</b><span>JPA · Flyway</span></li><li class="mine"><b>배포</b><span>Docker → Render</span></li></ol><p class="flow-note"><i></i>파란 테두리는 제가 맡은 부분입니다.</p>
+          <dl class="story"><div><dt>왜</dt><dd>단체 채팅방으로 합승 인원을 모으면 정원 초과, 시간 지난 모집, 참여 확정 혼선이 반복됩니다. 이 규칙을 서버가 자동으로 검증하게 하려는 5인 팀 프로젝트입니다.</dd></div><div><dt>한 일</dt><dd><ul class="checks">
+            <li><b>PM</b> — 5인 팀의 일정·역할 조율, PR 템플릿과 CI로 협업 규칙 정립, 프론트엔드와 API 재시도 기준을 협의해 문서화</li>
+            <li><b>설계·인증</b> — 프로젝트 골격과 학교 웹메일(@syu.ac.kr) 인증 회원가입·로그인 API 최초 설계·구현</li>
+            <li><b>안정성·성능</b> — SMTP 무한 대기를 5초 타임아웃으로 차단, bcrypt를 락 밖으로 이동, N+1 쿼리 해소</li>
+            <li><b>정합성·배포</b> — 마감·취소 트랜잭션 정합성 수정, 멀티스테이지 Dockerfile(Render 배포)</li>
+          </ul></dd></div><div><dt>얻은 것</dt><dd><div class="metrics"><div class="metric"><strong>20 / 49</strong>백엔드 커밋 작성</div><div class="metric"><strong>5인</strong>팀 PM</div><div class="metric"><strong>무한 → 5초</strong>SMTP 대기 차단</div></div></dd></div><div><dt>잃은 것</dt><dd>댓글·비밀번호 재설정·관리자 화면은 일정 안에 실제 API 연결을 마치지 못해 모의 응답으로 남았습니다.</dd></div><div><dt>배운 점</dt><dd>5명이 맞물리려면 합의를 문서와 CI로 남겨야 합니다. 외부 의존(SMTP)에는 타임아웃을 기본으로 두어야 한 요청이 전체를 멈추지 않습니다.</dd></div></dl>
+          <div class="chips"><span class="chip">Java 17</span><span class="chip">Spring Boot</span><span class="chip">JPA</span><span class="chip">MySQL</span><span class="chip">Flyway</span><span class="chip">Testcontainers</span><span class="chip">Docker</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="band" id="skills">
+  <div class="wrap">
+    <div class="sec-head"><h2>기술</h2></div>
+    <dl class="skills">
+      <div><dt>언어</dt><dd>Python, Java, TypeScript, JavaScript, SQL</dd></div>
+      <div><dt>백엔드</dt><dd>FastAPI, Spring Boot, Spring Data JPA, Spring Security, Node.js, Express</dd></div>
+      <div><dt>웹</dt><dd>React, Vite, Next.js</dd></div>
+      <div><dt>설계</dt><dd>기능정의서(PRD), ERD(Mermaid)</dd></div>
+      <div><dt>데이터·퀀트</dt><dd>pandas, numpy, yfinance, ccxt, 팩터 모델, 릿지 회귀, 포트폴리오 최적화</dd></div>
+      <div><dt>DB</dt><dd>PostgreSQL(RLS, Neon), MySQL, Flyway, Alembic</dd></div>
+      <div><dt>테스트</dt><dd>pytest, JUnit 5, Mockito, Testcontainers, Vitest, Playwright</dd></div>
+      <div><dt>인프라</dt><dd>Docker, GitHub Actions, Vercel, Render, AWS ECR, launchd, systemd</dd></div>
+      <div><dt>AI 도구</dt><dd>Claude Code, Codex (페어 프로그래밍, 코드 리뷰)</dd></div>
+      <div><dt>외부 API</dt><dd>Gemini, Stripe, Toss Payments, Binance, Bithumb, SEC EDGAR, FRED, KRX, OpenDART</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head"><h2>학력·수상</h2></div>
+    <div class="edu">
+      <span class="period">재학 중</span>
+      <div><b>삼육대학교 컴퓨터공학과</b><p>3학년</p></div>
+    </div>
+    <div class="edu">
+      <span class="period">2026.11</span>
+      <div><b>과육톤 우수상(3등)</b><p>삼육대학교·서울과학기술대학교 연합 아이디어톤 · 긱스플리터 (기획·ERD·프론트↔백 연동)</p></div>
+    </div>
+  </div>
+</section>
+
+<dialog class="lightbox" id="lightbox" aria-label="화면 크게 보기"><img alt=""></dialog>
+
+<footer>
+  <div class="wrap">석수민 · seoksoomin2003@gmail.com · github.com/seoksoomin2003-prog</div>
+</footer>
+
+<script>
+/* Screenshot carousels: one screen at a time, ‹ › buttons, dots, swipe or arrow keys. */
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.gallery').forEach(g => {
+    const track = g.querySelector('.slides'), slides = [...track.children], n = slides.length;
+    const url = g.querySelector('.bar .url'), count = g.querySelector('.count'), cap = g.querySelector('.cap');
+    let i = 0, settleT = 0;
+    const dots = slides.map((_, k) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.setAttribute('aria-label', (k + 1) + '번째 화면');
+      b.addEventListener('click', () => go(k));
+      g.querySelector('.dots').appendChild(b);
+      return b;
+    });
+    function show(k) {
+      i = k;
+      url.textContent = slides[k].dataset.url; cap.textContent = slides[k].dataset.cap;
+      count.textContent = (k + 1) + ' / ' + n;
+      dots.forEach((b, j) => b.setAttribute('aria-current', j === k));
+    }
+    function go(k) {
+      k = (k + n) % n;
+      track.scrollTo({ left: k * track.clientWidth, behavior: reduce ? 'auto' : 'smooth' });
+      show(k);
+    }
+    g.querySelector('.prev').addEventListener('click', () => go(i - 1));
+    g.querySelector('.next').addEventListener('click', () => go(i + 1));
+    track.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(i - 1); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); go(i + 1); }
+    });
+    track.addEventListener('scroll', () => { // swipes and trackpad scrolls
+      clearTimeout(settleT);
+      settleT = setTimeout(() => { const k = Math.round(track.scrollLeft / track.clientWidth); if (k !== i && k >= 0 && k < n) show(k); }, 90);
+    }, { passive: true });
+    new ResizeObserver(() => { track.scrollLeft = i * track.clientWidth; }).observe(track);
+    show(0);
+  });
+})();
+/* Click a screenshot to see it full size; click again or press Esc to close. */
+(() => {
+  const lb = document.getElementById('lightbox');
+  if (!lb || !lb.showModal) return;
+  const big = lb.querySelector('img');
+  document.querySelectorAll('.shot img').forEach(img => img.addEventListener('click', () => {
+    big.src = img.currentSrc || img.src; big.alt = img.alt; lb.showModal();
+  }));
+  lb.addEventListener('click', () => lb.close());
+})();
+</script>
+<script>
+/* Interest network: interests → projects → (tech stack ring, quant concept ring), placed on rings in 3D
+   and drawn on a 2D canvas with perspective. Drag or arrow keys rotate; hover shows a node's paths.
+   Labels are placed front-to-back and skipped when they would overlap one already drawn. */
+(() => {
+  const cv = document.getElementById('net');
+  if (!cv || !cv.getContext) return;
+  const ctx = cv.getContext('2d');
+  const cap = document.getElementById('net-cap');
+  const touch = matchMedia('(pointer: coarse)').matches;
+  if (touch) cap.innerHTML = '옆으로 밀어서 돌려 보세요. 두 손가락으로 벌리거나 + 버튼으로 확대하고, 확대한 뒤에는 한 손가락으로 끌거나 왼쪽 아래 화살표로 위아래·양옆을 둘러봅니다(↺를 누르면 다시 돌릴 수 있어요). 노드를 누르면 연결이 보이고, 프로젝트 노드를 한 번 더 누르면 해당 카드로 이동합니다. 오른쪽 아래 첫 버튼으로 전체화면을 켜고 끕니다.';
+  const capDefault = cap.innerHTML;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const INTERESTS = [
+    ['be', '백엔드', '결제·인증·동시성처럼 데이터가 틀리면 안 되는 서버'],
+    ['qu', '퀀트', '계량 모델로 종목·코인을 채점하고 매매 규칙을 검증'],
+    ['ds', '데이터 시스템', '수집·기록·검증을 재현할 수 있는 데이터 흐름'],
+  ];
+  const PROJECTS = [
+    ['qt', '퀀트 터미널', '미국·한국 주식 추천 시스템', 'p-quant'],
+    ['hz', 'Horizon', '바이낸스 현물·선물 자동매매 봇 + 방향 예측기', 'p-horizon'],
+    ['qb', 'Quantum Bithumb', '빗썸 KRW 현물 자동매매 봇', 'p-bithumb'],
+    ['ar', 'ArborAI', '해외 수목관리 AI 견적·업무관리 SaaS', 'p-arbor'],
+    ['uc', 'UniConnect', '학생단체·브랜드 협찬 매칭 플랫폼 (팀)', 'p-uni'],
+    ['tx', '택시·배달 합승', '교내 합승 모집 서비스 (팀 · PM)', 'p-taxi'],
+    ['gs', '긱스플리터', '생필품 공동구매 소분·정산 앱 (팀 · 과육톤 우수상)', 'p-gig'],
+  ];
+  const I2P = { be: ['hz', 'ar', 'uc', 'tx', 'gs'], qu: ['qt', 'hz', 'qb'], ds: ['qt', 'hz', 'uc'] };
+  // Every entry of the resume's skills table, grouped as there, with the projects that use it.
+  const TECH = [
+    ['py', 'Python', '언어', ['qt', 'hz', 'qb', 'ar']],
+    ['java', 'Java', '언어', ['tx']],
+    ['ts', 'TypeScript', '언어', ['uc', 'ar', 'gs']],
+    ['js', 'JavaScript', '언어', ['qt', 'hz', 'gs']],
+    ['sql', 'SQL', '언어', ['ar', 'uc', 'tx']],
+    ['fa', 'FastAPI', '백엔드', ['ar']],
+    ['sb', 'Spring Boot', '백엔드', ['tx']],
+    ['jpa', 'Spring Data JPA', '백엔드', ['tx']],
+    ['ssec', 'Spring Security', '백엔드', ['tx']],
+    ['node', 'Node.js', '백엔드', ['uc', 'gs']],
+    ['ex', 'Express', '백엔드', ['uc']],
+    ['nx', 'Next.js', '웹', ['ar']],
+    ['rx', 'React', '웹', ['uc', 'gs']],
+    ['vite', 'Vite', '웹', ['uc', 'gs']],
+    ['erd', 'ERD·PRD 설계', '설계', ['gs']],
+    ['pd', 'pandas', '데이터', ['qt', 'hz', 'qb']],
+    ['np', 'numpy', '데이터', ['qt', 'hz', 'qb']],
+    ['yf', 'yfinance', '데이터', ['qt']],
+    ['cx', 'ccxt', '데이터', ['hz']],
+    ['pg', 'PostgreSQL', 'DB', ['ar', 'uc']],
+    ['rls', 'RLS', 'DB', ['ar']],
+    ['neon', 'Neon', 'DB', ['uc']],
+    ['my', 'MySQL', 'DB', ['tx']],
+    ['fw', 'Flyway', 'DB', ['tx']],
+    ['al', 'Alembic', 'DB', ['ar']],
+    ['pt', 'pytest', '테스트', ['qt', 'hz', 'ar']],
+    ['ju', 'JUnit 5', '테스트', ['tx']],
+    ['mk', 'Mockito', '테스트', ['tx']],
+    ['tc', 'Testcontainers', '테스트', ['tx']],
+    ['vt', 'Vitest', '테스트', ['uc']],
+    ['pw', 'Playwright', '테스트', ['ar', 'uc']],
+    ['dk', 'Docker', '인프라', ['ar', 'tx']],
+    ['gha', 'GitHub Actions', '인프라', ['ar', 'tx']],
+    ['vc', 'Vercel', '인프라', ['uc', 'gs']],
+    ['rd', 'Render', '인프라', ['tx']],
+    ['ecr', 'AWS ECR', '인프라', ['ar']],
+    ['ec2', 'AWS EC2', '인프라', ['qb']],
+    ['ld', 'launchd', '인프라', ['qt']],
+    ['sd', 'systemd', '인프라', ['hz', 'qb']],
+    ['cc', 'Claude Code', 'AI 도구', ['qt', 'hz', 'qb', 'ar', 'gs']],
+    ['cdx', 'Codex', 'AI 도구', ['qt', 'hz', 'qb', 'ar']],
+    ['gm', 'Gemini', '외부 API', ['ar', 'gs']],
+    ['stp', 'Stripe', '외부 API', ['ar']],
+    ['toss', 'Toss Payments', '외부 API', ['uc']],
+    ['bnc', 'Binance', '외부 API', ['hz']],
+    ['bth', 'Bithumb', '외부 API', ['qb']],
+    ['edgar', 'SEC EDGAR', '외부 API', ['qt']],
+    ['fred', 'FRED', '외부 API', ['qt']],
+    ['krx', 'KRX', '외부 API', ['qt']],
+    ['dart', 'OpenDART', '외부 API', ['qt']],
+  ];
+  // Quant ideas the projects rely on, whether or not they are software.
+  const QUANT = [
+    ['fac', '팩터 모델', '모멘텀·퀄리티·가치·저변동성 요인을 z점수로 합산', ['qt', 'hz']],
+    ['ridge', '릿지 회귀', 'L2 벌점으로 과적합을 줄인 방향 예측 모델', ['hz']],
+    ['opt', '포트폴리오 최적화', '기대수익 − 위험 − 거래비용을 닫힌 형태로 풀어 비중 결정', ['hz']],
+    ['ic', 'IC(정보 계수)', '예측과 실제 수익률의 상관으로 신호 세기를 측정', ['hz']],
+    ['beta', '베타·공분산', 'BTC 베타를 요인으로 한 위험 모델', ['hz']],
+    ['wf', '워크포워드 검증', '매달 지난 데이터로만 다시 학습하고 다음 구간에서 시험', ['hz']],
+    ['prereg', '사전 등록', '결과를 보기 전에 판정 기준을 문서로 고정', ['qt', 'hz']],
+    ['leak', '미래 정보 누출 방지', '그 시점에 몰랐던 값이 섞이지 않는지 테스트로 검사', ['qt', 'hz']],
+    ['btest', '백테스트', '도전자 모델·SPY 기준선과 5년 성과 비교', ['qt']],
+    ['regime', '시장 국면 판단', 'ADX·ATR 국면, BTC 레짐, 약세장 필터', ['qt', 'hz', 'qb']],
+    ['atr', 'ATR 포지션 사이징', '변동성이 클수록 작게 사는 포지션 크기', ['qt', 'hz', 'qb']],
+    ['dd', '낙폭 관리', '낙폭이 커지면 위험을 줄이고 거래를 멈춤', ['hz', 'qb']],
+    ['cost', '슬리피지·거래비용', '호가로 예상 체결가를 계산해 한도를 넘으면 주문하지 않음', ['hz', 'qb']],
+    ['ind', '기술 지표', 'EMA·RSI·MACD·ADX·Supertrend', ['qb', 'hz']],
+    ['exit', '분할 익절·트레일링', 'R 배수 분할 익절과 ATR 트레일링 스탑', ['qb', 'hz']],
+    ['perp', '무기한 선물·펀딩비', '레버리지·청산가·펀딩비를 고려한 선물 매매', ['hz']],
+    ['mn', '시장 중립(롱·숏)', '시장 대비 예측을 롱·숏 묶음으로 시험', ['hz']],
+    ['pi', '예측 구간 보정', '80% 가격 범위가 실제로 80%를 포함하는지 확인', ['qt']],
+  ];
+
+  const nodes = [], byId = {}, edges = [];
+  const add = (id, layer, label, extra) => {
+    const n = Object.assign({ id, layer, label, up: [], down: [] }, extra);
+    nodes.push(n); byId[id] = n;
+  };
+  INTERESTS.forEach(([id, l, desc]) => add(id, 0, l, { desc }));
+  PROJECTS.forEach(([id, l, desc, href]) => add(id, 1, l, { desc, href }));
+  TECH.forEach(([id, l, group]) => add(id, 2, l, { group }));
+  QUANT.forEach(([id, l, desc]) => add(id, 3, l, { desc }));
+  const link = (a, b) => { edges.push([byId[a], byId[b]]); byId[a].down.push(byId[b]); byId[b].up.push(byId[a]); };
+  Object.entries(I2P).forEach(([i, ps]) => ps.forEach(p => link(i, p)));
+  TECH.forEach(([id, , , ps]) => ps.forEach(p => link(p, id)));
+  QUANT.forEach(([id, , , ps]) => ps.forEach(p => link(p, id)));
+
+  // Placement: projects evenly on a ring; every other ring keeps its nodes near the projects they link to.
+  const TAU = Math.PI * 2;
+  const RING = [0.62, 1.0, 1.55, 1.2], LAYER_Y = [-1.6, -0.5, 0.72, 1.78], SIZE = [8.5, 6.8, 3.3, 4.6];
+  const mean = list => Math.atan2(list.reduce((s, n) => s + Math.sin(n.a), 0), list.reduce((s, n) => s + Math.cos(n.a), 0));
+  const wrap = a => Math.atan2(Math.sin(a), Math.cos(a));
+  PROJECTS.forEach(([id], k) => { byId[id].a = k * TAU / PROJECTS.length; });
+  const spread = (list, from, span, jitters) => {
+    const center = mean(list.flatMap(n => n.up.length ? n.up : n.down));
+    list.forEach(n => { n.m = wrap(mean(from(n)) - center); });
+    list.sort((a, b) => a.m - b.m).forEach((n, k) => {
+      n.a = center + (span >= TAU ? k * span / list.length : -span / 2 + (k + 0.5) * span / list.length);
+      n.jy = jitters[k % jitters.length];
+    });
+  };
+  spread(nodes.filter(n => n.layer === 0), n => n.down, TAU, [0]);
+  spread(nodes.filter(n => n.layer === 2), n => n.up, TAU, [-0.16, 0.02, 0.2]);
+  spread(nodes.filter(n => n.layer === 3), n => n.up, TAU * 0.7, [-0.1, 0.1]);
+  nodes.forEach(n => {
+    n.x = RING[n.layer] * Math.cos(n.a);
+    n.z = RING[n.layer] * Math.sin(n.a);
+    n.y = LAYER_Y[n.layer] + (n.jy || 0);
+  });
+
+  let W = 0, H = 0, dpr = 1, S = 100, cy = 0, font = 'sans-serif', col = {};
+  let narrow = false, padTop = 72, padBot = 40, ctrl = [0, 0, 0, 0], ext = [-1, 1, -1, 1], extTilt = NaN;
+  // Unit-scale extent [xmin, xmax, ymin, ymax] of every node over a full turn at this tilt (perspective included).
+  function extent(t) {
+    const ct = Math.cos(t), st = Math.sin(t), D = 5.4, e = [Infinity, -Infinity, Infinity, -Infinity];
+    for (let k = 0; k < 36; k++) {
+      const a = k * Math.PI / 18, c = Math.cos(a), s = Math.sin(a);
+      for (const n of nodes) {
+        const x1 = n.x * c + n.z * s, z1 = -n.x * s + n.z * c;
+        const y2 = n.y * ct - z1 * st, f = D / (D + n.y * st + z1 * ct);
+        e[0] = Math.min(e[0], x1 * f); e[1] = Math.max(e[1], x1 * f);
+        e[2] = Math.min(e[2], y2 * f); e[3] = Math.max(e[3], y2 * f);
+      }
+    }
+    return e;
+  }
+  const stage = cv.parentElement, zoomBox = stage.querySelector('.net-zoom');
+  const TILT_MIN = 0.3, TILT_MAX = 0.9;
+  const clampTilt = v => Math.max(TILT_MIN, Math.min(TILT_MAX, v));
+  let rotY = 0.9, tilt = 0.44, hover = null, pinned = false, over = false, visible = true, last = 0, colorAge = 1e9;
+  let zoom = 1, zoomT = 1, panX = 0, panY = 0, panXT = 0, panYT = 0, box = [0, 0, 0, 0];
+  const pulses = [];
+  let spawnAt = 0;
+
+  function readColors() {
+    const cs = getComputedStyle(document.documentElement);
+    const v = k => cs.getPropertyValue(k).trim();
+    col = { i: v('--accent'), p: v('--violet'), t: v('--mute'), q: v('--ok'), fg: v('--fg'), sub: v('--sub'), bg: v('--band') };
+    font = getComputedStyle(document.body).fontFamily;
+  }
+  const nodeColor = n => [col.i, col.p, col.t, col.q][n.layer];
+  function resize() {
+    const r = cv.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = r.width; H = r.height;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    // Keep the graph clear of the legend at the top and, on phones, of the button row at the bottom.
+    const head = stage.querySelector('.net-head').getBoundingClientRect(), zr = zoomBox.getBoundingClientRect();
+    narrow = W < 520;
+    padTop = Math.max(72, head.bottom - r.top + 43);
+    padBot = zr.width > zr.height ? Math.max(40, r.bottom - zr.top + 10) : 40; // buttons in a row (phones) take the bottom strip
+    ctrl = [zr.left - r.left - 4, zr.top - r.top - 4, zr.width + 8, zr.height + 8];
+    // Size and centre from where the nodes really go over a whole turn, so the graph sits in the
+    // middle of the free area at any box size (inline, full screen, phone).
+    ext = extent(tilt); extTilt = tilt;
+    S = Math.max(55, Math.min(W / (narrow ? 4.15 : 3.75), (W - (narrow ? 16 : 60)) / (ext[1] - ext[0]), (H - padTop - padBot) / (ext[3] - ext[2])));
+  }
+
+  function project() {
+    const c = Math.cos(rotY), s = Math.sin(rotY), ct = Math.cos(tilt), st = Math.sin(tilt);
+    if (tilt !== extTilt) { ext = extent(tilt); extTilt = tilt; } // tilting by drag moves the centre smoothly
+    const D = 5.4, cx = W / 2 - S * (ext[0] + ext[1]) / 2;
+    cy = (padTop + H - padBot) / 2 - S * (ext[2] + ext[3]) / 2;
+    box = [Infinity, Infinity, -Infinity, -Infinity];
+    for (const n of nodes) {
+      const x1 = n.x * c + n.z * s, z1 = -n.x * s + n.z * c;
+      const y2 = n.y * ct - z1 * st, z2 = n.y * st + z1 * ct;
+      const f = D / (D + z2);
+      const bx = cx + x1 * S * f, by = cy + y2 * S * f;
+      if (bx < box[0]) box[0] = bx; if (by < box[1]) box[1] = by;
+      if (bx > box[2]) box[2] = bx; if (by > box[3]) box[3] = by;
+      n.sx = W / 2 + (bx - W / 2) * zoom + panX; n.sy = H / 2 + (by - H / 2) * zoom + panY; n.depth = z2;
+      n.fade = Math.max(0.2, Math.min(1, 0.8 - z2 * 0.45));
+      n.r = SIZE[n.layer] * f * Math.max(0.8, S / 115) * Math.sqrt(zoom);
+    }
+  }
+
+  function related(n) {
+    const set = new Set([n]);
+    if (n.layer === 0) n.down.forEach(p => { set.add(p); p.down.forEach(t => set.add(t)); });
+    else if (n.layer === 1) { n.up.forEach(x => set.add(x)); n.down.forEach(x => set.add(x)); }
+    else n.up.forEach(p => { set.add(p); p.up.forEach(i => set.add(i)); });
+    return set;
+  }
+  const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+  function spawn() {
+    let path;
+    if (hover && hover.layer === 0) { const p = pick(hover.down); path = [hover, p, pick(p.down)]; }
+    else if (hover && hover.layer === 1) path = [pick(hover.up), hover, pick(hover.down)];
+    else if (hover) { const p = pick(hover.up); path = [pick(p.up), p, hover]; }
+    else { const i = pick(nodes.filter(n => n.layer === 0)), p = pick(i.down); path = [i, p, pick(p.down)]; }
+    if (path.every(Boolean)) pulses.push({ path, t: 0, v: 0.0011 + Math.random() * 0.0006 });
+  }
+
+  // Label geometry: interests above the node, projects to the outside, ring nodes below.
+  // flip = the fallback spot: interests go below, projects to the inner side, ring nodes above.
+  function labelBox(n, flip) {
+    const size = n.layer === 0 ? 13.5 : n.layer === 1 ? 12.5 : n.layer === 3 ? 11 : 10.5;
+    const weight = n.layer === 2 ? 500 : n.layer === 3 ? 600 : 700;
+    ctx.font = `${weight} ${size}px ${font}`;
+    const w = ctx.measureText(n.label).width, h = size + 2;
+    let x = n.sx, y = n.sy, align = 'center', base = 'top';
+    const below = n.layer === 0 ? flip : !flip;
+    if (n.layer === 1) {
+      base = 'middle';
+      if ((n.sx >= W / 2) !== flip) { align = 'left'; x += n.r + 6; } else { align = 'right'; x -= n.r + 6; }
+    } else if (below) y += n.r + (n.layer === 0 ? 5 : 2);
+    else { base = 'bottom'; y -= n.r + (n.layer === 0 ? 5 : 2); }
+    const left = align === 'center' ? x - w / 2 : align === 'left' ? x : x - w;
+    const top = base === 'top' ? y : base === 'bottom' ? y - h : y - h / 2;
+    return { font: ctx.font, x, y, align, base, rect: [left - 2, top - 1, w + 4, h + 2] };
+  }
+  const hits = (a, b) => a[0] < b[0] + b[2] && b[0] < a[0] + a[2] && a[1] < b[1] + b[3] && b[1] < a[1] + a[3];
+
+  function drawLabels(hot) {
+    const cands = [];
+    for (const n of nodes) {
+      let pri, alpha;
+      if (hot) {
+        if (hot.has(n)) { pri = n === hover ? 0 : n.layer < 2 ? 1 : 2; alpha = 1; }
+        else if (n.layer < 2) { pri = 6; alpha = 0.16; }
+        else continue;
+      } else if (n.layer < 2) { pri = n.layer; alpha = Math.max(0.45, n.fade); }
+      else if (n.layer === 3 && n.fade >= (zoom > 1.3 ? 0.3 : 0.45)) { pri = 2; alpha = Math.max(0.6, n.fade); }
+      else if (n.layer === 2 && n.fade >= (zoom > 1.3 ? 0.4 : 0.62)) { pri = 3; alpha = Math.max(0.5, n.fade); }
+      else continue;
+      cands.push({ n, pri, alpha });
+    }
+    cands.sort((a, b) => a.pri - b.pri || a.n.depth - b.n.depth);
+    const placed = [[0, 0, W, padTop - 38], ctrl];               // header strip, zoom buttons
+    if (zoomT > 1.02) placed.push([0, H - 126, 126, 126]);      // arrow pad
+    for (const { n, alpha } of cands) {
+      const fits = L => { const r = L.rect; return r[0] >= 2 && r[0] + r[2] <= W - 2 && r[1] + r[3] <= H - 2 && !placed.some(p => hits(p, r)); };
+      let L = labelBox(n, false);
+      if (!fits(L)) { L = labelBox(n, true); if (!fits(L)) continue; }
+      placed.push(L.rect);
+      ctx.font = L.font; ctx.textAlign = L.align; ctx.textBaseline = L.base;
+      ctx.globalAlpha = alpha;
+      ctx.lineWidth = 3.5; ctx.lineJoin = 'round'; ctx.strokeStyle = col.bg;
+      ctx.strokeText(n.label, L.x, L.y);
+      ctx.fillStyle = n.layer === 2 ? col.sub : col.fg;
+      ctx.fillText(n.label, L.x, L.y);
+    }
+  }
+
+  function draw(dt) {
+    if ((colorAge += dt) > 600) { readColors(); colorAge = 0; }
+    project();
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    const hot = hover ? related(hover) : null;
+
+    ctx.lineCap = 'round';
+    for (const [a, b] of edges) {
+      const on = hot && hot.has(a) && hot.has(b);
+      const fade = Math.min(a.fade, b.fade);
+      ctx.globalAlpha = hot ? (on ? 0.85 : 0.035) : (a.layer === 0 ? 0.32 : 0.16) * fade;
+      ctx.strokeStyle = a.layer === 0 ? col.i : b.layer === 3 ? col.q : col.p;
+      ctx.lineWidth = on ? 1.5 : 1;
+      ctx.beginPath(); ctx.moveTo(a.sx, a.sy); ctx.lineTo(b.sx, b.sy); ctx.stroke();
+    }
+
+    for (let k = pulses.length - 1; k >= 0; k--) {
+      const q = pulses[k];
+      q.t += q.v * dt;
+      if (q.t >= 2) { pulses.splice(k, 1); continue; }
+      const seg = q.t < 1 ? 0 : 1, u = q.t - seg, a = q.path[seg], b = q.path[seg + 1];
+      ctx.globalAlpha = 0.9 * Math.min(a.fade, b.fade);
+      ctx.fillStyle = seg === 0 ? col.i : b.layer === 3 ? col.q : col.p;
+      ctx.beginPath(); ctx.arc(a.sx + (b.sx - a.sx) * u, a.sy + (b.sy - a.sy) * u, 2.2, 0, TAU); ctx.fill();
+    }
+
+    for (const n of nodes.slice().sort((a, b) => b.depth - a.depth)) {
+      const alpha = hot && !hot.has(n) ? 0.12 : hot ? 1 : n.fade;
+      const c = nodeColor(n);
+      if (n.layer === 0) {
+        ctx.globalAlpha = alpha * 0.22; ctx.fillStyle = c;
+        ctx.beginPath(); ctx.arc(n.sx, n.sy, n.r * 2.1, 0, TAU); ctx.fill();
+      }
+      ctx.globalAlpha = alpha; ctx.fillStyle = c;
+      ctx.beginPath(); ctx.arc(n.sx, n.sy, n.r, 0, TAU); ctx.fill();
+      ctx.lineWidth = 1.5; ctx.strokeStyle = col.bg; ctx.stroke();
+      if (n === hover) {
+        ctx.lineWidth = 2; ctx.strokeStyle = col.fg;
+        ctx.beginPath(); ctx.arc(n.sx, n.sy, n.r + 3.5, 0, TAU); ctx.stroke();
+      }
+    }
+    drawLabels(hot);
+    ctx.globalAlpha = 1;
+  }
+
+  let raf = 0;
+  const start = () => { if (!raf) raf = requestAnimationFrame(tick); };
+  function tick(t) {
+    raf = 0;
+    const dt = Math.min(50, t - (last || t)); last = t;
+    if (!reduce && !dragging && !hover && !over) rotY += dt * 0.0001;
+    const ease = Math.min(1, dt / 90);
+    if (!pinch) clampPan(); // rotation changes the layout's extent
+    zoom += (zoomT - zoom) * ease; panX += (panXT - panX) * ease; panY += (panYT - panY) * ease;
+    if (!reduce && t > spawnAt) { spawn(); spawnAt = t + (hover ? 150 : 220); }
+    draw(dt);
+    if (visible) start(); else last = 0;
+  }
+
+  function describe(n) {
+    const names = list => list.map(x => x.label).join(', ');
+    if (!n) { cap.innerHTML = capDefault; return; }
+    if (n.layer === 0) {
+      const quant = [...new Set(n.down.flatMap(p => p.down.filter(x => x.layer === 3)))];
+      cap.innerHTML = `<b>${n.label}</b> · ${n.desc}<br>프로젝트: ${names(n.down)}` +
+        (n.id === 'qu' ? `<br>퀀트 개념: ${names(quant)}` : '');
+    } else if (n.layer === 1) {
+      const tech = n.down.filter(x => x.layer === 2), quant = n.down.filter(x => x.layer === 3);
+      cap.innerHTML = `<b>${n.label}</b> · ${n.desc} · 누르면 카드로 이동<br>기술: ${names(tech)}` +
+        (quant.length ? `<br>퀀트 개념: ${names(quant)}` : '');
+    } else if (n.layer === 2) cap.innerHTML = `<b>${n.label}</b> · ${n.group}<br>쓴 프로젝트: ${names(n.up)}`;
+    else cap.innerHTML = `<b>${n.label}</b> · 퀀트 개념 — ${n.desc}<br>쓴 프로젝트: ${names(n.up)}`;
+  }
+  function hit(e) {
+    const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+    const slop = e.pointerType && e.pointerType !== 'mouse' ? 9 : 0; // fingers are less precise than a cursor
+    let best = null, bestD = Infinity;
+    for (const n of nodes) {
+      const d = Math.hypot(n.sx - x, n.sy - y) - n.r - (n.layer >= 2 ? 5 : 6) + n.depth;
+      if (Math.hypot(n.sx - x, n.sy - y) < n.r + (n.layer >= 2 ? 7 : 8) + slop && d < bestD) { best = n; bestD = d; }
+    }
+    return best;
+  }
+  function setHover(n) {
+    if (n === hover) return;
+    hover = n; describe(n);
+    cv.classList.toggle('pointing', !!(n && n.href));
+    if (reduce) draw(0);
+  }
+  function go(n) {
+    const el = document.getElementById(n.href);
+    if (!el) return;
+    el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    el.classList.add('flash');
+    setTimeout(() => el.classList.remove('flash'), 1800);
+  }
+
+  // Zoom and pan. Targets ease in over a few frames; drags and pinches apply at once.
+  const ZMIN = 0.6, ZMAX = 3.2;
+  const zoomOut = document.getElementById('net-zoom-level');
+  // Pan far enough that every node (and the labels around it) can be brought on screen at any
+  // zoom, but no further: the range is where the layout's left/right (top/bottom) edge meets the
+  // matching side of the canvas. 0 always stays in range, so the default view is never clamped.
+  function panRange(lo, hi, size, padLo, padHi) {
+    const a = size - padHi - size / 2 - (hi - size / 2) * zoomT;  // far edge reaches the far side
+    const b = padLo - size / 2 - (lo - size / 2) * zoomT;         // near edge reaches the near side
+    return [Math.min(a, b, 0), Math.max(a, b, 0)];
+  }
+  function clampPan() {
+    if (!isFinite(box[0])) return;
+    const [x0, x1] = panRange(box[0], box[2], W, 70, 70);
+    const [y0, y1] = panRange(box[1], box[3], H, padTop - 16, padBot);
+    panXT = Math.max(x0, Math.min(x1, panXT)); panYT = Math.max(y0, Math.min(y1, panYT));
+  }
+  function settle(now) {
+    zoomOut.textContent = Math.round(zoomT * 100) + '%';
+    const zoomed = zoomT > 1.02;
+    stage.classList.toggle('zoomed', zoomed);
+    cv.style.touchAction = zoomed ? 'none' : 'pan-y'; // zoomed in, a one-finger drag moves the graph
+    if (now || reduce) { zoom = zoomT; panX = panXT; panY = panYT; }
+    if (reduce) draw(0);
+  }
+  function zoomAt(px, py, z, now) {
+    z = Math.max(ZMIN, Math.min(ZMAX, z));
+    const k = z / zoomT; // keep the point under (px, py) where it is
+    panXT = px - W / 2 - (px - W / 2 - panXT) * k;
+    panYT = py - H / 2 - (py - H / 2 - panYT) * k;
+    zoomT = z; clampPan(); settle(now);
+  }
+  const resetView = () => { zoomT = 1; panXT = 0; panYT = 0; settle(); };
+  // Arrow pad and keys: "up" shows what is above, so the graph itself moves down.
+  function panBy(dx, dy) { panXT += dx; panYT += dy; clampPan(); settle(); }
+  const PAN = { up: [0, 1], down: [0, -1], left: [1, 0], right: [-1, 0] };
+  document.querySelectorAll('.net-pan button').forEach(b => b.addEventListener('click', () => {
+    const [x, y] = PAN[b.dataset.p]; panBy(x * 90, y * 90);
+  }));
+
+  // Full screen toggle. Uses the Fullscreen API where allowed (it can be blocked inside
+  // an iframe or unsupported on iPhone), and falls back to a fixed overlay either way.
+  const fullBtn = stage.querySelector('.net-full');
+  const isFull = () => stage.classList.contains('is-full');
+  function setFull(on) {
+    stage.classList.toggle('is-full', on);
+    document.documentElement.classList.toggle('net-lock', on);
+    fullBtn.setAttribute('aria-pressed', on);
+    fullBtn.setAttribute('aria-label', on ? '전체화면 끝내기' : '전체화면으로 보기');
+    fullBtn.title = on ? '전체화면 끝내기 (Esc)' : '전체화면 (F)';
+    resetView(); resize(); draw(0);
+  }
+  function toggleFull() {
+    if (isFull()) {
+      if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+      setFull(false);
+    } else {
+      setFull(true);
+      if (stage.requestFullscreen) stage.requestFullscreen().catch(() => {});
+    }
+    cv.focus({ preventScroll: true });
+  }
+  document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && isFull()) setFull(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && isFull() && !document.fullscreenElement) setFull(false); });
+  document.querySelectorAll('.net-zoom button').forEach(b => b.addEventListener('click', () => {
+    if (b.dataset.z === 'in') zoomAt(W / 2, H / 2, zoomT * 1.3);
+    else if (b.dataset.z === 'out') zoomAt(W / 2, H / 2, zoomT / 1.3);
+    else if (b.dataset.z === 'full') toggleFull();
+    else resetView();
+  }));
+  cv.addEventListener('wheel', e => {
+    if (!e.ctrlKey && !e.metaKey) return; // plain scrolling keeps scrolling the page
+    e.preventDefault();
+    const r = cv.getBoundingClientRect();
+    const d = Math.max(-60, Math.min(60, e.deltaY * (e.deltaMode === 1 ? 16 : 1)));
+    zoomAt(e.clientX - r.left, e.clientY - r.top, zoomT * Math.exp(-d * 0.006), true);
+  }, { passive: false });
+  cv.addEventListener('dblclick', e => { if (!hit(e)) resetView(); });
+
+  const pts = new Map();
+  let down = null, dragging = false, pinch = null;
+  cv.addEventListener('pointerdown', e => {
+    pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pts.size === 2) {
+      const [a, b] = [...pts.values()], r = cv.getBoundingClientRect();
+      pinch = { d: Math.hypot(a.x - b.x, a.y - b.y) || 1, z: zoomT, mx: (a.x + b.x) / 2 - r.left, my: (a.y + b.y) / 2 - r.top, px: panXT, py: panYT };
+      down = null; dragging = true; cv.classList.add('dragging');
+      return;
+    }
+    // Zoomed in, a drag moves the graph and Shift+drag rotates it; at normal size it is the other way round.
+    down = { x: e.clientX, y: e.clientY, rotY, tilt, px: panXT, py: panYT, pan: (zoomT > 1.02) !== e.shiftKey, id: e.pointerId };
+    dragging = false;
+  });
+  cv.addEventListener('pointermove', e => {
+    if (pts.has(e.pointerId)) pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pinch && pts.size >= 2) {
+      const [a, b] = [...pts.values()], r = cv.getBoundingClientRect();
+      const z = Math.max(ZMIN, Math.min(ZMAX, pinch.z * Math.hypot(a.x - b.x, a.y - b.y) / pinch.d));
+      const mx = (a.x + b.x) / 2 - r.left, my = (a.y + b.y) / 2 - r.top, k = z / pinch.z;
+      panXT = mx - W / 2 - (pinch.mx - W / 2 - pinch.px) * k;
+      panYT = my - H / 2 - (pinch.my - H / 2 - pinch.py) * k;
+      zoomT = z; clampPan(); settle(true);
+      return;
+    }
+    if (down && e.pointerId === down.id) {
+      const dx = e.clientX - down.x, dy = e.clientY - down.y;
+      if (!dragging && Math.hypot(dx, dy) > 5) { dragging = true; cv.classList.add('dragging'); cv.setPointerCapture(e.pointerId); }
+      if (dragging) {
+        if (down.pan) { panXT = down.px + dx; panYT = down.py + dy; clampPan(); settle(true); }
+        else {
+          rotY = down.rotY + dx * 0.008;
+          tilt = clampTilt(down.tilt + dy * 0.004);
+          if (reduce) draw(0);
+        }
+        return;
+      }
+    }
+    if (e.pointerType === 'mouse') { pinned = false; setHover(hit(e)); }
+  });
+  const end = e => {
+    pts.delete(e.pointerId);
+    if (pinch) {
+      if (pts.size < 2) { pinch = null; down = null; dragging = false; cv.classList.remove('dragging'); }
+      return;
+    }
+    if (!down) return;
+    if (!dragging && e.type === 'pointerup') {
+      const n = hit(e);
+      if (e.pointerType === 'mouse') { if (n && n.href) go(n); }
+      else if (n && n === hover && n.href) go(n);
+      else { pinned = !!n; setHover(n); }
+    }
+    down = null; dragging = false; cv.classList.remove('dragging');
+  };
+  cv.addEventListener('pointerup', end);
+  cv.addEventListener('pointercancel', end);
+  cv.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') over = true; });
+  cv.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') { over = false; if (!pinned) setHover(null); } });
+  cv.addEventListener('keydown', e => {
+    if (e.key === '+' || e.key === '=') { e.preventDefault(); zoomAt(W / 2, H / 2, zoomT * 1.3); return; }
+    if (e.key === '-' || e.key === '_') { e.preventDefault(); zoomAt(W / 2, H / 2, zoomT / 1.3); return; }
+    if (e.key === '0') { e.preventDefault(); resetView(); return; }
+    if (e.key === 'f' || e.key === 'F') { e.preventDefault(); toggleFull(); return; }
+    const step = { ArrowLeft: [-0.15, 0], ArrowRight: [0.15, 0], ArrowUp: [0, -0.08], ArrowDown: [0, 0.08] }[e.key];
+    if (!step) return;
+    e.preventDefault();
+    if (zoomT > 1.02 && !e.shiftKey) { panBy(-Math.sign(step[0]) * 70, -Math.sign(step[1]) * 70); return; }
+    rotY += step[0]; tilt = clampTilt(tilt + step[1]);
+    if (reduce) draw(0);
+  });
+
+  const media = matchMedia('(prefers-color-scheme: dark)');
+  const recolor = () => { colorAge = 1e9; if (reduce) draw(0); };
+  media.addEventListener && media.addEventListener('change', recolor);
+  new MutationObserver(recolor).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme', 'class'] });
+  new ResizeObserver(() => { resize(); draw(0); }).observe(cv);
+  resize(); readColors();
+  if (reduce) { draw(0); return; }
+  new IntersectionObserver(([en]) => {
+    visible = en.isIntersecting;
+    if (visible) start();
+  }).observe(cv);
+  start();
+})();
+</script>
+
+
+</html>

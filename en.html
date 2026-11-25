@@ -1,0 +1,1244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Soomin Seok — Backend & Quant Developer resume">
+<link rel="alternate" hreflang="ko" href="https://seoksoomin2003-prog.github.io/resume/">
+<link rel="alternate" hreflang="en" href="https://seoksoomin2003-prog.github.io/resume/en.html">
+<title>Soomin Seok — Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: single 960px column, sticky section nav, grey bands alternate with white like a portfolio site; prints as a 2-page A4 resume. */
+:root {
+  --bg: #ffffff;
+  --band: #f7f8fa;
+  --panel: #f2f4f7;
+  --line: #e5e8ec;
+  --fg: #1b2330;
+  --sub: #4e5968;
+  --mute: #8b95a1;
+  --accent: #0b63d6;
+  --accent-soft: #e8f1fd;
+  --ok: #12a46b;
+  --violet: #7b4fe0;
+  --font: "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101317; --band: #161a20; --panel: #1d222a; --line: #2a313b;
+    --fg: #eef1f5; --sub: #b3bcc7; --mute: #7d8794;
+    --accent: #5aa2ff; --accent-soft: #1b2b44; --ok: #3ccf91; --violet: #a98bff;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101317; --band: #161a20; --panel: #1d222a; --line: #2a313b;
+  --fg: #eef1f5; --sub: #b3bcc7; --mute: #7d8794;
+  --accent: #5aa2ff; --accent-soft: #1b2b44; --ok: #3ccf91; --violet: #a98bff;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--font); font-size: 16px; line-height: 1.65;
+  letter-spacing: -0.01em; word-break: keep-all;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+.wrap {
+  max-width: 960px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* Nav */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.nav {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.nav .wrap { display: flex; align-items: center; gap: 24px; height: 60px; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; white-space: nowrap; }
+.brand i { width: 28px; height: 28px; border-radius: 8px; background: var(--accent); color: #fff; display: grid; place-items: center; font-style: normal; font-size: 14px; font-weight: 800; }
+.nav ul { display: flex; gap: 4px; list-style: none; margin: 0 0 0 auto; padding: 0; overflow-x: auto; scrollbar-width: none; }
+.nav ul::-webkit-scrollbar { display: none; }
+.nav ul a { display: block; padding: 6px 12px; border-radius: 8px; font-size: 14px; color: var(--sub); text-decoration: none; white-space: nowrap; }
+.nav ul a:hover, .nav ul a:focus-visible { background: var(--panel); color: var(--fg); }
+
+/* Hero */
+.hero { padding-block: 72px 56px; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1fr) 430px; grid-template-areas: "text net" "facts net"; gap: 28px 40px; align-items: start; }
+.hero-text { grid-area: text; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: 0.02em; }
+.eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+h1 { font-size: clamp(36px, 6vw, 54px); line-height: 1.2; letter-spacing: -0.035em; font-weight: 800; margin: 14px 0 18px; text-wrap: balance; }
+.lead { font-size: 19px; font-weight: 600; margin: 0 0 10px; color: var(--fg); }
+.intro { color: var(--sub); margin: 0; max-width: 34em; }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; height: 46px; padding: 0 20px; border-radius: 12px; font-size: 15px; font-weight: 600; text-decoration: none; border: 1px solid var(--line); background: var(--bg); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn:focus-visible { outline: 3px solid var(--accent-soft); outline-offset: 2px; }
+.facts { grid-area: facts; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 24px; background: var(--panel); border-radius: 16px; padding: 4px 20px; margin: 0; }
+.facts div { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.facts div:nth-last-child(-n+2) { border-bottom: 0; }
+@media screen { .facts .gh-host { display: none; } }
+
+/* Interest network: 3D canvas next to the intro (screen only) */
+.net-wrap { grid-area: net; margin: 0; }
+.net-stage { position: relative; height: 560px; border: 1px solid var(--line); border-radius: 20px; overflow: hidden;
+  background: radial-gradient(110% 80% at 50% 42%, var(--accent-soft), transparent 72%), var(--band); }
+#net { display: block; width: 100%; height: 100%; cursor: grab; touch-action: pan-y; outline: none; -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+.net-zoom button, .net-pan button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+#net.dragging { cursor: grabbing; }
+#net.pointing { cursor: pointer; }
+#net:focus-visible { box-shadow: inset 0 0 0 3px var(--accent-soft); }
+.net-head { position: absolute; top: 12px; left: 16px; right: 16px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--mute); pointer-events: none; }
+.net-head b { color: var(--sub); font-weight: 700; }
+.net-legend { display: flex; gap: 12px; }
+.net-legend i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; }
+.net-zoom { position: absolute; right: 12px; bottom: 12px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.net-zoom button { width: 32px; height: 32px; padding: 0; border-radius: 9px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); font: 600 17px/1 var(--font); cursor: pointer; display: grid; place-items: center; }
+.net-zoom button:hover { background: var(--panel); }
+.net-zoom button:focus-visible { outline: 3px solid var(--accent-soft); outline-offset: 1px; }
+.net-zoom output { font-size: 11px; color: var(--mute); font-variant-numeric: tabular-nums; }
+.net-zoom .net-full { margin-bottom: 4px; }
+.net-pan { position: absolute; left: 12px; bottom: 12px; display: none; grid-template-columns: repeat(3, 32px); grid-template-rows: repeat(3, 32px); gap: 3px; }
+.net-stage.zoomed .net-pan { display: grid; }
+.net-pan button { padding: 0; border-radius: 9px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); font: 600 15px/1 var(--font); cursor: pointer; }
+.net-pan button:hover { background: var(--panel); }
+.net-pan button:focus-visible { outline: 3px solid var(--accent-soft); outline-offset: 1px; }
+.net-pan [data-p=up] { grid-area: 1 / 2; } .net-pan [data-p=left] { grid-area: 2 / 1; }
+.net-pan [data-p=right] { grid-area: 2 / 3; } .net-pan [data-p=down] { grid-area: 3 / 2; }
+.net-zoom svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.net-full .ic-exit, .net-stage.is-full .net-full .ic-enter { display: none; }
+.net-stage.is-full .net-full .ic-exit { display: block; }
+/* Full screen: the native API when the page allows it, otherwise a fixed overlay */
+.net-stage.is-full { position: fixed; inset: 0; z-index: 100; height: auto; border: 0; border-radius: 0; }
+.net-stage:fullscreen { height: 100%; border-radius: 0; }
+.net-stage.is-full #net { touch-action: none; }
+html.net-lock, html.net-lock body { overflow: hidden; }
+/* Without JavaScript (phone file previews, messenger viewers): a looping picture of the graph instead of an empty canvas. */
+.net-still, .net-nojs { display: none; }
+html:not(.js) .net-still { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+html:not(.js) #net, html:not(.js) .net-zoom, html:not(.js) .net-pan, html:not(.js) .net-cap { display: none; }
+html:not(.js) .net-nojs { display: block; margin: 10px 4px 0; font-size: 13.5px; line-height: 1.55; color: var(--sub); }
+html:not(.js) .net-stage { --band: #f7f8fa; --accent-soft: #e8f1fd; --sub: #4e5968; --mute: #8b95a1; --line: #e5e8ec; background: #f7f8fa; }
+.net-cap { margin: 10px 4px 0; min-height: 3.3em; font-size: 13.5px; line-height: 1.55; color: var(--sub); }
+.net-cap b { color: var(--fg); }
+.proj { scroll-margin-top: 76px; transition: border-color .3s, box-shadow .3s; }
+.proj.flash { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+.facts dt { font-size: 12px; color: var(--mute); margin-bottom: 2px; }
+.facts dd { margin: 0; font-size: 14.5px; font-weight: 600; overflow-wrap: anywhere; }
+
+/* Sections */
+section { padding-block: 72px; }
+section.band { background: var(--band); }
+.sec-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 28px; }
+h2 { font-size: clamp(26px, 4vw, 34px); letter-spacing: -0.03em; font-weight: 800; margin: 0; }
+.sec-head span { color: var(--mute); font-size: 14px; }
+
+/* Strengths */
+.strengths { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.strength { background: var(--bg); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+.strength b { display: block; font-size: 17px; margin-bottom: 6px; }
+.strength p { margin: 0; color: var(--sub); font-size: 14.5px; }
+.strength em { font-style: normal; color: var(--accent); font-weight: 700; }
+
+/* Projects */
+.projects { display: grid; gap: 18px; }
+.proj { background: var(--bg); border: 1px solid var(--line); border-radius: 20px; padding: 28px; display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 28px; break-inside: avoid; }
+.proj-meta { display: flex; flex-direction: column; gap: 10px; }
+.proj-body, .proj-meta, .gallery { min-width: 0; }
+.tag { align-self: flex-start; font-size: 12px; font-weight: 700; padding: 3px 9px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); }
+.tag.team { background: var(--panel); color: var(--sub); }
+.tag.award { background: #fff4d6; color: #9a6400; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .tag.award { background: #3a2e10; color: #f5c451; } }
+.period { font-family: var(--mono); font-size: 12.5px; color: var(--mute); }
+.proj h3 { font-size: 21px; line-height: 1.35; letter-spacing: -0.02em; margin: 0; text-wrap: balance; }
+.role { font-size: 13.5px; color: var(--sub); }
+.repo { font-size: 13px; color: var(--accent); text-decoration: none; font-weight: 600; overflow-wrap: anywhere; }
+.repo:hover { text-decoration: underline; }
+.proj-body > p { margin: 0 0 14px; color: var(--sub); }
+.checks { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 8px; }
+.checks li { position: relative; padding-left: 24px; font-size: 14.5px; }
+.checks li::before { content: ""; position: absolute; left: 2px; top: 0.55em; width: 10px; height: 6px; border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); }
+.checks b { font-weight: 700; }
+.metrics { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.metric { background: var(--panel); border-radius: 10px; padding: 8px 12px; font-size: 13px; color: var(--sub); }
+.metric strong { display: block; font-size: 16px; color: var(--fg); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 12px; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line); color: var(--sub); }
+/* Project card: GitHub link, running screen, flow diagram, why / did / gained / lost / learned rows */
+.proj-meta .repo { display: flex; align-items: center; gap: 10px; margin-top: 4px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--band); color: var(--fg); text-decoration: none; transition: border-color .2s; }
+.proj-meta .repo:hover { border-color: var(--accent); text-decoration: none; }
+.repo svg { width: 20px; height: 20px; flex: none; fill: currentColor; }
+.repo span { display: flex; flex-direction: column; min-width: 0; }
+.repo b { font-size: 13px; line-height: 1.3; overflow-wrap: anywhere; }
+.repo small { font-size: 11.5px; font-weight: 600; color: var(--accent); }
+.shot { margin: 0 0 16px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--panel); }
+.shot .bar { display: flex; align-items: center; gap: 6px; height: 28px; padding: 0 12px; border-bottom: 1px solid var(--line); background: var(--band); }
+.shot .bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+.shot .bar span { margin-left: 8px; font: 11.5px var(--mono); color: var(--mute); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.shot img { display: block; width: 100%; height: auto; cursor: zoom-in; }
+.gallery .bar .url { min-width: 0; }
+.gallery .bar .count { flex: none; padding-left: 8px; margin-left: auto; font: 11px var(--mono); color: var(--mute); font-variant-numeric: tabular-nums; }
+.gallery .stage { position: relative; }
+.gallery .slides { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; outline: none; }
+.gallery .slides::-webkit-scrollbar { display: none; }
+.gallery .slides:focus-visible { box-shadow: inset 0 0 0 3px var(--accent); }
+.gallery .slide { flex: 0 0 100%; aspect-ratio: 16 / 10; scroll-snap-align: start; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #0e1116; }
+.gallery .slide img { width: 100%; height: 100%; object-fit: contain; }
+.gallery.phones .slide { aspect-ratio: 4 / 3; padding: 14px 0; background: var(--band); }
+.gallery.phones .slide img { width: auto; height: 100%; aspect-ratio: 9 / 16; object-fit: cover; object-position: top; border-radius: 18px; border: 1px solid var(--line); background: #fff; }
+.gallery .nav { position: absolute; top: 50%; width: 40px; height: 40px; margin-top: -20px; padding: 0 0 3px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .28); background: rgba(14, 17, 22, .66); color: #fff; font: 500 26px/1 var(--font); cursor: pointer; display: grid; place-items: center; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); transition: background .2s; }
+.gallery .nav:hover { background: rgba(14, 17, 22, .88); }
+.gallery .nav:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.gallery .prev { left: 10px; } .gallery .next { right: 10px; }
+.gallery figcaption { display: flex; flex-wrap: wrap; align-items: center; gap: 3px 10px; }
+.gallery figcaption .cap { flex-basis: 100%; font-size: 13px; font-weight: 600; color: var(--fg); }
+.gallery .dots { margin-left: auto; display: flex; align-items: center; gap: 5px; }
+.gallery .dots button { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 4px; background: var(--line); cursor: pointer; transition: width .2s, background .2s; }
+.gallery .dots button[aria-current="true"] { width: 20px; background: var(--accent); }
+.shot figcaption { padding: 8px 12px; border-top: 1px solid var(--line); background: var(--bg); font-size: 12px; color: var(--mute); }
+.flow { list-style: none; margin: 0 0 16px; padding: 14px 14px 14px 32px; display: flex; flex-wrap: wrap; gap: 10px 26px; background: var(--band); border: 1px solid var(--line); border-radius: 12px; }
+.flow li { position: relative; padding: 6px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); line-height: 1.3; }
+.flow li b { display: block; font-size: 12.5px; }
+.flow li span { font-size: 11px; color: var(--mute); }
+.flow li::before { content: "→"; position: absolute; left: -19px; top: 50%; transform: translateY(-50%); font-size: 13px; color: var(--mute); }
+.flow li.mine { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.flow:has(+ .flow-note) { margin-bottom: 6px; }
+.flow-note { display: flex; align-items: center; gap: 6px; margin: 0 2px 16px; font-size: 11.5px; color: var(--mute); }
+.flow-note i { width: 12px; height: 12px; border-radius: 3px; border: 2px solid var(--accent); }
+.story { margin: 0 0 14px; display: grid; gap: 12px; }
+.story > div { display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 12px; align-items: baseline; padding: 0 12px; }
+.story dt { font-size: 12.5px; font-weight: 700; color: var(--accent); }
+.story dd { margin: 0; font-size: 14.5px; }
+.story dd > p { margin: 0 0 10px; color: var(--sub); }
+.story .checks, .story .metrics { margin-bottom: 0; }
+.story > div:nth-child(n+4) { padding: 10px 12px; border-radius: 10px; background: var(--band); }
+.story > div:nth-child(n+4) dd { color: var(--sub); }
+.lightbox { padding: 0; border: 0; background: transparent; max-width: 96vw; max-height: 94vh; }
+.lightbox::backdrop { background: rgba(10, 12, 16, .82); }
+.lightbox img { display: block; max-width: 96vw; max-height: 94vh; border-radius: 10px; cursor: zoom-out; }
+
+/* Skills */
+.skills { margin: 0; border-top: 1px solid var(--line); }
+.skills div { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.skills dt { font-weight: 700; font-size: 15px; }
+.skills dd { margin: 0; color: var(--sub); font-size: 15px; }
+
+/* Education */
+.edu { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 16px; padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.edu b { font-size: 17px; }
+.edu p { margin: 2px 0 0; color: var(--sub); }
+
+footer { padding-block: 40px 56px; color: var(--mute); font-size: 13px; }
+
+@media screen and (max-width: 760px) {
+  .hero { padding-block: 40px 40px; }
+  .hero .wrap { grid-template-columns: 1fr; grid-template-areas: "text" "net" "facts"; gap: 24px; }
+  .net-stage { height: 500px; }
+  .net-zoom { flex-direction: row; gap: 6px; }
+  .net-zoom .net-full { margin: 0 4px 0 0; }
+  .net-zoom output { display: none; }
+  .net-zoom button { width: 36px; height: 36px; }
+  .net-pan { grid-template-columns: repeat(3, 34px); grid-template-rows: repeat(3, 34px); }
+  .facts { grid-template-columns: 1fr; }
+  .facts div:nth-last-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .facts div:last-child { border-bottom: 0; }
+  .strengths { grid-template-columns: 1fr; }
+  .proj { grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 22px; }
+  .gallery .nav { width: 34px; height: 34px; margin-top: -17px; font-size: 22px; }
+  .flow { padding-left: 28px; gap: 8px 24px; }
+  .story > div { grid-template-columns: 1fr; gap: 4px; }
+  .skills div, .edu { grid-template-columns: 1fr; gap: 4px; }
+  section { padding-block: 52px; }
+  .brand span { display: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/* Print: A4 resume, always light */
+@page { size: A4; margin: 14mm 13mm; }
+@media print {
+  :root, :root[data-theme="dark"] {
+    --bg: #ffffff; --band: #ffffff; --panel: #f3f5f8; --line: #e3e7ec;
+    --fg: #141b25; --sub: #3f4a58; --mute: #7a8592; --accent: #0b63d6; --accent-soft: #e8f1fd;
+    color-scheme: light;
+  }
+  body { font-size: 10.5pt; line-height: 1.55; -webkit-print-color-adjust: exact; print-color-adjust: exact; display: flex; flex-direction: column; }
+  .hero { order: 0; } #about { order: 1; } #skills { order: 2; } #education { order: 3; } #projects { order: 4; }
+  .sec-head { break-after: avoid; }
+  .strengths { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .skills div { grid-template-columns: 30mm minmax(0, 1fr); gap: 10px; }
+  .edu { grid-template-columns: 30mm minmax(0, 1fr); gap: 10px; }
+  body::before, .nav, .cta { display: none; }
+  .wrap { max-width: none; padding: 0; }
+  .hero { padding-block: 0 18px; }
+  .hero .wrap { grid-template-columns: minmax(0, 1fr) 62mm; grid-template-areas: "text facts"; gap: 10mm; }
+  .net-wrap { display: none; }
+  .facts { display: block; padding: 6px 22px; }
+  .facts div:nth-last-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .facts div:last-child { border-bottom: 0; }
+  h1 { font-size: 26pt; margin: 6px 0 8px; }
+  .lead { font-size: 12pt; }
+  section { padding-block: 7px; }
+  .sec-head { margin-bottom: 7px; }
+  h2 { font-size: 15pt; }
+  .strength { padding: 12px; border-radius: 10px; }
+  .strength b { font-size: 11pt; }
+  .strength p, .checks li { font-size: 9.5pt; }
+  .projects { display: block; } .proj + .proj { margin-top: 8px; }
+  .proj { padding: 11px 14px; border-radius: 12px; grid-template-columns: 40mm minmax(0, 1fr); gap: 12px; line-height: 1.45; }
+  .proj-meta { gap: 6px; }
+  .proj .checks li { font-size: 9pt; }
+  .proj .chip { padding: 2px 7px; }
+  .proj h3 { font-size: 12.5pt; }
+  .proj { display: block; break-inside: avoid; }
+  .proj-meta { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: 2px 10px; margin-bottom: 6px; break-after: avoid; }
+  .proj-meta .role { flex-basis: 100%; }
+  .proj-meta .repo { margin: 0; }
+  .shot, .flow, .story > div { break-inside: avoid; }
+  .shot { margin-bottom: 8px; border-radius: 8px; }
+  .shot .bar { display: none; }
+  .gallery .slides { display: block; overflow: hidden; }
+  .gallery .slide:not(:first-child) { display: none; }
+  .gallery .bar .count { display: none; }
+  .gallery .slide { aspect-ratio: auto; height: 56mm; }
+  .gallery .slide img { object-fit: cover; object-position: top; }
+  .gallery.phones .slide { height: 62mm; padding: 4px 0; aspect-ratio: auto; }
+  .gallery.phones .slide:first-child { display: flex; justify-content: center; }
+  .gallery .nav, .gallery .dots { display: none; }
+  .gallery figcaption .cap { font-size: 8pt; }
+  .shot figcaption { padding: 4px 8px; font-size: 7.5pt; }
+  .flow { padding: 6px 8px 6px 20px; gap: 4px 18px; margin-bottom: 8px; }
+  .flow li { padding: 3px 6px; }
+  .flow li b { font-size: 8pt; } .flow li span { font-size: 7pt; }
+  .flow li::before { left: -14px; }
+  .flow-note { margin-bottom: 8px; font-size: 7.5pt; }
+  .story { gap: 6px; } .story > div { grid-template-columns: 13mm minmax(0, 1fr); gap: 8px; }
+  .story > div:nth-child(n+4) { padding: 5px 8px; }
+  .story dt { font-size: 8.5pt; } .story dd { font-size: 9pt; } .story dd > p { font-size: 9pt; margin-bottom: 5px; }
+  .proj-meta .repo { padding: 0; border: 0; background: none; } .repo svg, .repo span { display: none; }
+  .proj-meta .repo::after { content: attr(href); font: 8pt var(--mono); color: var(--accent); }
+  .checks { gap: 4px; margin-bottom: 8px; }
+  .metric { padding: 5px 9px; font-size: 8.5pt; }
+  .metric strong { font-size: 11pt; }
+  .chip { font-size: 8pt; }
+  .skills div { padding: 3px 0; }
+  .facts div { padding: 9px 0; }
+  .intro { font-size: 9.8pt; }
+  .skills dt, .skills dd { font-size: 9.5pt; }
+  .edu { padding: 6px 0; }
+  .proj-body > .shot:first-child { break-before: avoid; }
+  footer { display: none; }
+  a { text-decoration: none; }
+  #projects { break-before: page; }
+}
+/* English text runs longer than Korean: tighten page 1 so it still fits on one A4 page. */
+@media print {
+  .intro { font-size: 9.4pt; line-height: 1.5; }
+  .strength p { font-size: 9pt; line-height: 1.45; }
+  .skills div { padding: 2px 0; }
+  .skills dt, .skills dd { font-size: 9.2pt; }
+  section { padding-block: 5px; }
+  h1 { font-size: 23pt; margin: 4px 0 6px; }
+  .facts div { padding: 7px 0; }
+  .edu { padding: 4px 0; }
+  .facts dd { font-size: 9.6pt; }
+  .lead { font-size: 11pt; }
+  .hero { padding-block: 0 10px; }
+  .sec-head { margin-bottom: 5px; }
+}
+</style>
+
+<nav class="nav" aria-label="Sections">
+  <div class="wrap">
+    <a class="brand" href="#top"><i>S</i><span>Soomin Seok</span></a>
+    <ul>
+      <li><a href="#about">Strengths</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="./" hreflang="ko" lang="ko">한국어</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="eyebrow">Backend · Quant Developer</span>
+      <h1>I'm Soomin Seok,<br>a developer who builds verifiable systems.</h1>
+      <p class="lead">I set the criteria before I see the results, and I build backends that keep their data through failures.</p>
+      <p class="intro">I designed and built a stock recommendation system, crypto trading bots (Binance and Bithumb) and a SaaS for tree-service companies abroad. I use AI coding tools such as Claude Code and Codex as pair programmers to build faster; every design and verification decision is mine. In team projects I led a five-person team as PM and took on the hard backend parts: payments, authentication and concurrency.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">See projects →</a>
+        <a class="btn" href="https://github.com/seoksoomin2003-prog" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+    <script>document.documentElement.classList.add('js')</script>
+    <figure class="net-wrap">
+      <div class="net-stage">
+        <img class="net-still" src="img/net_spin_en.webp" alt="A 3D network linking interests → projects → tech and quant, slowly rotating">
+        <canvas id="net" tabindex="0" role="img" aria-label="3D network graph: 3 interests (backend, quant, data systems) link to 7 projects, which link to 50 technologies and 18 quant concepts. Rotate with the arrow keys, zoom with +/−, and toggle full screen with F."></canvas>
+        <div class="net-head">
+          <b>Interests → Projects → Tech · Quant</b>
+          <span class="net-legend">
+            <span><i style="background:var(--accent)"></i>Interest</span>
+            <span><i style="background:var(--violet)"></i>Project</span>
+            <span><i style="background:var(--mute)"></i>Tech</span>
+            <span><i style="background:var(--ok)"></i>Quant concept</span>
+          </span>
+        </div>
+        <div class="net-zoom" role="group" aria-label="Zoom the graph">
+          <button type="button" class="net-full" data-z="full" aria-label="View full screen" aria-pressed="false" title="Full screen (F)"><svg class="ic-enter" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><svg class="ic-exit" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg></button>
+          <button type="button" data-z="in" aria-label="Zoom in" title="Zoom in (+)">+</button>
+          <button type="button" data-z="out" aria-label="Zoom out" title="Zoom out (−)">−</button>
+          <button type="button" data-z="reset" aria-label="Reset zoom" title="Reset zoom (0)">↺</button>
+          <output id="net-zoom-level" aria-live="polite">100%</output>
+        </div>
+        <div class="net-pan" role="group" aria-label="Pan the zoomed graph">
+          <button type="button" data-p="up" aria-label="Look up" title="Look up (↑)">↑</button>
+          <button type="button" data-p="left" aria-label="Look left" title="Look left (←)">←</button>
+          <button type="button" data-p="right" aria-label="Look right" title="Look right (→)">→</button>
+          <button type="button" data-p="down" aria-label="Look down" title="Look down (↓)">↓</button>
+        </div>
+      </div>
+      <figcaption class="net-cap" id="net-cap" aria-live="polite">Drag to rotate. Zoom with the +/− buttons, ⌘/Ctrl+scroll or a trackpad or phone pinch; once zoomed, drag or use the arrows at bottom left to look around, and Shift+drag to rotate. The full-screen button at bottom right turns full screen on, and pressing it again returns to normal size. Hover a node to see its links; click a project node to jump to its card.</figcaption>
+      <p class="net-nojs">This preview app blocks scripts, so the network only shows as a rotating picture. Open the file in a browser such as Safari or Chrome to rotate it with your finger, zoom in and tap nodes to see their links.</p>
+    </figure>
+    <dl class="facts">
+      <div><dt>School</dt><dd>Sahmyook University, Computer Software Engineering, 3rd year</dd></div>
+      <div><dt>Email</dt><dd>seoksoomin2003@gmail.com</dd></div>
+      <div><dt>GitHub</dt><dd><span class="gh-host">github.com/</span>seoksoomin2003-prog</dd></div>
+      <div><dt>Interests</dt><dd>Backend · Quant · Data systems</dd></div>
+    </dl>
+  </div>
+</header>
+
+<section class="band" id="about">
+  <div class="wrap">
+    <div class="sec-head"><h2>Strengths</h2></div>
+    <div class="strengths">
+      <div class="strength">
+        <b>I design the verification first</b>
+        <p>I fix the pass/fail criteria in writing before seeing results and block look-ahead leaks with tests. Models that miss the bar are recorded <em>along with the rejection</em>.</p>
+      </div>
+      <div class="strength">
+        <b>Backends that survive failures</b>
+        <p>Event sourcing, idempotency, atomic writes and payment recovery prevent data loss. I cut the failure rate under load from <em>17% to 0%</em>.</p>
+      </div>
+      <div class="strength">
+        <b>Quality held by tests</b>
+        <p>I write and maintain <em>about 2,400</em> pytest tests across my own projects and run them in CI alongside security checks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head"><h2>Projects</h2><span>4 solo · 3 team</span></div>
+    <div class="projects">
+
+      <article class="proj" id="p-quant">
+        <div class="proj-meta">
+          <span class="tag">Solo</span>
+          <span class="period">2026.11</span>
+          <h3>Quant Terminal</h3>
+          <span class="role">US &amp; Korean stock recommendation system</span>
+          <a class="repo" href="https://github.com/seoksoomin2003-prog/stock-recommendation-system" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>stock-recommendation-system</b><small>Code and docs on GitHub ↗</small></span></a>
+        </div>
+        <div class="proj-body">
+          <figure class="shot gallery" aria-roledescription="carousel" aria-label="Quant Terminal: 8 real screens"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">127.0.0.1:8765 · Today</span><span class="count">1 / 8</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 8" data-url="127.0.0.1:8765 · Today" data-cap="Today: market state, to-do alerts and today's candidate stocks"><img src="img/qt.jpg" alt="Quant Terminal screen — Today: market state, to-do alerts and today's candidate stocks" width="1280" height="800"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 8" data-url="127.0.0.1:8765 · Rankings" data-cap="Rankings: top 50 swing scores and why each score moved"><img src="img/qt_rank.jpg" alt="Quant Terminal screen — Rankings: top 50 swing scores and why each score moved" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 8" data-url="127.0.0.1:8765 · Investment committee · MSFT" data-cap="Investment committee: five investor rule sets judge MSFT separately, and the committee decides by rule"><img src="img/qt_ic.jpg" alt="Quant Terminal screen — five opinions in the style of Buffett, Munger, Graham, Lynch and Druckenmiller, and the combined committee verdict (MSFT)" width="1400" height="1225" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 8" data-url="127.0.0.1:8765 · Investment committee · Portfolios" data-cap="Portfolios: six portfolios built, showing MSFT's weight and the reason (simulated, no orders)"><img src="img/qt_icport.jpg" alt="Quant Terminal screen — MSFT's weight and reasons in six portfolios" width="1400" height="1036" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="5 / 8" data-url="127.0.0.1:8765 · Chart analysis" data-cap="Chart analysis: moving averages, Bollinger bands, RSI and signal explanations"><img src="img/qt_chart.jpg" alt="Quant Terminal screen — Chart analysis: moving averages, Bollinger bands, RSI and signal explanations" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="6 / 8" data-url="127.0.0.1:8765 · Market map" data-cap="Market map: stock heatmap and sector rotation chart"><img src="img/qt_map.jpg" alt="Quant Terminal screen — Market map: stock heatmap and sector rotation chart" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="7 / 8" data-url="127.0.0.1:8765 · Model" data-cap="Model: the frozen model's top picks, forward tracking and challenger comparison"><img src="img/qt_model.jpg" alt="Quant Terminal screen — Model: the frozen model's top picks, forward tracking and challenger comparison" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="8 / 8" data-url="127.0.0.1:8765 · Lab" data-cap="Lab: historical simulation and performance metrics (reference only)"><img src="img/qt_lab.jpg" alt="Quant Terminal screen — Lab: historical simulation and performance metrics (reference only)" width="1280" height="800" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="Previous screen">‹</button><button type="button" class="nav next" aria-label="Next screen">›</button></div><figcaption><span class="cap" aria-live="polite">Today: market state, to-do alerts and today's candidate stocks</span><span class="src">Running app · local web terminal (2026-11-24)</span><span class="dots"></span></figcaption></figure><ol class="flow" aria-label="Architecture"><li><b>Public data</b><span>Yahoo·SEC·FRED·KRX·DART</span></li><li><b>Normalize</b><span>source &amp; status per value</span></li><li><b>Gates</b><span>data · bear market · sector</span></li><li><b>Frozen-model scoring</b><span>factor z-scores</span></li><li><b>Top 5</b><span>reasons to pick or drop</span></li><li><b>Hash-chained ledger</b><span>tracks picks afterward</span></li><li><b>Web terminal</b><span>Telegram alerts</span></li></ol>
+          <dl class="story"><div><dt>Why</dt><dd>I needed a tool that explains "why this stock" with evidence, without paid data, and lets me check later whether each pick was actually right. I left out auto-trading on purpose. The system only provides the evidence and the record, and a person checks and decides every buy and sell. This <b>human-in-the-loop</b> design keeps a data error or a model mistake from turning straight into an order.</dd></div><div><dt>Built</dt><dd><ul class="checks">
+            <li><b>Data collection &amp; normalization</b> — collects Yahoo, SEC EDGAR, FRED, KRX, OpenDART and ECOS, tags every value with its source and status, and never fills gaps with zero</li>
+            <li><b>Recommendation model</b> — momentum, quality, value and low-volatility factor z-scores, a bear-market filter, sector caps and ATR-based position sizing produce a Top 5</li>
+            <li><b>Investment committee</b> — five rule engines in the style of Buffett, Munger, Graham, Lynch and Druckenmiller judge each stock separately; the committee decides by rule, not by averaging, and builds six simulated portfolios (kept apart from the score, no orders)</li>
+            <li><b>Verification</b> — pre-registration, automatic look-ahead leak checks, and 5-year backtests against a challenger model and an SPY baseline</li>
+            <li><b>Operations</b> — local web terminal (about 89 APIs), daily launchd automation, atomic writes via fsync and rename</li>
+          </ul></dd></div><div><dt>Gained</dt><dd><div class="metrics">
+            <div class="metric"><strong>2,065</strong>tests passing</div>
+            <div class="metric"><strong>80.0–80.7%</strong>actual coverage of the 80% price range</div>
+            <div class="metric"><strong>96% / 90%</strong>earnings-date estimates (KR/US)</div>
+          </div></dd></div><div><dt>Lost</dt><dd>It has not yet shown that its ranking predicts returns. The Korean model is still experimental, and free data meant ever more handling for delays and gaps.</dd></div><div><dt>Learned</dt><dd>"Recommending" and "predicting returns" are different claims. Recording results in advance, where they can't be changed, is what keeps me from fooling myself later.</dd></div></dl>
+          <div class="chips"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">numpy</span><span class="chip">pytest</span><span class="chip">Vanilla JS</span><span class="chip">launchd</span><span class="chip">Telegram Bot</span></div>
+        </div>
+      </article>
+
+      <article class="proj" id="p-horizon">
+        <div class="proj-meta">
+          <span class="tag">Solo</span>
+          <span class="period">2026.05 – 2026.11</span>
+          <h3>Horizon</h3>
+          <span class="role">Binance spot &amp; futures trading bot + coin direction predictor</span>
+          <a class="repo" href="https://github.com/seoksoomin2003-prog/horizon_bot_beta" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>horizon_bot_beta</b><small>Code and docs on GitHub ↗</small></span></a>
+        </div>
+        <div class="proj-body">
+          <figure class="shot gallery" aria-roledescription="carousel" aria-label="Horizon: 4 real screens"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">127.0.0.1:8791 · Top-coin ledger</span><span class="count">1 / 4</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 4" data-url="127.0.0.1:8791 · Top-coin ledger" data-cap="Top-coin paper ledger (v18): 7-day expected-return and risk scores per coin, with buy and sell conditions"><img src="img/hz.jpg" alt="Horizon screen — Top-coin paper ledger (v18): 7-day expected-return and risk scores per coin, with buy and sell conditions" width="1120" height="610"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 4" data-url="127.0.0.1:8791 · Direction predictions" data-cap="Live scoring of direction predictions: hit rate over 3,970 calls and for the most confident ones"><img src="img/hz_pred.jpg" alt="Horizon screen — Live scoring of direction predictions: hit rate over 3,970 calls and for the most confident ones" width="1120" height="418" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 4" data-url="127.0.0.1:8791 · How much will it rise" data-cap="Scoring by horizon of the &quot;how much will it rise&quot; predictions for 30 large coins"><img src="img/hz_much.jpg" alt="Horizon screen — Scoring by horizon of the &quot;how much will it rise&quot; predictions for 30 large coins" width="1120" height="315" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 4" data-url="127.0.0.1:8791 · Recent predictions" data-cap="Recent predictions: the 15 most confident of 60 coins"><img src="img/hz_recent.jpg" alt="Horizon screen — Recent predictions: the 15 most confident of 60 coins" width="1120" height="545" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="Previous screen">‹</button><button type="button" class="nav next" aria-label="Next screen">›</button></div><figcaption><span class="cap" aria-live="polite">Top-coin paper ledger (v18): 7-day expected-return and risk scores per coin, with buy and sell conditions</span><span class="src">Running app · read-only dashboard, recording live (2026-11-24)</span><span class="dots"></span></figcaption></figure><ol class="flow" aria-label="Architecture"><li><b>Binance</b><span>ccxt prices &amp; orders</span></li><li><b>Regime detection</b><span>ADX·ATR</span></li><li><b>Conviction</b><span>0–4 points</span></li><li><b>Risk approval</b><span>limits · drawdown</span></li><li><b>Slippage check</b><span>order-book based</span></li><li><b>Order execution</b><span>stop-loss · take-profit</span></li><li><b>State</b><span>event sourcing · 15 s reconciliation</span></li><li><b>Dashboard</b><span>read-only</span></li></ol>
+          <dl class="story"><div><dt>Why</dt><dd>My earlier Bithumb bot had no tests and no paper trading, so I could not prove its strategy worked. I built a new bot that paper-trades by default and is verified against criteria set in advance.</dd></div><div><dt>Built</dt><dd><ul class="checks">
+            <li><b>Regime-based strategy</b> — ADX and ATR split the market into trending, ranging and low-volatility regimes, each with its own entry rules and a 0–4 conviction score</li>
+            <li><b>Risk management</b> — 0.75% risk per trade and a 5% total cap, scaling down at 5% drawdown and stopping at 10%, an order-book slippage limit</li>
+            <li><b>Order consistency</b> — event-sourced state, 15-second exchange reconciliation, stop-loss recovery after restarts, idempotent take-profits</li>
+            <li><b>Prediction &amp; portfolio</b> — ridge regression in numpy (walk-forward) and a cost-aware closed-form portfolio optimizer</li>
+          </ul></dd></div><div><dt>Gained</dt><dd><div class="metrics">
+            <div class="metric"><strong>57.5%</strong>8-hour hit rate, top 10% conviction</div>
+            <div class="metric"><strong>38,407 cases</strong>+0.227% net per case</div>
+            <div class="metric"><strong>313</strong>pytest tests</div>
+          </div></dd></div><div><dt>Lost</dt><dd>The hit rate held up, but after costs no profit was left. The v12–v18 trading tests all failed their gates, so the predictor only records and is not connected to trading.</dd></div><div><dt>Learned</dt><dd>Hit rate is not profit. Costs and turnover belong in the criteria, and rejected results have to be kept as they are for the next test to be honest.</dd></div></dl>
+          <div class="chips"><span class="chip">Python</span><span class="chip">ccxt</span><span class="chip">pandas</span><span class="chip">numpy</span><span class="chip">pytest</span><span class="chip">systemd</span></div>
+        </div>
+      </article>
+
+      <article class="proj" id="p-bithumb">
+        <div class="proj-meta">
+          <span class="tag">Solo</span>
+          <span class="period">2026.03</span>
+          <h3>Quantum Bithumb</h3>
+          <span class="role">Bithumb KRW spot trading bot</span>
+          <a class="repo" href="https://github.com/seoksoomin2003-prog/quantum-bithumb" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>quantum-bithumb</b><small>Code and docs on GitHub ↗</small></span></a>
+        </div>
+        <div class="proj-body">
+          <ol class="flow" aria-label="Architecture"><li><b>Candle collection</b><span>parallel asyncio</span></li><li><b>Signals</b><span>BTC regime · 5 alphas</span></li><li><b>Win-rate adjustment</b><span>meta strategy</span></li><li><b>Risk</b><span>volatility guard · sizing</span></li><li><b>Orders</b><span>book check · split limit orders</span></li><li><b>Positions</b><span>JSON state · partial take-profit</span></li><li><b>Alerts</b><span>Telegram</span></li></ol>
+          <dl class="story"><div><dt>Why</dt><dd>I wanted to run my own bot that trades a Korean exchange around the clock by rules, not emotion.</dd></div><div><dt>Built</dt><dd><ul class="checks">
+            <li><b>Multi-timeframe entries</b> — enters only when the 4H trend, the 1H breakout/pullback score and 15m volume expansion all agree</li>
+            <li><b>Alpha score engine (v2)</b> — sums five alphas and adjusts them by BTC regime and relative-strength rotation</li>
+            <li><b>Risk &amp; orders</b> — ATR-based sizing and stops, exposure limits, order-book depth and slippage checks before split limit orders, partial take-profits</li>
+            <li><b>Operations</b> — parallel asyncio collection, recovery by reconciling exchange balances on restart, Telegram alerts, EC2 deploy scripts</li>
+          </ul></dd></div><div><dt>Gained</dt><dd><div class="metrics"><div class="metric"><strong>4,700 lines</strong>Python (v2: 1,900)</div><div class="metric"><strong>v1 → v2</strong>architecture redesign</div><div class="metric"><strong>EC2 24/7</strong>run with systemd</div></div></dd></div><div><dt>Lost</dt><dd>It ran only with real money, with no tests, backtests or paper trading, so I could not prove the strategy worked and kept no performance record. Some v2 alphas never fired because their indicators were not wired in.</dd></div><div><dt>Learned</dt><dd>Build the means of verification first. This led directly to Horizon's paper-trading default, its 313 tests and its pre-registered criteria.</dd></div></dl>
+          <div class="chips"><span class="chip">Python</span><span class="chip">pybithumb</span><span class="chip">pandas</span><span class="chip">asyncio</span><span class="chip">Telegram Bot</span><span class="chip">AWS EC2</span><span class="chip">systemd</span></div>
+        </div>
+      </article>
+
+      <article class="proj" id="p-arbor">
+        <div class="proj-meta">
+          <span class="tag">Solo</span>
+          <span class="period">2026.06 – 2026.09</span>
+          <h3>ArborAI</h3>
+          <span class="role">AI quoting &amp; operations SaaS for tree-service companies abroad</span>
+          <a class="repo" href="https://github.com/seoksoomin2003-prog/tree-service-ai-os" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>tree-service-ai-os</b><small>Code and docs on GitHub ↗</small></span></a>
+        </div>
+        <div class="proj-body">
+          <figure class="shot gallery" aria-roledescription="carousel" aria-label="ArborAI: 5 real screens"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">localhost:3000 · AI quote step 3</span><span class="count">1 / 5</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 5" data-url="localhost:3000 · AI quote step 3" data-cap="AI quote ①: hazards, crew size and hours diagnosed from site details"><img src="img/ar_ai.jpg" alt="ArborAI screen — AI quote ①: hazards, crew size and hours diagnosed from site details" width="1280" height="755"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 5" data-url="localhost:3000 · AI quote step 4" data-cap="AI quote ②: a deterministic quote priced line by line by the pricing engine"><img src="img/ar_quote.jpg" alt="ArborAI screen — AI quote ②: a deterministic quote priced line by line by the pricing engine" width="1280" height="755" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 5" data-url="localhost:3000 · Jobs" data-cap="Job dispatch: schedule, status and site location"><img src="img/ar_jobs.jpg" alt="ArborAI screen — Job dispatch: schedule, status and site location" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 5" data-url="localhost:3000 · Quotes" data-cap="Quotes: base cost, risk surcharge and status, with PDF generation and conversion to jobs"><img src="img/ar_quotes.jpg" alt="ArborAI screen — Quotes: base cost, risk surcharge and status, with PDF generation and conversion to jobs" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="5 / 5" data-url="localhost:3000 · Customers" data-cap="Customer directory (CRM)"><img src="img/ar_customers.jpg" alt="ArborAI screen — Customer directory (CRM)" width="1280" height="800" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="Previous screen">‹</button><button type="button" class="nav next" aria-label="Next screen">›</button></div><figcaption><span class="cap" aria-live="polite">AI quote ①: hazards, crew size and hours diagnosed from site details</span><span class="src">Running app · local Docker, test data (2026-11-24)</span><span class="dots"></span></figcaption></figure>
+          <ol class="flow" aria-label="Architecture"><li><b>Web &amp; mobile</b><span>Next.js · Expo</span></li><li><b>FastAPI</b><span>tenant resolution · rate limits</span></li><li><b>Gemini</b><span>extracts 28 fields only</span></li><li><b>Pricing engine</b><span>rates for 14 regions</span></li><li><b>PostgreSQL</b><span>RLS</span></li><li><b>Billing &amp; documents</b><span>Stripe · quote PDF</span></li></ol>
+          <dl class="story"><div><dt>Why</dt><dd>Tree-service quotes vary widely with tree height, distance to power lines and equipment, so they are worked out by hand for every site. I wanted site details alone to produce the hazards and a draft quote.</dd></div><div><dt>Built</dt><dd><ul class="checks">
+            <li><b>AI quote preview</b> — Gemini only extracts 28 fields such as tree height, trunk diameter, distance to power lines and required equipment; a deterministic engine computes the price, so there are no hallucinated prices</li>
+            <li><b>Regional pricing engine</b> — 14 regional profiles, line-item amounts with their basis, and snapshots of the exchange rate and inputs so every amount can be reproduced</li>
+            <li><b>Multi-tenancy &amp; security</b> — automatic tenant_id filtering plus PostgreSQL RLS, RBAC with 4 roles, TOTP two-factor login, SSRF protection</li>
+            <li><b>Globalization &amp; mobile</b> — 14 locales (Arabic RTL), Stripe subscriptions, an offline change queue in the Expo crew app</li>
+          </ul></dd></div><div><dt>Gained</dt><dd><div class="metrics">
+            <div class="metric"><strong>73</strong>REST API</div>
+            <div class="metric"><strong>14</strong>locale</div>
+            <div class="metric"><strong>18,500 lines</strong>backend, web, mobile</div>
+          </div></dd></div><div><dt>Lost</dt><dd>It stopped at the prototype and was never deployed to production. Photos are not analyzed as images, and some crew-app APIs do not match the backend.</dd></div><div><dt>Learned</dt><dd>Give the AI only the extraction and compute money in deterministic code; that is what makes it reproducible and explainable. A wide scope delays the finish, so the core flow has to be completed first.</dd></div></dl>
+          <div class="chips"><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">Gemini</span><span class="chip">Next.js 15</span><span class="chip">Expo</span><span class="chip">Stripe</span><span class="chip">Docker</span><span class="chip">AWS ECR</span></div>
+        </div>
+      </article>
+
+      <article class="proj" id="p-gig">
+        <div class="proj-meta">
+          <span class="tag team">Team · Planning &amp; integration</span>
+          <span class="tag award">Gwayookton 3rd place · Excellence Award</span>
+          <span class="period">2026.11</span>
+          <h3>GigSplitter</h3>
+          <span class="role">Web app for splitting and settling bulk buys of daily goods · Team 6 at Gwayookton, the joint idea-thon of Sahmyook University and Seoul National University of Science and Technology</span>
+          <a class="repo" href="https://github.com/enderpawar/Gwayook-team6" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>Gwayook-team6</b><small>Code and docs on GitHub ↗</small></span></a>
+        </div>
+        <div class="proj-body">
+          <figure class="shot gallery phones" aria-roledescription="carousel" aria-label="GigSplitter: 5 real screens"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">gigsplitter.vercel.app · Product</span><span class="count">1 / 5</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 5" data-url="gigsplitter.vercel.app · Product" data-cap="Home: upload a screenshot or pick a sample; example splitting 30 rolls into 7"><img src="img/gs_home.jpg" alt="GigSplitter screen — Home: upload a screenshot or pick a sample; example splitting 30 rolls into 7" width="540" height="960"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 5" data-url="gigsplitter.vercel.app · Check" data-cap="Check values: the user corrects the extracted product name, pack size and price"><img src="img/gs_check.jpg" alt="GigSplitter screen — Check values: the user corrects the extracted product name, pack size and price" width="540" height="960" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 5" data-url="gigsplitter.vercel.app · Split" data-cap="Split: with 4 people the host gets 9 rolls and each member 7, saving 54.6% per roll"><img src="img/gs_split.jpg" alt="GigSplitter screen — Split: with 4 people the host gets 9 rolls and each member 7, saving 54.6% per roll" width="540" height="960" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 5" data-url="gigsplitter.vercel.app · Split · Settlement" data-cap="Settlement: shares to the won, summing exactly to the amount paid"><img src="img/gs_settle.jpg" alt="GigSplitter screen — Settlement: shares to the won, summing exactly to the amount paid" width="540" height="960" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="5 / 5" data-url="gigsplitter.vercel.app · Post" data-cap="Post: auto-written title and body to paste into Everytime"><img src="img/gs_post.jpg" alt="GigSplitter screen — Post: auto-written title and body to paste into Everytime" width="540" height="960" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="Previous screen">‹</button><button type="button" class="nav next" aria-label="Next screen">›</button></div><figcaption><span class="cap" aria-live="polite">Home: upload a screenshot or pick a sample; example splitting 30 rolls into 7</span><span class="src">Deployed app · demo sample (30 rolls of toilet paper) (2026-11-25)</span><span class="dots"></span></figcaption></figure><ol class="flow" aria-label="Architecture"><li class="mine"><b>PRD &amp; ERD</b><span>PRD v1.1 · 9 tables</span></li><li><b>Store screenshot</b><span>or sample / manual input</span></li><li><b>Gemini extraction</b><span>Node.js API</span></li><li class="mine"><b>Front↔back integration</b><span>matched the response contract</span></li><li><b>Check values · unit prices</b><span>React · Vite</span></li><li><b>Split &amp; settle</b><span>integer math to the won</span></li><li><b>Copy recruiting post</b><span>Everytime · KakaoTalk</span></li></ol><p class="flow-note"><i></i>Blue borders mark the parts I owned.</p>
+          <dl class="story"><div><dt>Why</dt><dd>Students who live alone or in dorms buy expensive small packs because of storage space and upfront cost. Splitting a bulk pack is cheaper, but comparing unit prices, dividing quantities and money, and gathering people is a hassle, so at the idea-thon we built a service that does it all from one screenshot.</dd></div><div><dt>Built</dt><dd><ul class="checks">
+            <li><b>Product requirements (PRD)</b> — wrote v1.0: demo (P0), operations (P1) and expansion (P2) scope, plus the rules for unit price, splitting and settlement</li>
+            <li><b>ERD</b> — expanded to 9 tables to match PRD v1.1: a separate comparison basis, NULL for unconfirmed values, 7 group-buy states, and history of join approvals, settlement versions, transfers and refunds</li>
+            <li><b>Backend–frontend integration</b> — connected the frontend's screenshot extraction to the backend response format (unit and field conversion), made the mock response match the real one, and merged the backend and frontend branches into main</li>
+          </ul></dd></div><div><dt>Gained</dt><dd><div class="metrics"><div class="metric"><strong>3rd place</strong>Gwayookton Excellence Award</div><div class="metric"><strong>9</strong>ERD tables designed</div><div class="metric"><strong>1 day</strong>from planning to integration</div></div></dd></div><div><dt>Lost</dt><dd>The deployment only serves the frontend's static files, so the extraction API returns 404. The demo therefore used samples and manual input instead of screenshot extraction.</dd></div><div><dt>Learned</dt><dd>Even when teammates build separately under time pressure, agreeing on the PRD, ERD and API response format first keeps the cost of merging small.</dd></div></dl>
+          <div class="chips"><span class="chip">React</span><span class="chip">Vite</span><span class="chip">TypeScript</span><span class="chip">Node.js</span><span class="chip">Gemini</span><span class="chip">Mermaid ERD</span><span class="chip">Vercel</span></div>
+        </div>
+      </article>
+
+      <article class="proj" id="p-uni">
+        <div class="proj-meta">
+          <span class="tag team">Team · Backend</span>
+          <span class="period">2026.11</span>
+          <h3>UniConnect</h3>
+          <span class="role">Sponsorship matching platform for student groups and brands · 2-person team</span>
+          <a class="repo" href="https://github.com/jennjeong/uniconnect" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>jennjeong/uniconnect</b><small>Code and docs on GitHub ↗</small></span></a>
+        </div>
+        <div class="proj-body">
+          <figure class="shot gallery" aria-roledescription="carousel" aria-label="UniConnect: 4 real screens"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">uniconnect-pied.vercel.app/analytics</span><span class="count">1 / 4</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 4" data-url="uniconnect-pied.vercel.app/analytics" data-cap="Sponsorship analytics: spend, coupons, store visits, ROAS"><img src="img/uc.jpg" alt="UniConnect screen — Sponsorship analytics: spend, coupons, store visits, ROAS" width="1280" height="900"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 4" data-url="uniconnect-pied.vercel.app/groups" data-cap="Find student groups: matching by recommendation score"><img src="img/uc_find.jpg" alt="UniConnect screen — Find student groups: matching by recommendation score" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 4" data-url="uniconnect-pied.vercel.app/campaigns" data-cap="Event calendar"><img src="img/uc_events.jpg" alt="UniConnect screen — Event calendar" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 4" data-url="uniconnect-pied.vercel.app" data-cap="Home page"><img src="img/uc_home.jpg" alt="UniConnect screen — Home page" width="1280" height="800" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="Previous screen">‹</button><button type="button" class="nav next" aria-label="Next screen">›</button></div><figcaption><span class="cap" aria-live="polite">Sponsorship analytics: spend, coupons, store visits, ROAS</span><span class="src">Live service · demo screens on the deployed site (sample data)</span><span class="dots"></span></figcaption></figure><ol class="flow" aria-label="Architecture"><li><b>React UI</b><span>Vite</span></li><li><b>Express API</b><span>Vercel functions</span></li><li class="mine"><b>Payments</b><span>Toss · idempotent approval &amp; recovery</span></li><li class="mine"><b>Concurrency</b><span>row-level storage · version retries</span></li><li class="mine"><b>Security</b><span>TOTP · audit log · rate limits</span></li><li><b>Neon Postgres</b><span>production DB</span></li></ol><p class="flow-note"><i></i>Blue borders mark the parts I owned.</p>
+          <dl class="story"><div><dt>Why</dt><dd>Student groups struggle to find sponsors, and brands struggle to prove what a sponsorship achieved. This team project handles it all in one place, from finding a partner and signing to on-site measurement and the performance report.</dd></div><div><dt>Built</dt><dd><p>I joined in the later stage and took over backend payments, security, concurrency and operational stability.</p><ul class="checks">
+            <li><b>Concurrency &amp; scalability</b> — moved participation data from document-level to row-level storage and added retries on version conflicts</li>
+            <li><b>Toss payment reliability</b> — payment key saved before approval with an Idempotency-Key, cron-based recovery of unsettled orders, webhook verification, partial refunds</li>
+            <li><b>Security</b> — TOTP two-factor login and an audit log for operators, scrypt hashing, secret encryption, rate limits on write APIs</li>
+          </ul></dd></div><div><dt>Gained</dt><dd><div class="metrics">
+            <div class="metric"><strong>17% → 0%</strong>failure rate under load</div>
+            <div class="metric"><strong>551MB → 5.3MB</strong>DB reads</div>
+            <div class="metric"><strong>10s → 0.16s</strong>catalog response</div>
+          </div></dd></div><div><dt>Lost</dt><dd>Joining late, I had to replace the existing document-level storage while the service was running. Payments are still demonstrated with test keys.</dd></div><div><dt>Learned</dt><dd>Measure before fixing. A load test showed a 17% failure rate, and measuring again after the fix showed 0%, so the improvement is a number.</dd></div></dl>
+          <div class="chips"><span class="chip">TypeScript</span><span class="chip">Express 5</span><span class="chip">Neon Postgres</span><span class="chip">Vercel</span><span class="chip">Toss Payments</span><span class="chip">Playwright</span></div>
+        </div>
+      </article>
+
+      <article class="proj" id="p-taxi">
+        <div class="proj-meta">
+          <span class="tag team">Team · PM · Backend</span>
+          <span class="period">2026.10 – 2026.11</span>
+          <h3>SYU Taxi &amp; Delivery Pooling</h3>
+          <span class="role">Campus ride- and order-sharing web service · 5-person team</span>
+          <a class="repo" href="https://github.com/SYU-Taxi-Delivery/taxi-delivery-sharing" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>SYU-Taxi-Delivery</b><small>Code and docs on GitHub ↗</small></span></a>
+        </div>
+        <div class="proj-body">
+          <figure class="shot gallery phones" aria-roledescription="carousel" aria-label="Duyupot: 4 real screens"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">Duyupot · Post details</span><span class="count">1 / 4</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 4" data-url="Duyupot · Post details" data-cap="Post details: origin, destination, departure time, capacity"><img src="img/tx_detail.jpg" alt="Duyupot screen — Post details: origin, destination, departure time, capacity" width="360" height="640"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 4" data-url="Duyupot · Close a pool" data-cap="The author's confirmation dialog for closing a pool"><img src="img/tx_close.jpg" alt="Duyupot screen — The author's confirmation dialog for closing a pool" width="360" height="640" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 4" data-url="Duyupot · My pools" data-cap="My pools: a pool card after leaving it"><img src="img/tx_my.jpg" alt="Duyupot screen — My pools: a pool card after leaving it" width="360" height="902" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 4" data-url="Duyupot · Session expired" data-cap="Prompt to sign in again after the session expires"><img src="img/tx_expired.jpg" alt="Duyupot screen — Prompt to sign in again after the session expires" width="375" height="812" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="Previous screen">‹</button><button type="button" class="nav next" aria-label="Next screen">›</button></div><figcaption><span class="cap" aria-live="polite">Post details: origin, destination, departure time, capacity</span><span class="src">Running app · mobile captures from team QA (Playwright)</span><span class="dots"></span></figcaption></figure><ol class="flow" aria-label="Architecture"><li><b>Next.js UI</b><span>Duyupot</span></li><li class="mine"><b>Spring Boot API</b><span>project skeleton</span></li><li class="mine"><b>School email auth</b><span>@syu.ac.kr · 5 s SMTP</span></li><li><b>Pool &amp; join rules</b><span>capacity · time · duplicate checks</span></li><li><b>MySQL</b><span>JPA · Flyway</span></li><li class="mine"><b>Deploy</b><span>Docker → Render</span></li></ol><p class="flow-note"><i></i>Blue borders mark the parts I owned.</p>
+          <dl class="story"><div><dt>Why</dt><dd>Gathering people in group chats keeps leading to over-full pools, expired posts and confusion over who is in. In this 5-person team project the server enforces those rules automatically.</dd></div><div><dt>Built</dt><dd><ul class="checks">
+            <li><b>PM</b> — coordinated the schedule and roles of a 5-person team, set collaboration rules with PR templates and CI, and agreed and documented API retry rules with the frontend</li>
+            <li><b>Design &amp; auth</b> — first design and implementation of the project skeleton and of the sign-up and login API verified by school email (@syu.ac.kr)</li>
+            <li><b>Reliability &amp; performance</b> — capped the endless SMTP wait with a 5-second timeout, moved bcrypt outside the lock, removed N+1 queries</li>
+            <li><b>Consistency &amp; deploy</b> — fixed transaction consistency for closing and cancelling, multi-stage Dockerfile (deployed on Render)</li>
+          </ul></dd></div><div><dt>Gained</dt><dd><div class="metrics"><div class="metric"><strong>20 / 49</strong>backend commits written</div><div class="metric"><strong>5 people</strong>team PM</div><div class="metric"><strong>∞ → 5 s</strong>SMTP wait capped</div></div></dd></div><div><dt>Lost</dt><dd>Comments, password reset and the admin screens were not connected to the real API in time and remain on mock responses.</dd></div><div><dt>Learned</dt><dd>For five people to mesh, agreements have to live in documents and CI. External dependencies (SMTP) need a timeout by default so one request can't stall everything.</dd></div></dl>
+          <div class="chips"><span class="chip">Java 17</span><span class="chip">Spring Boot</span><span class="chip">JPA</span><span class="chip">MySQL</span><span class="chip">Flyway</span><span class="chip">Testcontainers</span><span class="chip">Docker</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="band" id="skills">
+  <div class="wrap">
+    <div class="sec-head"><h2>Skills</h2></div>
+    <dl class="skills">
+      <div><dt>Languages</dt><dd>Python, Java, TypeScript, JavaScript, SQL</dd></div>
+      <div><dt>Backend</dt><dd>FastAPI, Spring Boot, Spring Data JPA, Spring Security, Node.js, Express</dd></div>
+      <div><dt>Web</dt><dd>React, Vite, Next.js</dd></div>
+      <div><dt>Design</dt><dd>Product requirements (PRD), ERD (Mermaid)</dd></div>
+      <div><dt>Data &amp; quant</dt><dd>pandas, numpy, yfinance, ccxt, factor models, ridge regression, portfolio optimization</dd></div>
+      <div><dt>DB</dt><dd>PostgreSQL(RLS, Neon), MySQL, Flyway, Alembic</dd></div>
+      <div><dt>Testing</dt><dd>pytest, JUnit 5, Mockito, Testcontainers, Vitest, Playwright</dd></div>
+      <div><dt>Infrastructure</dt><dd>Docker, GitHub Actions, Vercel, Render, AWS ECR, launchd, systemd</dd></div>
+      <div><dt>AI tools</dt><dd>Claude Code, Codex (pair programming, code review)</dd></div>
+      <div><dt>External APIs</dt><dd>Gemini, Stripe, Toss Payments, Binance, Bithumb, SEC EDGAR, FRED, KRX, OpenDART</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head"><h2>Education &amp; Awards</h2></div>
+    <div class="edu">
+      <span class="period">Enrolled</span>
+      <div><b>Sahmyook University, Computer Software Engineering</b><p>3rd year</p></div>
+    </div>
+    <div class="edu">
+      <span class="period">2026.11</span>
+      <div><b>Gwayookton Excellence Award (3rd place)</b><p>Joint idea-thon of Sahmyook University and Seoul National University of Science and Technology · GigSplitter (planning, ERD, frontend–backend integration)</p></div>
+    </div>
+  </div>
+</section>
+
+<dialog class="lightbox" id="lightbox" aria-label="Enlarged screen"><img alt=""></dialog>
+
+<footer>
+  <div class="wrap">Soomin Seok · seoksoomin2003@gmail.com · github.com/seoksoomin2003-prog</div>
+</footer>
+
+<script>
+/* Screenshot carousels: one screen at a time, ‹ › buttons, dots, swipe or arrow keys. */
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.gallery').forEach(g => {
+    const track = g.querySelector('.slides'), slides = [...track.children], n = slides.length;
+    const url = g.querySelector('.bar .url'), count = g.querySelector('.count'), cap = g.querySelector('.cap');
+    let i = 0, settleT = 0;
+    const dots = slides.map((_, k) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.setAttribute('aria-label', 'Screen ' + (k + 1));
+      b.addEventListener('click', () => go(k));
+      g.querySelector('.dots').appendChild(b);
+      return b;
+    });
+    function show(k) {
+      i = k;
+      url.textContent = slides[k].dataset.url; cap.textContent = slides[k].dataset.cap;
+      count.textContent = (k + 1) + ' / ' + n;
+      dots.forEach((b, j) => b.setAttribute('aria-current', j === k));
+    }
+    function go(k) {
+      k = (k + n) % n;
+      track.scrollTo({ left: k * track.clientWidth, behavior: reduce ? 'auto' : 'smooth' });
+      show(k);
+    }
+    g.querySelector('.prev').addEventListener('click', () => go(i - 1));
+    g.querySelector('.next').addEventListener('click', () => go(i + 1));
+    track.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(i - 1); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); go(i + 1); }
+    });
+    track.addEventListener('scroll', () => { // swipes and trackpad scrolls
+      clearTimeout(settleT);
+      settleT = setTimeout(() => { const k = Math.round(track.scrollLeft / track.clientWidth); if (k !== i && k >= 0 && k < n) show(k); }, 90);
+    }, { passive: true });
+    new ResizeObserver(() => { track.scrollLeft = i * track.clientWidth; }).observe(track);
+    show(0);
+  });
+})();
+/* Click a screenshot to see it full size; click again or press Esc to close. */
+(() => {
+  const lb = document.getElementById('lightbox');
+  if (!lb || !lb.showModal) return;
+  const big = lb.querySelector('img');
+  document.querySelectorAll('.shot img').forEach(img => img.addEventListener('click', () => {
+    big.src = img.currentSrc || img.src; big.alt = img.alt; lb.showModal();
+  }));
+  lb.addEventListener('click', () => lb.close());
+})();
+</script>
+<script>
+/* Interest network: interests → projects → (tech stack ring, quant concept ring), placed on rings in 3D
+   and drawn on a 2D canvas with perspective. Drag or arrow keys rotate; hover shows a node's paths.
+   Labels are placed front-to-back and skipped when they would overlap one already drawn. */
+(() => {
+  const cv = document.getElementById('net');
+  if (!cv || !cv.getContext) return;
+  const ctx = cv.getContext('2d');
+  const cap = document.getElementById('net-cap');
+  const touch = matchMedia('(pointer: coarse)').matches;
+  if (touch) cap.innerHTML = 'Swipe sideways to rotate. Spread two fingers or use the + button to zoom; once zoomed, drag with one finger or use the arrows at bottom left to look around (press ↺ to rotate again). Tap a node to see its links, and tap a project node again to jump to its card. The first button at bottom right toggles full screen.';
+  const capDefault = cap.innerHTML;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const INTERESTS = [
+    ['be', 'Backend', 'servers where data must not be wrong: payments, auth, concurrency'],
+    ['qu', 'Quant', 'scoring stocks and coins with quantitative models and testing trading rules'],
+    ['ds', 'Data systems', 'data flows whose collection, records and checks can be reproduced'],
+  ];
+  const PROJECTS = [
+    ['qt', 'Quant Terminal', 'US &amp; Korean stock recommendation system', 'p-quant'],
+    ['hz', 'Horizon', 'Binance spot & futures bot + direction predictor', 'p-horizon'],
+    ['qb', 'Quantum Bithumb', 'Bithumb KRW spot trading bot', 'p-bithumb'],
+    ['ar', 'ArborAI', 'AI quoting & operations SaaS for tree services', 'p-arbor'],
+    ['uc', 'UniConnect', 'Sponsorship matching for student groups & brands (team)', 'p-uni'],
+    ['tx', 'Taxi & Delivery Pooling', 'Campus pooling service (team · PM)', 'p-taxi'],
+    ['gs', 'GigSplitter', 'Bulk-buy splitting & settlement app (team · Gwayookton award)', 'p-gig'],
+  ];
+  const I2P = { be: ['hz', 'ar', 'uc', 'tx', 'gs'], qu: ['qt', 'hz', 'qb'], ds: ['qt', 'hz', 'uc'] };
+  // Every entry of the resume's skills table, grouped as there, with the projects that use it.
+  const TECH = [
+    ['py', 'Python', 'Language', ['qt', 'hz', 'qb', 'ar']],
+    ['java', 'Java', 'Language', ['tx']],
+    ['ts', 'TypeScript', 'Language', ['uc', 'ar', 'gs']],
+    ['js', 'JavaScript', 'Language', ['qt', 'hz', 'gs']],
+    ['sql', 'SQL', 'Language', ['ar', 'uc', 'tx']],
+    ['fa', 'FastAPI', 'Backend', ['ar']],
+    ['sb', 'Spring Boot', 'Backend', ['tx']],
+    ['jpa', 'Spring Data JPA', 'Backend', ['tx']],
+    ['ssec', 'Spring Security', 'Backend', ['tx']],
+    ['node', 'Node.js', 'Backend', ['uc', 'gs']],
+    ['ex', 'Express', 'Backend', ['uc']],
+    ['nx', 'Next.js', 'Web', ['ar']],
+    ['rx', 'React', 'Web', ['uc', 'gs']],
+    ['vite', 'Vite', 'Web', ['uc', 'gs']],
+    ['erd', 'ERD & PRD design', 'Design', ['gs']],
+    ['pd', 'pandas', 'Data', ['qt', 'hz', 'qb']],
+    ['np', 'numpy', 'Data', ['qt', 'hz', 'qb']],
+    ['yf', 'yfinance', 'Data', ['qt']],
+    ['cx', 'ccxt', 'Data', ['hz']],
+    ['pg', 'PostgreSQL', 'DB', ['ar', 'uc']],
+    ['rls', 'RLS', 'DB', ['ar']],
+    ['neon', 'Neon', 'DB', ['uc']],
+    ['my', 'MySQL', 'DB', ['tx']],
+    ['fw', 'Flyway', 'DB', ['tx']],
+    ['al', 'Alembic', 'DB', ['ar']],
+    ['pt', 'pytest', 'Testing', ['qt', 'hz', 'ar']],
+    ['ju', 'JUnit 5', 'Testing', ['tx']],
+    ['mk', 'Mockito', 'Testing', ['tx']],
+    ['tc', 'Testcontainers', 'Testing', ['tx']],
+    ['vt', 'Vitest', 'Testing', ['uc']],
+    ['pw', 'Playwright', 'Testing', ['ar', 'uc']],
+    ['dk', 'Docker', 'Infrastructure', ['ar', 'tx']],
+    ['gha', 'GitHub Actions', 'Infrastructure', ['ar', 'tx']],
+    ['vc', 'Vercel', 'Infrastructure', ['uc', 'gs']],
+    ['rd', 'Render', 'Infrastructure', ['tx']],
+    ['ecr', 'AWS ECR', 'Infrastructure', ['ar']],
+    ['ec2', 'AWS EC2', 'Infrastructure', ['qb']],
+    ['ld', 'launchd', 'Infrastructure', ['qt']],
+    ['sd', 'systemd', 'Infrastructure', ['hz', 'qb']],
+    ['cc', 'Claude Code', 'AI tools', ['qt', 'hz', 'qb', 'ar', 'gs']],
+    ['cdx', 'Codex', 'AI tools', ['qt', 'hz', 'qb', 'ar']],
+    ['gm', 'Gemini', 'External API', ['ar', 'gs']],
+    ['stp', 'Stripe', 'External API', ['ar']],
+    ['toss', 'Toss Payments', 'External API', ['uc']],
+    ['bnc', 'Binance', 'External API', ['hz']],
+    ['bth', 'Bithumb', 'External API', ['qb']],
+    ['edgar', 'SEC EDGAR', 'External API', ['qt']],
+    ['fred', 'FRED', 'External API', ['qt']],
+    ['krx', 'KRX', 'External API', ['qt']],
+    ['dart', 'OpenDART', 'External API', ['qt']],
+  ];
+  // Quant ideas the projects rely on, whether or not they are software.
+  const QUANT = [
+    ['fac', 'Factor model', 'momentum, quality, value and low-volatility factors summed as z-scores', ['qt', 'hz']],
+    ['ridge', 'Ridge regression', 'direction model with an L2 penalty against overfitting', ['hz']],
+    ['opt', 'Portfolio optimization', 'weights from expected return − risk − trading cost, solved in closed form', ['hz']],
+    ['ic', 'IC (information coefficient)', 'signal strength as the correlation of predictions with actual returns', ['hz']],
+    ['beta', 'Beta & covariance', 'risk model with BTC beta as a factor', ['hz']],
+    ['wf', 'Walk-forward validation', 'retrain monthly on past data only and test on the next period', ['hz']],
+    ['prereg', 'Pre-registration', 'pass/fail criteria fixed in writing before seeing results', ['qt', 'hz']],
+    ['leak', 'Look-ahead leak prevention', 'tests that no value unknown at the time slips in', ['qt', 'hz']],
+    ['btest', 'Backtest', '5-year performance against a challenger model and an SPY baseline', ['qt']],
+    ['regime', 'Market regime detection', 'ADX/ATR regimes, BTC regime, bear-market filter', ['qt', 'hz', 'qb']],
+    ['atr', 'ATR position sizing', 'smaller positions when volatility is higher', ['qt', 'hz', 'qb']],
+    ['dd', 'Drawdown control', 'cut risk and stop trading as drawdown grows', ['hz', 'qb']],
+    ['cost', 'Slippage & costs', 'estimate the fill price from the order book and skip orders over the limit', ['hz', 'qb']],
+    ['ind', 'Technical indicators', 'EMA · RSI · MACD · ADX · Supertrend', ['qb', 'hz']],
+    ['exit', 'Partial exits & trailing', 'R-multiple partial take-profits and an ATR trailing stop', ['qb', 'hz']],
+    ['perp', 'Perpetuals & funding', 'futures trading that accounts for leverage, liquidation price and funding', ['hz']],
+    ['mn', 'Market neutral (long/short)', 'testing market-relative predictions as long/short baskets', ['hz']],
+    ['pi', 'Interval calibration', 'checking that the 80% price range really contains 80%', ['qt']],
+  ];
+
+  const nodes = [], byId = {}, edges = [];
+  const add = (id, layer, label, extra) => {
+    const n = Object.assign({ id, layer, label, up: [], down: [] }, extra);
+    nodes.push(n); byId[id] = n;
+  };
+  INTERESTS.forEach(([id, l, desc]) => add(id, 0, l, { desc }));
+  PROJECTS.forEach(([id, l, desc, href]) => add(id, 1, l, { desc, href }));
+  TECH.forEach(([id, l, group]) => add(id, 2, l, { group }));
+  QUANT.forEach(([id, l, desc]) => add(id, 3, l, { desc }));
+  const link = (a, b) => { edges.push([byId[a], byId[b]]); byId[a].down.push(byId[b]); byId[b].up.push(byId[a]); };
+  Object.entries(I2P).forEach(([i, ps]) => ps.forEach(p => link(i, p)));
+  TECH.forEach(([id, , , ps]) => ps.forEach(p => link(p, id)));
+  QUANT.forEach(([id, , , ps]) => ps.forEach(p => link(p, id)));
+
+  // Placement: projects evenly on a ring; every other ring keeps its nodes near the projects they link to.
+  const TAU = Math.PI * 2;
+  const RING = [0.62, 1.0, 1.55, 1.2], LAYER_Y = [-1.6, -0.5, 0.72, 1.78], SIZE = [8.5, 6.8, 3.3, 4.6];
+  const mean = list => Math.atan2(list.reduce((s, n) => s + Math.sin(n.a), 0), list.reduce((s, n) => s + Math.cos(n.a), 0));
+  const wrap = a => Math.atan2(Math.sin(a), Math.cos(a));
+  PROJECTS.forEach(([id], k) => { byId[id].a = k * TAU / PROJECTS.length; });
+  const spread = (list, from, span, jitters) => {
+    const center = mean(list.flatMap(n => n.up.length ? n.up : n.down));
+    list.forEach(n => { n.m = wrap(mean(from(n)) - center); });
+    list.sort((a, b) => a.m - b.m).forEach((n, k) => {
+      n.a = center + (span >= TAU ? k * span / list.length : -span / 2 + (k + 0.5) * span / list.length);
+      n.jy = jitters[k % jitters.length];
+    });
+  };
+  spread(nodes.filter(n => n.layer === 0), n => n.down, TAU, [0]);
+  spread(nodes.filter(n => n.layer === 2), n => n.up, TAU, [-0.16, 0.02, 0.2]);
+  spread(nodes.filter(n => n.layer === 3), n => n.up, TAU * 0.7, [-0.1, 0.1]);
+  nodes.forEach(n => {
+    n.x = RING[n.layer] * Math.cos(n.a);
+    n.z = RING[n.layer] * Math.sin(n.a);
+    n.y = LAYER_Y[n.layer] + (n.jy || 0);
+  });
+
+  let W = 0, H = 0, dpr = 1, S = 100, cy = 0, font = 'sans-serif', col = {};
+  let narrow = false, padTop = 72, padBot = 40, ctrl = [0, 0, 0, 0], ext = [-1, 1, -1, 1], extTilt = NaN;
+  // Unit-scale extent [xmin, xmax, ymin, ymax] of every node over a full turn at this tilt (perspective included).
+  function extent(t) {
+    const ct = Math.cos(t), st = Math.sin(t), D = 5.4, e = [Infinity, -Infinity, Infinity, -Infinity];
+    for (let k = 0; k < 36; k++) {
+      const a = k * Math.PI / 18, c = Math.cos(a), s = Math.sin(a);
+      for (const n of nodes) {
+        const x1 = n.x * c + n.z * s, z1 = -n.x * s + n.z * c;
+        const y2 = n.y * ct - z1 * st, f = D / (D + n.y * st + z1 * ct);
+        e[0] = Math.min(e[0], x1 * f); e[1] = Math.max(e[1], x1 * f);
+        e[2] = Math.min(e[2], y2 * f); e[3] = Math.max(e[3], y2 * f);
+      }
+    }
+    return e;
+  }
+  const stage = cv.parentElement, zoomBox = stage.querySelector('.net-zoom');
+  const TILT_MIN = 0.3, TILT_MAX = 0.9;
+  const clampTilt = v => Math.max(TILT_MIN, Math.min(TILT_MAX, v));
+  let rotY = 0.9, tilt = 0.44, hover = null, pinned = false, over = false, visible = true, last = 0, colorAge = 1e9;
+  let zoom = 1, zoomT = 1, panX = 0, panY = 0, panXT = 0, panYT = 0, box = [0, 0, 0, 0];
+  const pulses = [];
+  let spawnAt = 0;
+
+  function readColors() {
+    const cs = getComputedStyle(document.documentElement);
+    const v = k => cs.getPropertyValue(k).trim();
+    col = { i: v('--accent'), p: v('--violet'), t: v('--mute'), q: v('--ok'), fg: v('--fg'), sub: v('--sub'), bg: v('--band') };
+    font = getComputedStyle(document.body).fontFamily;
+  }
+  const nodeColor = n => [col.i, col.p, col.t, col.q][n.layer];
+  function resize() {
+    const r = cv.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = r.width; H = r.height;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    // Keep the graph clear of the legend at the top and, on phones, of the button row at the bottom.
+    const head = stage.querySelector('.net-head').getBoundingClientRect(), zr = zoomBox.getBoundingClientRect();
+    narrow = W < 520;
+    padTop = Math.max(72, head.bottom - r.top + 43);
+    padBot = zr.width > zr.height ? Math.max(40, r.bottom - zr.top + 10) : 40; // buttons in a row (phones) take the bottom strip
+    ctrl = [zr.left - r.left - 4, zr.top - r.top - 4, zr.width + 8, zr.height + 8];
+    // Size and centre from where the nodes really go over a whole turn, so the graph sits in the
+    // middle of the free area at any box size (inline, full screen, phone).
+    ext = extent(tilt); extTilt = tilt;
+    S = Math.max(55, Math.min(W / (narrow ? 4.15 : 3.75), (W - (narrow ? 16 : 60)) / (ext[1] - ext[0]), (H - padTop - padBot) / (ext[3] - ext[2])));
+  }
+
+  function project() {
+    const c = Math.cos(rotY), s = Math.sin(rotY), ct = Math.cos(tilt), st = Math.sin(tilt);
+    if (tilt !== extTilt) { ext = extent(tilt); extTilt = tilt; } // tilting by drag moves the centre smoothly
+    const D = 5.4, cx = W / 2 - S * (ext[0] + ext[1]) / 2;
+    cy = (padTop + H - padBot) / 2 - S * (ext[2] + ext[3]) / 2;
+    box = [Infinity, Infinity, -Infinity, -Infinity];
+    for (const n of nodes) {
+      const x1 = n.x * c + n.z * s, z1 = -n.x * s + n.z * c;
+      const y2 = n.y * ct - z1 * st, z2 = n.y * st + z1 * ct;
+      const f = D / (D + z2);
+      const bx = cx + x1 * S * f, by = cy + y2 * S * f;
+      if (bx < box[0]) box[0] = bx; if (by < box[1]) box[1] = by;
+      if (bx > box[2]) box[2] = bx; if (by > box[3]) box[3] = by;
+      n.sx = W / 2 + (bx - W / 2) * zoom + panX; n.sy = H / 2 + (by - H / 2) * zoom + panY; n.depth = z2;
+      n.fade = Math.max(0.2, Math.min(1, 0.8 - z2 * 0.45));
+      n.r = SIZE[n.layer] * f * Math.max(0.8, S / 115) * Math.sqrt(zoom);
+    }
+  }
+
+  function related(n) {
+    const set = new Set([n]);
+    if (n.layer === 0) n.down.forEach(p => { set.add(p); p.down.forEach(t => set.add(t)); });
+    else if (n.layer === 1) { n.up.forEach(x => set.add(x)); n.down.forEach(x => set.add(x)); }
+    else n.up.forEach(p => { set.add(p); p.up.forEach(i => set.add(i)); });
+    return set;
+  }
+  const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+  function spawn() {
+    let path;
+    if (hover && hover.layer === 0) { const p = pick(hover.down); path = [hover, p, pick(p.down)]; }
+    else if (hover && hover.layer === 1) path = [pick(hover.up), hover, pick(hover.down)];
+    else if (hover) { const p = pick(hover.up); path = [pick(p.up), p, hover]; }
+    else { const i = pick(nodes.filter(n => n.layer === 0)), p = pick(i.down); path = [i, p, pick(p.down)]; }
+    if (path.every(Boolean)) pulses.push({ path, t: 0, v: 0.0011 + Math.random() * 0.0006 });
+  }
+
+  // Label geometry: interests above the node, projects to the outside, ring nodes below.
+  // flip = the fallback spot: interests go below, projects to the inner side, ring nodes above.
+  function labelBox(n, flip) {
+    const size = n.layer === 0 ? 13.5 : n.layer === 1 ? 12.5 : n.layer === 3 ? 11 : 10.5;
+    const weight = n.layer === 2 ? 500 : n.layer === 3 ? 600 : 700;
+    ctx.font = `${weight} ${size}px ${font}`;
+    const w = ctx.measureText(n.label).width, h = size + 2;
+    let x = n.sx, y = n.sy, align = 'center', base = 'top';
+    const below = n.layer === 0 ? flip : !flip;
+    if (n.layer === 1) {
+      base = 'middle';
+      if ((n.sx >= W / 2) !== flip) { align = 'left'; x += n.r + 6; } else { align = 'right'; x -= n.r + 6; }
+    } else if (below) y += n.r + (n.layer === 0 ? 5 : 2);
+    else { base = 'bottom'; y -= n.r + (n.layer === 0 ? 5 : 2); }
+    const left = align === 'center' ? x - w / 2 : align === 'left' ? x : x - w;
+    const top = base === 'top' ? y : base === 'bottom' ? y - h : y - h / 2;
+    return { font: ctx.font, x, y, align, base, rect: [left - 2, top - 1, w + 4, h + 2] };
+  }
+  const hits = (a, b) => a[0] < b[0] + b[2] && b[0] < a[0] + a[2] && a[1] < b[1] + b[3] && b[1] < a[1] + a[3];
+
+  function drawLabels(hot) {
+    const cands = [];
+    for (const n of nodes) {
+      let pri, alpha;
+      if (hot) {
+        if (hot.has(n)) { pri = n === hover ? 0 : n.layer < 2 ? 1 : 2; alpha = 1; }
+        else if (n.layer < 2) { pri = 6; alpha = 0.16; }
+        else continue;
+      } else if (n.layer < 2) { pri = n.layer; alpha = Math.max(0.45, n.fade); }
+      else if (n.layer === 3 && n.fade >= (zoom > 1.3 ? 0.3 : 0.45)) { pri = 2; alpha = Math.max(0.6, n.fade); }
+      else if (n.layer === 2 && n.fade >= (zoom > 1.3 ? 0.4 : 0.62)) { pri = 3; alpha = Math.max(0.5, n.fade); }
+      else continue;
+      cands.push({ n, pri, alpha });
+    }
+    cands.sort((a, b) => a.pri - b.pri || a.n.depth - b.n.depth);
+    const placed = [[0, 0, W, padTop - 38], ctrl];               // header strip, zoom buttons
+    if (zoomT > 1.02) placed.push([0, H - 126, 126, 126]);      // arrow pad
+    for (const { n, alpha } of cands) {
+      const fits = L => { const r = L.rect; return r[0] >= 2 && r[0] + r[2] <= W - 2 && r[1] + r[3] <= H - 2 && !placed.some(p => hits(p, r)); };
+      let L = labelBox(n, false);
+      if (!fits(L)) { L = labelBox(n, true); if (!fits(L)) continue; }
+      placed.push(L.rect);
+      ctx.font = L.font; ctx.textAlign = L.align; ctx.textBaseline = L.base;
+      ctx.globalAlpha = alpha;
+      ctx.lineWidth = 3.5; ctx.lineJoin = 'round'; ctx.strokeStyle = col.bg;
+      ctx.strokeText(n.label, L.x, L.y);
+      ctx.fillStyle = n.layer === 2 ? col.sub : col.fg;
+      ctx.fillText(n.label, L.x, L.y);
+    }
+  }
+
+  function draw(dt) {
+    if ((colorAge += dt) > 600) { readColors(); colorAge = 0; }
+    project();
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    const hot = hover ? related(hover) : null;
+
+    ctx.lineCap = 'round';
+    for (const [a, b] of edges) {
+      const on = hot && hot.has(a) && hot.has(b);
+      const fade = Math.min(a.fade, b.fade);
+      ctx.globalAlpha = hot ? (on ? 0.85 : 0.035) : (a.layer === 0 ? 0.32 : 0.16) * fade;
+      ctx.strokeStyle = a.layer === 0 ? col.i : b.layer === 3 ? col.q : col.p;
+      ctx.lineWidth = on ? 1.5 : 1;
+      ctx.beginPath(); ctx.moveTo(a.sx, a.sy); ctx.lineTo(b.sx, b.sy); ctx.stroke();
+    }
+
+    for (let k = pulses.length - 1; k >= 0; k--) {
+      const q = pulses[k];
+      q.t += q.v * dt;
+      if (q.t >= 2) { pulses.splice(k, 1); continue; }
+      const seg = q.t < 1 ? 0 : 1, u = q.t - seg, a = q.path[seg], b = q.path[seg + 1];
+      ctx.globalAlpha = 0.9 * Math.min(a.fade, b.fade);
+      ctx.fillStyle = seg === 0 ? col.i : b.layer === 3 ? col.q : col.p;
+      ctx.beginPath(); ctx.arc(a.sx + (b.sx - a.sx) * u, a.sy + (b.sy - a.sy) * u, 2.2, 0, TAU); ctx.fill();
+    }
+
+    for (const n of nodes.slice().sort((a, b) => b.depth - a.depth)) {
+      const alpha = hot && !hot.has(n) ? 0.12 : hot ? 1 : n.fade;
+      const c = nodeColor(n);
+      if (n.layer === 0) {
+        ctx.globalAlpha = alpha * 0.22; ctx.fillStyle = c;
+        ctx.beginPath(); ctx.arc(n.sx, n.sy, n.r * 2.1, 0, TAU); ctx.fill();
+      }
+      ctx.globalAlpha = alpha; ctx.fillStyle = c;
+      ctx.beginPath(); ctx.arc(n.sx, n.sy, n.r, 0, TAU); ctx.fill();
+      ctx.lineWidth = 1.5; ctx.strokeStyle = col.bg; ctx.stroke();
+      if (n === hover) {
+        ctx.lineWidth = 2; ctx.strokeStyle = col.fg;
+        ctx.beginPath(); ctx.arc(n.sx, n.sy, n.r + 3.5, 0, TAU); ctx.stroke();
+      }
+    }
+    drawLabels(hot);
+    ctx.globalAlpha = 1;
+  }
+
+  let raf = 0;
+  const start = () => { if (!raf) raf = requestAnimationFrame(tick); };
+  function tick(t) {
+    raf = 0;
+    const dt = Math.min(50, t - (last || t)); last = t;
+    if (!reduce && !dragging && !hover && !over) rotY += dt * 0.0001;
+    const ease = Math.min(1, dt / 90);
+    if (!pinch) clampPan(); // rotation changes the layout's extent
+    zoom += (zoomT - zoom) * ease; panX += (panXT - panX) * ease; panY += (panYT - panY) * ease;
+    if (!reduce && t > spawnAt) { spawn(); spawnAt = t + (hover ? 150 : 220); }
+    draw(dt);
+    if (visible) start(); else last = 0;
+  }
+
+  function describe(n) {
+    const names = list => list.map(x => x.label).join(', ');
+    if (!n) { cap.innerHTML = capDefault; return; }
+    if (n.layer === 0) {
+      const quant = [...new Set(n.down.flatMap(p => p.down.filter(x => x.layer === 3)))];
+      cap.innerHTML = `<b>${n.label}</b> · ${n.desc}<br>Projects: ${names(n.down)}` +
+        (n.id === 'qu' ? `<br>Quant concepts: ${names(quant)}` : '');
+    } else if (n.layer === 1) {
+      const tech = n.down.filter(x => x.layer === 2), quant = n.down.filter(x => x.layer === 3);
+      cap.innerHTML = `<b>${n.label}</b> · ${n.desc} · click to open its card<br>Tech: ${names(tech)}` +
+        (quant.length ? `<br>Quant concepts: ${names(quant)}` : '');
+    } else if (n.layer === 2) cap.innerHTML = `<b>${n.label}</b> · ${n.group}<br>Used in: ${names(n.up)}`;
+    else cap.innerHTML = `<b>${n.label}</b> · Quant concept — ${n.desc}<br>Used in: ${names(n.up)}`;
+  }
+  function hit(e) {
+    const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+    const slop = e.pointerType && e.pointerType !== 'mouse' ? 9 : 0; // fingers are less precise than a cursor
+    let best = null, bestD = Infinity;
+    for (const n of nodes) {
+      const d = Math.hypot(n.sx - x, n.sy - y) - n.r - (n.layer >= 2 ? 5 : 6) + n.depth;
+      if (Math.hypot(n.sx - x, n.sy - y) < n.r + (n.layer >= 2 ? 7 : 8) + slop && d < bestD) { best = n; bestD = d; }
+    }
+    return best;
+  }
+  function setHover(n) {
+    if (n === hover) return;
+    hover = n; describe(n);
+    cv.classList.toggle('pointing', !!(n && n.href));
+    if (reduce) draw(0);
+  }
+  function go(n) {
+    const el = document.getElementById(n.href);
+    if (!el) return;
+    el.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    el.classList.add('flash');
+    setTimeout(() => el.classList.remove('flash'), 1800);
+  }
+
+  // Zoom and pan. Targets ease in over a few frames; drags and pinches apply at once.
+  const ZMIN = 0.6, ZMAX = 3.2;
+  const zoomOut = document.getElementById('net-zoom-level');
+  // Pan far enough that every node (and the labels around it) can be brought on screen at any
+  // zoom, but no further: the range is where the layout's left/right (top/bottom) edge meets the
+  // matching side of the canvas. 0 always stays in range, so the default view is never clamped.
+  function panRange(lo, hi, size, padLo, padHi) {
+    const a = size - padHi - size / 2 - (hi - size / 2) * zoomT;  // far edge reaches the far side
+    const b = padLo - size / 2 - (lo - size / 2) * zoomT;         // near edge reaches the near side
+    return [Math.min(a, b, 0), Math.max(a, b, 0)];
+  }
+  function clampPan() {
+    if (!isFinite(box[0])) return;
+    const [x0, x1] = panRange(box[0], box[2], W, 70, 70);
+    const [y0, y1] = panRange(box[1], box[3], H, padTop - 16, padBot);
+    panXT = Math.max(x0, Math.min(x1, panXT)); panYT = Math.max(y0, Math.min(y1, panYT));
+  }
+  function settle(now) {
+    zoomOut.textContent = Math.round(zoomT * 100) + '%';
+    const zoomed = zoomT > 1.02;
+    stage.classList.toggle('zoomed', zoomed);
+    cv.style.touchAction = zoomed ? 'none' : 'pan-y'; // zoomed in, a one-finger drag moves the graph
+    if (now || reduce) { zoom = zoomT; panX = panXT; panY = panYT; }
+    if (reduce) draw(0);
+  }
+  function zoomAt(px, py, z, now) {
+    z = Math.max(ZMIN, Math.min(ZMAX, z));
+    const k = z / zoomT; // keep the point under (px, py) where it is
+    panXT = px - W / 2 - (px - W / 2 - panXT) * k;
+    panYT = py - H / 2 - (py - H / 2 - panYT) * k;
+    zoomT = z; clampPan(); settle(now);
+  }
+  const resetView = () => { zoomT = 1; panXT = 0; panYT = 0; settle(); };
+  // Arrow pad and keys: "up" shows what is above, so the graph itself moves down.
+  function panBy(dx, dy) { panXT += dx; panYT += dy; clampPan(); settle(); }
+  const PAN = { up: [0, 1], down: [0, -1], left: [1, 0], right: [-1, 0] };
+  document.querySelectorAll('.net-pan button').forEach(b => b.addEventListener('click', () => {
+    const [x, y] = PAN[b.dataset.p]; panBy(x * 90, y * 90);
+  }));
+
+  // Full screen toggle. Uses the Fullscreen API where allowed (it can be blocked inside
+  // an iframe or unsupported on iPhone), and falls back to a fixed overlay either way.
+  const fullBtn = stage.querySelector('.net-full');
+  const isFull = () => stage.classList.contains('is-full');
+  function setFull(on) {
+    stage.classList.toggle('is-full', on);
+    document.documentElement.classList.toggle('net-lock', on);
+    fullBtn.setAttribute('aria-pressed', on);
+    fullBtn.setAttribute('aria-label', on ? 'Exit full screen' : 'View full screen');
+    fullBtn.title = on ? 'Exit full screen (Esc)' : 'Full screen (F)';
+    resetView(); resize(); draw(0);
+  }
+  function toggleFull() {
+    if (isFull()) {
+      if (document.fullscreenElement) document.exitFullscreen().catch(() => {});
+      setFull(false);
+    } else {
+      setFull(true);
+      if (stage.requestFullscreen) stage.requestFullscreen().catch(() => {});
+    }
+    cv.focus({ preventScroll: true });
+  }
+  document.addEventListener('fullscreenchange', () => { if (!document.fullscreenElement && isFull()) setFull(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && isFull() && !document.fullscreenElement) setFull(false); });
+  document.querySelectorAll('.net-zoom button').forEach(b => b.addEventListener('click', () => {
+    if (b.dataset.z === 'in') zoomAt(W / 2, H / 2, zoomT * 1.3);
+    else if (b.dataset.z === 'out') zoomAt(W / 2, H / 2, zoomT / 1.3);
+    else if (b.dataset.z === 'full') toggleFull();
+    else resetView();
+  }));
+  cv.addEventListener('wheel', e => {
+    if (!e.ctrlKey && !e.metaKey) return; // plain scrolling keeps scrolling the page
+    e.preventDefault();
+    const r = cv.getBoundingClientRect();
+    const d = Math.max(-60, Math.min(60, e.deltaY * (e.deltaMode === 1 ? 16 : 1)));
+    zoomAt(e.clientX - r.left, e.clientY - r.top, zoomT * Math.exp(-d * 0.006), true);
+  }, { passive: false });
+  cv.addEventListener('dblclick', e => { if (!hit(e)) resetView(); });
+
+  const pts = new Map();
+  let down = null, dragging = false, pinch = null;
+  cv.addEventListener('pointerdown', e => {
+    pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pts.size === 2) {
+      const [a, b] = [...pts.values()], r = cv.getBoundingClientRect();
+      pinch = { d: Math.hypot(a.x - b.x, a.y - b.y) || 1, z: zoomT, mx: (a.x + b.x) / 2 - r.left, my: (a.y + b.y) / 2 - r.top, px: panXT, py: panYT };
+      down = null; dragging = true; cv.classList.add('dragging');
+      return;
+    }
+    // Zoomed in, a drag moves the graph and Shift+drag rotates it; at normal size it is the other way round.
+    down = { x: e.clientX, y: e.clientY, rotY, tilt, px: panXT, py: panYT, pan: (zoomT > 1.02) !== e.shiftKey, id: e.pointerId };
+    dragging = false;
+  });
+  cv.addEventListener('pointermove', e => {
+    if (pts.has(e.pointerId)) pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pinch && pts.size >= 2) {
+      const [a, b] = [...pts.values()], r = cv.getBoundingClientRect();
+      const z = Math.max(ZMIN, Math.min(ZMAX, pinch.z * Math.hypot(a.x - b.x, a.y - b.y) / pinch.d));
+      const mx = (a.x + b.x) / 2 - r.left, my = (a.y + b.y) / 2 - r.top, k = z / pinch.z;
+      panXT = mx - W / 2 - (pinch.mx - W / 2 - pinch.px) * k;
+      panYT = my - H / 2 - (pinch.my - H / 2 - pinch.py) * k;
+      zoomT = z; clampPan(); settle(true);
+      return;
+    }
+    if (down && e.pointerId === down.id) {
+      const dx = e.clientX - down.x, dy = e.clientY - down.y;
+      if (!dragging && Math.hypot(dx, dy) > 5) { dragging = true; cv.classList.add('dragging'); cv.setPointerCapture(e.pointerId); }
+      if (dragging) {
+        if (down.pan) { panXT = down.px + dx; panYT = down.py + dy; clampPan(); settle(true); }
+        else {
+          rotY = down.rotY + dx * 0.008;
+          tilt = clampTilt(down.tilt + dy * 0.004);
+          if (reduce) draw(0);
+        }
+        return;
+      }
+    }
+    if (e.pointerType === 'mouse') { pinned = false; setHover(hit(e)); }
+  });
+  const end = e => {
+    pts.delete(e.pointerId);
+    if (pinch) {
+      if (pts.size < 2) { pinch = null; down = null; dragging = false; cv.classList.remove('dragging'); }
+      return;
+    }
+    if (!down) return;
+    if (!dragging && e.type === 'pointerup') {
+      const n = hit(e);
+      if (e.pointerType === 'mouse') { if (n && n.href) go(n); }
+      else if (n && n === hover && n.href) go(n);
+      else { pinned = !!n; setHover(n); }
+    }
+    down = null; dragging = false; cv.classList.remove('dragging');
+  };
+  cv.addEventListener('pointerup', end);
+  cv.addEventListener('pointercancel', end);
+  cv.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') over = true; });
+  cv.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') { over = false; if (!pinned) setHover(null); } });
+  cv.addEventListener('keydown', e => {
+    if (e.key === '+' || e.key === '=') { e.preventDefault(); zoomAt(W / 2, H / 2, zoomT * 1.3); return; }
+    if (e.key === '-' || e.key === '_') { e.preventDefault(); zoomAt(W / 2, H / 2, zoomT / 1.3); return; }
+    if (e.key === '0') { e.preventDefault(); resetView(); return; }
+    if (e.key === 'f' || e.key === 'F') { e.preventDefault(); toggleFull(); return; }
+    const step = { ArrowLeft: [-0.15, 0], ArrowRight: [0.15, 0], ArrowUp: [0, -0.08], ArrowDown: [0, 0.08] }[e.key];
+    if (!step) return;
+    e.preventDefault();
+    if (zoomT > 1.02 && !e.shiftKey) { panBy(-Math.sign(step[0]) * 70, -Math.sign(step[1]) * 70); return; }
+    rotY += step[0]; tilt = clampTilt(tilt + step[1]);
+    if (reduce) draw(0);
+  });
+
+  const media = matchMedia('(prefers-color-scheme: dark)');
+  const recolor = () => { colorAge = 1e9; if (reduce) draw(0); };
+  media.addEventListener && media.addEventListener('change', recolor);
+  new MutationObserver(recolor).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme', 'class'] });
+  new ResizeObserver(() => { resize(); draw(0); }).observe(cv);
+  resize(); readColors();
+  if (reduce) { draw(0); return; }
+  new IntersectionObserver(([en]) => {
+    visible = en.isIntersecting;
+    if (visible) start();
+  }).observe(cv);
+  start();
+})();
+</script>
+
+
+</html>
