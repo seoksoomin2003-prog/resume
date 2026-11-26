@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-default-lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -12,7 +12,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" hreflang="ko" href="https://seoksoomin2003-prog.github.io/resume/">
 <link rel="alternate" hreflang="en" href="https://seoksoomin2003-prog.github.io/resume/en.html">
-<title>Soomin Seok — Resume</title>
+<script>(function(){var d=document.documentElement,q=/[?&]lang=(en|ko)(?:&|$)/.exec(location.search),l=q?q[1]:(d.getAttribute('data-default-lang')||'ko');d.setAttribute('data-lang',l);if(l==='en')d.classList.add('lang-pending')})()</script>
+<title>석수민 이력서</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
@@ -349,33 +350,41 @@ footer { padding-block: 40px 56px; color: var(--mute); font-size: 13px; }
   a { text-decoration: none; }
   #projects { break-before: page; }
 }
+/* Language switch (한/EN): shown only when scripts run, since the switch needs them. */
+html.lang-pending body { visibility: hidden; }
+.lang { display: none; flex: none; gap: 2px; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: var(--panel); }
+html.js .lang { display: inline-flex; }
+.lang button { min-width: 34px; padding: 6px 10px; border: 0; border-radius: 999px; background: none; color: var(--sub); font: 600 13px/1 var(--font); cursor: pointer; }
+.lang button:hover { color: var(--fg); }
+.lang button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+.lang button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 /* English text runs longer than Korean: tighten page 1 so it still fits on one A4 page. */
 @media print {
-  .intro { font-size: 9.4pt; line-height: 1.5; }
-  .strength p { font-size: 9pt; line-height: 1.45; }
-  .skills div { padding: 2px 0; }
-  .skills dt, .skills dd { font-size: 9.2pt; }
-  section { padding-block: 5px; }
-  h1 { font-size: 23pt; margin: 4px 0 6px; }
-  .facts div { padding: 7px 0; }
-  .edu { padding: 4px 0; }
-  .facts dd { font-size: 9.6pt; }
-  .lead { font-size: 11pt; }
-  .hero { padding-block: 0 10px; }
-  .sec-head { margin-bottom: 5px; }
+  html[lang="en"] .intro { font-size: 9.4pt; line-height: 1.5; }
+  html[lang="en"] .strength p { font-size: 9pt; line-height: 1.45; }
+  html[lang="en"] .skills div { padding: 2px 0; }
+  html[lang="en"] .skills dt, html[lang="en"] .skills dd { font-size: 9.2pt; }
+  html[lang="en"] section { padding-block: 5px; }
+  html[lang="en"] h1 { font-size: 23pt; margin: 4px 0 6px; }
+  html[lang="en"] .facts div { padding: 7px 0; }
+  html[lang="en"] .edu { padding: 4px 0; }
+  html[lang="en"] .facts dd { font-size: 9.6pt; }
+  html[lang="en"] .lead { font-size: 11pt; }
+  html[lang="en"] .hero { padding-block: 0 10px; }
+  html[lang="en"] .sec-head { margin-bottom: 5px; }
 }
 </style>
 
-<nav class="nav" aria-label="Sections">
+<nav class="nav" aria-label="섹션">
   <div class="wrap">
-    <a class="brand" href="#top"><i>S</i><span>Soomin Seok</span></a>
+    <a class="brand" href="#top"><i>S</i><span>석수민</span></a>
     <ul>
-      <li><a href="#about">Strengths</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="./" hreflang="ko" lang="ko">한국어</a></li>
+      <li><a href="#about">강점</a></li>
+      <li><a href="#projects">프로젝트</a></li>
+      <li><a href="#skills">기술</a></li>
+      <li><a href="#education">학력</a></li>
     </ul>
+    <div class="lang" role="group" aria-label="언어 선택"><button type="button" data-lang="ko" lang="ko">한</button><button type="button" data-lang="en" lang="en">EN</button></div>
   </div>
 </nav>
 
@@ -383,69 +392,69 @@ footer { padding-block: 40px 56px; color: var(--mute); font-size: 13px; }
   <div class="wrap">
     <div class="hero-text">
       <span class="eyebrow">Backend · Quant Developer</span>
-      <h1>I'm Soomin Seok,<br>a developer who builds verifiable systems.</h1>
-      <p class="lead">I set the criteria before I see the results, and I build backends that keep their data through failures.</p>
-      <p class="intro">I designed and built a stock recommendation system, crypto trading bots (Binance and Bithumb) and a SaaS for tree-service companies abroad. I use AI coding tools such as Claude Code and Codex as pair programmers to build faster; every design and verification decision is mine. In team projects I led a five-person team as PM and took on the hard backend parts: payments, authentication and concurrency.</p>
+      <h1>검증할 수 있는 시스템을 만드는<br>개발자 석수민입니다.</h1>
+      <p class="lead">결과를 보기 전에 기준부터 정하고, 장애에도 데이터가 남는 백엔드를 만듭니다.</p>
+      <p class="intro">주식 추천 시스템과 코인 자동매매 봇(바이낸스·빗썸), 해외 수목관리 SaaS를 설계·구현했습니다. Claude Code·Codex 같은 AI 코딩 도구를 페어 프로그래머로 활용해 구현 속도를 높였고, 모든 설계와 검증은 제가 맡았습니다. 팀 프로젝트에서는 PM으로 5인 팀을 이끌고, 결제·인증·동시성처럼 백엔드에서 까다로운 부분을 맡았습니다.</p>
       <div class="cta">
-        <a class="btn primary" href="#projects">See projects →</a>
+        <a class="btn primary" href="#projects">프로젝트 보기 →</a>
         <a class="btn" href="https://github.com/seoksoomin2003-prog" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </div>
     <script>document.documentElement.classList.add('js')</script>
     <figure class="net-wrap">
       <div class="net-stage">
-        <img class="net-still" src="img/net_spin_en.webp" alt="A 3D network linking interests → projects → tech and quant, slowly rotating">
-        <canvas id="net" tabindex="0" role="img" aria-label="3D network graph: 3 interests (backend, quant, data systems) link to 7 projects, which link to 50 technologies and 18 quant concepts. Rotate with the arrow keys, zoom with +/−, and toggle full screen with F."></canvas>
+        <img class="net-still" src="img/net_spin.webp" alt="관심사 → 프로젝트 → 기술·퀀트로 이어지는 3D 신경망이 천천히 도는 그림">
+        <canvas id="net" tabindex="0" role="img" aria-label="관심사 3개(백엔드, 퀀트, 데이터 시스템)가 프로젝트 7개로, 프로젝트가 기술 스택 50개와 퀀트 개념 18개로 이어지는 3D 신경망 그래프. 방향키로 돌리고 +/− 키로 확대·축소, F 키로 전체화면을 켜고 끌 수 있습니다."></canvas>
         <div class="net-head">
-          <b>Interests → Projects → Tech · Quant</b>
+          <b>관심사 → 프로젝트 → 기술·퀀트</b>
           <span class="net-legend">
-            <span><i style="background:var(--accent)"></i>Interest</span>
-            <span><i style="background:var(--violet)"></i>Project</span>
-            <span><i style="background:var(--mute)"></i>Tech</span>
-            <span><i style="background:var(--ok)"></i>Quant concept</span>
+            <span><i style="background:var(--accent)"></i>관심사</span>
+            <span><i style="background:var(--violet)"></i>프로젝트</span>
+            <span><i style="background:var(--mute)"></i>기술</span>
+            <span><i style="background:var(--ok)"></i>퀀트 개념</span>
           </span>
         </div>
-        <div class="net-zoom" role="group" aria-label="Zoom the graph">
-          <button type="button" class="net-full" data-z="full" aria-label="View full screen" aria-pressed="false" title="Full screen (F)"><svg class="ic-enter" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><svg class="ic-exit" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg></button>
-          <button type="button" data-z="in" aria-label="Zoom in" title="Zoom in (+)">+</button>
-          <button type="button" data-z="out" aria-label="Zoom out" title="Zoom out (−)">−</button>
-          <button type="button" data-z="reset" aria-label="Reset zoom" title="Reset zoom (0)">↺</button>
+        <div class="net-zoom" role="group" aria-label="그래프 확대·축소">
+          <button type="button" class="net-full" data-z="full" aria-label="전체화면으로 보기" aria-pressed="false" title="전체화면 (F)"><svg class="ic-enter" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><svg class="ic-exit" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5"/></svg></button>
+          <button type="button" data-z="in" aria-label="확대" title="확대 (+)">+</button>
+          <button type="button" data-z="out" aria-label="축소" title="축소 (−)">−</button>
+          <button type="button" data-z="reset" aria-label="원래 크기로" title="원래 크기로 (0)">↺</button>
           <output id="net-zoom-level" aria-live="polite">100%</output>
         </div>
-        <div class="net-pan" role="group" aria-label="Pan the zoomed graph">
-          <button type="button" data-p="up" aria-label="Look up" title="Look up (↑)">↑</button>
-          <button type="button" data-p="left" aria-label="Look left" title="Look left (←)">←</button>
-          <button type="button" data-p="right" aria-label="Look right" title="Look right (→)">→</button>
-          <button type="button" data-p="down" aria-label="Look down" title="Look down (↓)">↓</button>
+        <div class="net-pan" role="group" aria-label="확대한 그래프 이동">
+          <button type="button" data-p="up" aria-label="위쪽 보기" title="위쪽 보기 (↑)">↑</button>
+          <button type="button" data-p="left" aria-label="왼쪽 보기" title="왼쪽 보기 (←)">←</button>
+          <button type="button" data-p="right" aria-label="오른쪽 보기" title="오른쪽 보기 (→)">→</button>
+          <button type="button" data-p="down" aria-label="아래쪽 보기" title="아래쪽 보기 (↓)">↓</button>
         </div>
       </div>
-      <figcaption class="net-cap" id="net-cap" aria-live="polite">Drag to rotate. Zoom with the +/− buttons, ⌘/Ctrl+scroll or a trackpad or phone pinch; once zoomed, drag or use the arrows at bottom left to look around, and Shift+drag to rotate. The full-screen button at bottom right turns full screen on, and pressing it again returns to normal size. Hover a node to see its links; click a project node to jump to its card.</figcaption>
-      <p class="net-nojs">This preview app blocks scripts, so the network only shows as a rotating picture. Open the file in a browser such as Safari or Chrome to rotate it with your finger, zoom in and tap nodes to see their links.</p>
+      <figcaption class="net-cap" id="net-cap" aria-live="polite">드래그해서 돌려 보세요. +/− 버튼, ⌘/Ctrl+스크롤, 트랙패드·휴대폰 핀치로 확대할 수 있고, 확대하면 드래그하거나 왼쪽 아래 화살표로 위아래·양옆을 둘러볼 수 있고, 그때는 Shift+드래그로 돌립니다. 오른쪽 아래 전체화면 버튼으로 전체화면을 켜고, 한 번 더 누르면 원래 크기로 돌아옵니다. 노드에 마우스를 올리면 연결이 보이고, 프로젝트 노드를 누르면 해당 카드로 이동합니다.</figcaption>
+      <p class="net-nojs">이 미리보기 앱은 스크립트를 막아 신경망이 저절로 도는 그림으로만 보입니다. Safari·Chrome 같은 브라우저로 열면 손가락으로 돌리고, 확대하고, 노드를 눌러 연결을 볼 수 있습니다.</p>
     </figure>
     <dl class="facts">
-      <div><dt>School</dt><dd>Sahmyook University, Computer Software Engineering, 3rd year</dd></div>
-      <div><dt>Email</dt><dd>seoksoomin2003@gmail.com</dd></div>
+      <div><dt>소속</dt><dd>삼육대학교 컴퓨터공학과 3학년</dd></div>
+      <div><dt>이메일</dt><dd>seoksoomin2003@gmail.com</dd></div>
       <div><dt>GitHub</dt><dd><span class="gh-host">github.com/</span>seoksoomin2003-prog</dd></div>
-      <div><dt>Interests</dt><dd>Backend · Quant · Data systems</dd></div>
+      <div><dt>관심 분야</dt><dd>백엔드 · 퀀트 · 데이터 시스템</dd></div>
     </dl>
   </div>
 </header>
 
 <section class="band" id="about">
   <div class="wrap">
-    <div class="sec-head"><h2>Strengths</h2></div>
+    <div class="sec-head"><h2>강점</h2></div>
     <div class="strengths">
       <div class="strength">
-        <b>I design the verification first</b>
-        <p>I fix the pass/fail criteria in writing before seeing results and block look-ahead leaks with tests. Models that miss the bar are recorded <em>along with the rejection</em>.</p>
+        <b>검증을 먼저 설계합니다</b>
+        <p>판정 기준을 결과 전에 문서로 고정하고, 미래 데이터 누출을 테스트로 막습니다. 기준에 못 미친 모델은 <em>기각한 결과까지</em> 기록합니다.</p>
       </div>
       <div class="strength">
-        <b>Backends that survive failures</b>
-        <p>Event sourcing, idempotency, atomic writes and payment recovery prevent data loss. I cut the failure rate under load from <em>17% to 0%</em>.</p>
+        <b>장애에 강한 백엔드</b>
+        <p>이벤트 소싱, 멱등성, 원자적 기록, 결제 복구로 데이터 유실을 막습니다. 부하 테스트에서 실패율을 <em>17% → 0%</em>로 줄였습니다.</p>
       </div>
       <div class="strength">
-        <b>Quality held by tests</b>
-        <p>I write and maintain <em>about 2,400</em> pytest tests across my own projects and run them in CI alongside security checks.</p>
+        <b>테스트로 품질을 지킵니다</b>
+        <p>개인 프로젝트에서 pytest 테스트 <em>2,400여 개</em>를 작성해 유지하고, CI에서 보안 검사와 함께 돌립니다.</p>
       </div>
     </div>
   </div>
@@ -453,162 +462,162 @@ footer { padding-block: 40px 56px; color: var(--mute); font-size: 13px; }
 
 <section id="projects">
   <div class="wrap">
-    <div class="sec-head"><h2>Projects</h2><span>4 solo · 3 team</span></div>
+    <div class="sec-head"><h2>프로젝트</h2><span>개인 4 · 팀 3</span></div>
     <div class="projects">
 
       <article class="proj" id="p-quant">
         <div class="proj-meta">
-          <span class="tag">Solo</span>
+          <span class="tag">개인</span>
           <span class="period">2026.11</span>
-          <h3>Quant Terminal</h3>
-          <span class="role">US &amp; Korean stock recommendation system</span>
-          <a class="repo" href="https://github.com/seoksoomin2003-prog/stock-recommendation-system" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>stock-recommendation-system</b><small>Code and docs on GitHub ↗</small></span></a>
+          <h3>퀀트 터미널</h3>
+          <span class="role">미국·한국 주식 추천 시스템</span>
+          <a class="repo" href="https://github.com/seoksoomin2003-prog/stock-recommendation-system" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>stock-recommendation-system</b><small>GitHub에서 코드·문서 보기 ↗</small></span></a>
         </div>
         <div class="proj-body">
-          <figure class="shot gallery" aria-roledescription="carousel" aria-label="Quant Terminal: 8 real screens"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">127.0.0.1:8765 · Today</span><span class="count">1 / 8</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 8" data-url="127.0.0.1:8765 · Today" data-cap="Today: market state, to-do alerts and today's candidate stocks"><img src="img/qt.jpg" alt="Quant Terminal screen — Today: market state, to-do alerts and today's candidate stocks" width="1280" height="800"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 8" data-url="127.0.0.1:8765 · Rankings" data-cap="Rankings: top 50 swing scores and why each score moved"><img src="img/qt_rank.jpg" alt="Quant Terminal screen — Rankings: top 50 swing scores and why each score moved" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 8" data-url="127.0.0.1:8765 · Investment committee · MSFT" data-cap="Investment committee: five investor rule sets judge MSFT separately, and the committee decides by rule"><img src="img/qt_ic.jpg" alt="Quant Terminal screen — five opinions in the style of Buffett, Munger, Graham, Lynch and Druckenmiller, and the combined committee verdict (MSFT)" width="1400" height="1225" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 8" data-url="127.0.0.1:8765 · Investment committee · Portfolios" data-cap="Portfolios: six portfolios built, showing MSFT's weight and the reason (simulated, no orders)"><img src="img/qt_icport.jpg" alt="Quant Terminal screen — MSFT's weight and reasons in six portfolios" width="1400" height="1036" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="5 / 8" data-url="127.0.0.1:8765 · Chart analysis" data-cap="Chart analysis: moving averages, Bollinger bands, RSI and signal explanations"><img src="img/qt_chart.jpg" alt="Quant Terminal screen — Chart analysis: moving averages, Bollinger bands, RSI and signal explanations" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="6 / 8" data-url="127.0.0.1:8765 · Market map" data-cap="Market map: stock heatmap and sector rotation chart"><img src="img/qt_map.jpg" alt="Quant Terminal screen — Market map: stock heatmap and sector rotation chart" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="7 / 8" data-url="127.0.0.1:8765 · Model" data-cap="Model: the frozen model's top picks, forward tracking and challenger comparison"><img src="img/qt_model.jpg" alt="Quant Terminal screen — Model: the frozen model's top picks, forward tracking and challenger comparison" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="8 / 8" data-url="127.0.0.1:8765 · Lab" data-cap="Lab: historical simulation and performance metrics (reference only)"><img src="img/qt_lab.jpg" alt="Quant Terminal screen — Lab: historical simulation and performance metrics (reference only)" width="1280" height="800" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="Previous screen">‹</button><button type="button" class="nav next" aria-label="Next screen">›</button></div><figcaption><span class="cap" aria-live="polite">Today: market state, to-do alerts and today's candidate stocks</span><span class="src">Running app · local web terminal (2026-11-24)</span><span class="dots"></span></figcaption></figure><ol class="flow" aria-label="Architecture"><li><b>Public data</b><span>Yahoo·SEC·FRED·KRX·DART</span></li><li><b>Normalize</b><span>source &amp; status per value</span></li><li><b>Gates</b><span>data · bear market · sector</span></li><li><b>Frozen-model scoring</b><span>factor z-scores</span></li><li><b>Top 5</b><span>reasons to pick or drop</span></li><li><b>Hash-chained ledger</b><span>tracks picks afterward</span></li><li><b>Web terminal</b><span>Telegram alerts</span></li></ol>
-          <dl class="story"><div><dt>Why</dt><dd>I needed a tool that explains "why this stock" with evidence, without paid data, and lets me check later whether each pick was actually right. I left out auto-trading on purpose. The system only provides the evidence and the record, and a person checks and decides every buy and sell. This <b>human-in-the-loop</b> design keeps a data error or a model mistake from turning straight into an order.</dd></div><div><dt>Built</dt><dd><ul class="checks">
-            <li><b>Data collection &amp; normalization</b> — collects Yahoo, SEC EDGAR, FRED, KRX, OpenDART and ECOS, tags every value with its source and status, and never fills gaps with zero</li>
-            <li><b>Recommendation model</b> — momentum, quality, value and low-volatility factor z-scores, a bear-market filter, sector caps and ATR-based position sizing produce a Top 5</li>
-            <li><b>Investment committee</b> — five rule engines in the style of Buffett, Munger, Graham, Lynch and Druckenmiller judge each stock separately; the committee decides by rule, not by averaging, and builds six simulated portfolios (kept apart from the score, no orders)</li>
-            <li><b>Verification</b> — pre-registration, automatic look-ahead leak checks, and 5-year backtests against a challenger model and an SPY baseline</li>
-            <li><b>Operations</b> — local web terminal (about 89 APIs), daily launchd automation, atomic writes via fsync and rename</li>
-          </ul></dd></div><div><dt>Gained</dt><dd><div class="metrics">
-            <div class="metric"><strong>2,065</strong>tests passing</div>
-            <div class="metric"><strong>80.0–80.7%</strong>actual coverage of the 80% price range</div>
-            <div class="metric"><strong>96% / 90%</strong>earnings-date estimates (KR/US)</div>
-          </div></dd></div><div><dt>Lost</dt><dd>It has not yet shown that its ranking predicts returns. The Korean model is still experimental, and free data meant ever more handling for delays and gaps.</dd></div><div><dt>Learned</dt><dd>"Recommending" and "predicting returns" are different claims. Recording results in advance, where they can't be changed, is what keeps me from fooling myself later.</dd></div></dl>
+          <figure class="shot gallery" aria-roledescription="carousel" aria-label="퀀트 터미널 실제 화면 8장"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">127.0.0.1:8765 · 오늘</span><span class="count">1 / 8</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 8" data-url="127.0.0.1:8765 · 오늘" data-cap="오늘: 시장 상태, 할 일 알림, 오늘의 후보 종목"><img src="img/qt.jpg" alt="퀀트 터미널 화면 — 오늘: 시장 상태, 할 일 알림, 오늘의 후보 종목" width="1280" height="800"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 8" data-url="127.0.0.1:8765 · 순위·카드" data-cap="순위·카드: 스윙 점수 상위 50과 점수가 오르내린 이유"><img src="img/qt_rank.jpg" alt="퀀트 터미널 화면 — 순위·카드: 스윙 점수 상위 50과 점수가 오르내린 이유" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 8" data-url="127.0.0.1:8765 · 투자위원회 · MSFT" data-cap="투자위원회: 다섯 투자자 규칙이 MSFT를 각각 판단하고, 위원회가 규칙으로 판정"><img src="img/qt_ic.jpg" alt="퀀트 터미널 화면 — 버핏식·멍거식·그레이엄식·린치식·드러켄밀러식 다섯 의견과 통합 투자위원회 판정(MSFT)" width="1400" height="1225" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 8" data-url="127.0.0.1:8765 · 투자위원회 · 포트폴리오" data-cap="포트폴리오 받아보기: 여섯 포트폴리오를 만들고 MSFT의 비중과 그 이유 표시(가상, 주문 없음)"><img src="img/qt_icport.jpg" alt="퀀트 터미널 화면 — 여섯 포트폴리오에서 MSFT의 비중과 이유" width="1400" height="1036" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="5 / 8" data-url="127.0.0.1:8765 · 차트분석" data-cap="차트분석: 이동평균·볼린저·RSI와 신호 설명"><img src="img/qt_chart.jpg" alt="퀀트 터미널 화면 — 차트분석: 이동평균·볼린저·RSI와 신호 설명" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="6 / 8" data-url="127.0.0.1:8765 · 시장 지도" data-cap="시장 지도: 종목 히트맵과 업종 순환 그래프"><img src="img/qt_map.jpg" alt="퀀트 터미널 화면 — 시장 지도: 종목 히트맵과 업종 순환 그래프" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="7 / 8" data-url="127.0.0.1:8765 · 모델" data-cap="모델: 고정 모델 상위 종목, 전향적 추적, 도전자 모델 비교"><img src="img/qt_model.jpg" alt="퀀트 터미널 화면 — 모델: 고정 모델 상위 종목, 전향적 추적, 도전자 모델 비교" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="8 / 8" data-url="127.0.0.1:8765 · 연구실" data-cap="연구실: 과거 시뮬레이션과 성과 지표(참고용)"><img src="img/qt_lab.jpg" alt="퀀트 터미널 화면 — 연구실: 과거 시뮬레이션과 성과 지표(참고용)" width="1280" height="800" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="이전 화면">‹</button><button type="button" class="nav next" aria-label="다음 화면">›</button></div><figcaption><span class="cap" aria-live="polite">오늘: 시장 상태, 할 일 알림, 오늘의 후보 종목</span><span class="src">실제 구동 화면 · 로컬 웹 터미널 (2026-11-24)</span><span class="dots"></span></figcaption></figure><ol class="flow" aria-label="구조도"><li><b>공개 데이터</b><span>Yahoo·SEC·FRED·KRX·DART</span></li><li><b>정규화</b><span>값마다 출처·상태</span></li><li><b>관문</b><span>데이터·약세장·업종</span></li><li><b>고정 모델 채점</b><span>요인 z점수</span></li><li><b>Top 5</b><span>추천·탈락 이유</span></li><li><b>해시 사슬 장부</b><span>추천 뒤 성과 추적</span></li><li><b>웹 터미널</b><span>텔레그램 알림</span></li></ol>
+          <dl class="story"><div><dt>왜</dt><dd>유료 데이터 없이도 "왜 이 종목인가"를 근거로 설명받고, 그 추천이 실제로 맞았는지 나중에 확인할 수 있는 도구가 필요했습니다. 자동매매는 일부러 넣지 않았습니다. 시스템은 근거와 기록까지만 맡고 매수·매도는 사람이 확인해 결정하는 <b>휴먼 인 더 루프(Human-in-the-loop)</b> 구조로, 데이터 오류나 모델 실수가 그대로 주문이 되지 않게 했습니다.</dd></div><div><dt>한 일</dt><dd><ul class="checks">
+            <li><b>데이터 수집·정규화</b> — Yahoo, SEC EDGAR, FRED, KRX, OpenDART, ECOS를 수집하고 값마다 출처와 상태를 붙여 빈 값을 0으로 채우지 않음</li>
+            <li><b>추천 모델</b> — 모멘텀·퀄리티·가치·저변동성 요인 z점수, 약세장 필터, 업종 한도, ATR 기반 포지션 크기로 Top 5 산출</li>
+            <li><b>투자위원회</b> — 버핏·멍거·그레이엄·린치·드러켄밀러식 다섯 규칙 엔진이 종목을 따로 판단하고, 위원회가 평균이 아닌 규칙으로 판정해 여섯 가상 포트폴리오 작성(점수와 분리, 주문 없음)</li>
+            <li><b>검증 체계</b> — 사전 등록, 미래 데이터 누출 자동 점검, 도전자 모델·SPY 기준선과 5년 백테스트 비교</li>
+            <li><b>운영</b> — 로컬 웹 터미널(API 약 89개), launchd 일일 자동화, fsync 후 rename으로 원자적 기록</li>
+          </ul></dd></div><div><dt>얻은 것</dt><dd><div class="metrics">
+            <div class="metric"><strong>2,065</strong>테스트 통과</div>
+            <div class="metric"><strong>80.0–80.7%</strong>80% 가격 범위 실제 포함률</div>
+            <div class="metric"><strong>96% / 90%</strong>실적 발표일 추정(한/미)</div>
+          </div></dd></div><div><dt>잃은 것</dt><dd>추천 순위가 수익을 낸다는 예측력은 아직 입증하지 못했습니다. 한국 모델은 실험 단계이고, 무료 데이터라 지연·누락에 대비한 처리가 계속 늘었습니다.</dd></div><div><dt>배운 점</dt><dd>"추천"과 "수익 예측"은 다른 주장입니다. 결과를 바꿀 수 없게 미리 기록해 두어야 나중에 스스로를 속이지 않습니다.</dd></div></dl>
           <div class="chips"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">numpy</span><span class="chip">pytest</span><span class="chip">Vanilla JS</span><span class="chip">launchd</span><span class="chip">Telegram Bot</span></div>
         </div>
       </article>
 
       <article class="proj" id="p-horizon">
         <div class="proj-meta">
-          <span class="tag">Solo</span>
+          <span class="tag">개인</span>
           <span class="period">2026.05 – 2026.11</span>
           <h3>Horizon</h3>
-          <span class="role">Binance spot &amp; futures trading bot + coin direction predictor</span>
-          <a class="repo" href="https://github.com/seoksoomin2003-prog/horizon_bot_beta" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>horizon_bot_beta</b><small>Code and docs on GitHub ↗</small></span></a>
+          <span class="role">바이낸스 현물·선물 자동매매 봇 + 코인 방향 예측기</span>
+          <a class="repo" href="https://github.com/seoksoomin2003-prog/horizon_bot_beta" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>horizon_bot_beta</b><small>GitHub에서 코드·문서 보기 ↗</small></span></a>
         </div>
         <div class="proj-body">
-          <figure class="shot gallery" aria-roledescription="carousel" aria-label="Horizon: 4 real screens"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">127.0.0.1:8791 · Top-coin ledger</span><span class="count">1 / 4</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 4" data-url="127.0.0.1:8791 · Top-coin ledger" data-cap="Top-coin paper ledger (v18): 7-day expected-return and risk scores per coin, with buy and sell conditions"><img src="img/hz.jpg" alt="Horizon screen — Top-coin paper ledger (v18): 7-day expected-return and risk scores per coin, with buy and sell conditions" width="1120" height="610"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 4" data-url="127.0.0.1:8791 · Direction predictions" data-cap="Live scoring of direction predictions: hit rate over 3,970 calls and for the most confident ones"><img src="img/hz_pred.jpg" alt="Horizon screen — Live scoring of direction predictions: hit rate over 3,970 calls and for the most confident ones" width="1120" height="418" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 4" data-url="127.0.0.1:8791 · How much will it rise" data-cap="Scoring by horizon of the &quot;how much will it rise&quot; predictions for 30 large coins"><img src="img/hz_much.jpg" alt="Horizon screen — Scoring by horizon of the &quot;how much will it rise&quot; predictions for 30 large coins" width="1120" height="315" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 4" data-url="127.0.0.1:8791 · Recent predictions" data-cap="Recent predictions: the 15 most confident of 60 coins"><img src="img/hz_recent.jpg" alt="Horizon screen — Recent predictions: the 15 most confident of 60 coins" width="1120" height="545" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="Previous screen">‹</button><button type="button" class="nav next" aria-label="Next screen">›</button></div><figcaption><span class="cap" aria-live="polite">Top-coin paper ledger (v18): 7-day expected-return and risk scores per coin, with buy and sell conditions</span><span class="src">Running app · read-only dashboard, recording live (2026-11-24)</span><span class="dots"></span></figcaption></figure><ol class="flow" aria-label="Architecture"><li><b>Binance</b><span>ccxt prices &amp; orders</span></li><li><b>Regime detection</b><span>ADX·ATR</span></li><li><b>Conviction</b><span>0–4 points</span></li><li><b>Risk approval</b><span>limits · drawdown</span></li><li><b>Slippage check</b><span>order-book based</span></li><li><b>Order execution</b><span>stop-loss · take-profit</span></li><li><b>State</b><span>event sourcing · 15 s reconciliation</span></li><li><b>Dashboard</b><span>read-only</span></li></ol>
-          <dl class="story"><div><dt>Why</dt><dd>My earlier Bithumb bot had no tests and no paper trading, so I could not prove its strategy worked. I built a new bot that paper-trades by default and is verified against criteria set in advance.</dd></div><div><dt>Built</dt><dd><ul class="checks">
-            <li><b>Regime-based strategy</b> — ADX and ATR split the market into trending, ranging and low-volatility regimes, each with its own entry rules and a 0–4 conviction score</li>
-            <li><b>Risk management</b> — 0.75% risk per trade and a 5% total cap, scaling down at 5% drawdown and stopping at 10%, an order-book slippage limit</li>
-            <li><b>Order consistency</b> — event-sourced state, 15-second exchange reconciliation, stop-loss recovery after restarts, idempotent take-profits</li>
-            <li><b>Prediction &amp; portfolio</b> — ridge regression in numpy (walk-forward) and a cost-aware closed-form portfolio optimizer</li>
-          </ul></dd></div><div><dt>Gained</dt><dd><div class="metrics">
-            <div class="metric"><strong>57.5%</strong>8-hour hit rate, top 10% conviction</div>
-            <div class="metric"><strong>38,407 cases</strong>+0.227% net per case</div>
-            <div class="metric"><strong>313</strong>pytest tests</div>
-          </div></dd></div><div><dt>Lost</dt><dd>The hit rate held up, but after costs no profit was left. The v12–v18 trading tests all failed their gates, so the predictor only records and is not connected to trading.</dd></div><div><dt>Learned</dt><dd>Hit rate is not profit. Costs and turnover belong in the criteria, and rejected results have to be kept as they are for the next test to be honest.</dd></div></dl>
+          <figure class="shot gallery" aria-roledescription="carousel" aria-label="Horizon 실제 화면 4장"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">127.0.0.1:8791 · 1위 코인 장부</span><span class="count">1 / 4</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 4" data-url="127.0.0.1:8791 · 1위 코인 장부" data-cap="1위 코인 가상 장부(v18): 코인별 7일 기대·위험 점수와 매수·매도 조건"><img src="img/hz.jpg" alt="Horizon 화면 — 1위 코인 가상 장부(v18): 코인별 7일 기대·위험 점수와 매수·매도 조건" width="1120" height="610"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 4" data-url="127.0.0.1:8791 · 방향 예측 기록" data-cap="방향 예측 실시간 채점: 3,970건의 적중률과 확신 상위 적중률"><img src="img/hz_pred.jpg" alt="Horizon 화면 — 방향 예측 실시간 채점: 3,970건의 적중률과 확신 상위 적중률" width="1120" height="418" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 4" data-url="127.0.0.1:8791 · 얼마나 오를까" data-cap="큰 코인 30개 &quot;얼마나 오를까&quot; 예측의 기간별 채점"><img src="img/hz_much.jpg" alt="Horizon 화면 — 큰 코인 30개 &quot;얼마나 오를까&quot; 예측의 기간별 채점" width="1120" height="315" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 4" data-url="127.0.0.1:8791 · 최근 예측" data-cap="최근 예측: 코인 60개 중 확신이 큰 15개"><img src="img/hz_recent.jpg" alt="Horizon 화면 — 최근 예측: 코인 60개 중 확신이 큰 15개" width="1120" height="545" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="이전 화면">‹</button><button type="button" class="nav next" aria-label="다음 화면">›</button></div><figcaption><span class="cap" aria-live="polite">1위 코인 가상 장부(v18): 코인별 7일 기대·위험 점수와 매수·매도 조건</span><span class="src">실제 구동 화면 · 읽기 전용 대시보드, 실시간 기록 중 (2026-11-24)</span><span class="dots"></span></figcaption></figure><ol class="flow" aria-label="구조도"><li><b>바이낸스</b><span>ccxt 시세·주문</span></li><li><b>국면 판단</b><span>ADX·ATR</span></li><li><b>확신도</b><span>0–4점</span></li><li><b>위험 승인</b><span>한도·낙폭</span></li><li><b>슬리피지 확인</b><span>호가 기반</span></li><li><b>주문 실행</b><span>손절·익절</span></li><li><b>상태 저장</b><span>이벤트 소싱 · 15초 대조</span></li><li><b>대시보드</b><span>읽기 전용</span></li></ol>
+          <dl class="story"><div><dt>왜</dt><dd>앞서 만든 빗썸 봇은 테스트도 가상 매매도 없어 전략이 맞는지 증명할 수 없었습니다. 그래서 가상 매매를 기본값으로 두고, 판정 기준부터 정한 뒤 검증하는 봇을 새로 만들었습니다.</dd></div><div><dt>한 일</dt><dd><ul class="checks">
+            <li><b>국면별 전략</b> — ADX·ATR로 추세·횡보·저변동 국면을 나누고 국면마다 다른 진입 규칙과 0–4점 확신도 적용</li>
+            <li><b>위험 관리</b> — 거래당 0.75%, 전체 5% 위험 한도, 낙폭 5%에서 축소·10%에서 중단, 호가 기반 슬리피지 한도</li>
+            <li><b>주문 일관성</b> — 이벤트 소싱 상태, 15초 거래소 대조, 재시작 후 손절 주문 복구, 익절 멱등성</li>
+            <li><b>예측·포트폴리오</b> — numpy로 구현한 릿지 회귀(워크포워드), 비용을 반영한 닫힌 형태 포트폴리오 최적화</li>
+          </ul></dd></div><div><dt>얻은 것</dt><dd><div class="metrics">
+            <div class="metric"><strong>57.5%</strong>확신 상위 10% 8시간 적중률</div>
+            <div class="metric"><strong>38,407건</strong>건당 순수익 +0.227%</div>
+            <div class="metric"><strong>313</strong>pytest 테스트</div>
+          </div></dd></div><div><dt>잃은 것</dt><dd>적중률은 확인했지만 비용을 빼면 수익이 남지 않았습니다. v12–v18 매매 시험이 모두 관문을 넘지 못해, 예측기는 매매와 연결하지 않고 기록만 합니다.</dd></div><div><dt>배운 점</dt><dd>적중률과 수익은 다릅니다. 비용·회전율까지 판정 기준에 넣고, 기각된 결과도 그대로 남겨야 다음 시험이 정직해집니다.</dd></div></dl>
           <div class="chips"><span class="chip">Python</span><span class="chip">ccxt</span><span class="chip">pandas</span><span class="chip">numpy</span><span class="chip">pytest</span><span class="chip">systemd</span></div>
         </div>
       </article>
 
       <article class="proj" id="p-bithumb">
         <div class="proj-meta">
-          <span class="tag">Solo</span>
+          <span class="tag">개인</span>
           <span class="period">2025.03 – 2025.09</span>
           <h3>Quantum Bithumb</h3>
-          <span class="role">Bithumb KRW spot trading bot</span>
-          <a class="repo" href="https://github.com/seoksoomin2003-prog/quantum-bithumb" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>quantum-bithumb</b><small>Code and docs on GitHub ↗</small></span></a>
+          <span class="role">빗썸 KRW 현물 자동매매 봇</span>
+          <a class="repo" href="https://github.com/seoksoomin2003-prog/quantum-bithumb" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>quantum-bithumb</b><small>GitHub에서 코드·문서 보기 ↗</small></span></a>
         </div>
         <div class="proj-body">
-          <ol class="flow" aria-label="Architecture"><li><b>Candle collection</b><span>parallel asyncio</span></li><li><b>Signals</b><span>BTC regime · 5 alphas</span></li><li><b>Win-rate adjustment</b><span>meta strategy</span></li><li><b>Risk</b><span>volatility guard · sizing</span></li><li><b>Orders</b><span>book check · split limit orders</span></li><li><b>Positions</b><span>JSON state · partial take-profit</span></li><li><b>Alerts</b><span>Telegram</span></li></ol>
-          <dl class="story"><div><dt>Why</dt><dd>I wanted to run my own bot that trades a Korean exchange around the clock by rules, not emotion.</dd></div><div><dt>Built</dt><dd><ul class="checks">
-            <li><b>Multi-timeframe entries</b> — enters only when the 4H trend, the 1H breakout/pullback score and 15m volume expansion all agree</li>
-            <li><b>Alpha score engine (v2)</b> — sums five alphas and adjusts them by BTC regime and relative-strength rotation</li>
-            <li><b>Risk &amp; orders</b> — ATR-based sizing and stops, exposure limits, order-book depth and slippage checks before split limit orders, partial take-profits</li>
-            <li><b>Operations</b> — parallel asyncio collection, recovery by reconciling exchange balances on restart, Telegram alerts, EC2 deploy scripts</li>
-          </ul></dd></div><div><dt>Gained</dt><dd><div class="metrics"><div class="metric"><strong>4,700 lines</strong>Python (v2: 1,900)</div><div class="metric"><strong>v1 → v2</strong>architecture redesign</div><div class="metric"><strong>EC2 24/7</strong>run with systemd</div></div></dd></div><div><dt>Lost</dt><dd>It ran only with real money, with no tests, backtests or paper trading, so I could not prove the strategy worked and kept no performance record. Some v2 alphas never fired because their indicators were not wired in.</dd></div><div><dt>Learned</dt><dd>Build the means of verification first. This led directly to Horizon's paper-trading default, its 313 tests and its pre-registered criteria.</dd></div></dl>
+          <ol class="flow" aria-label="구조도"><li><b>캔들 수집</b><span>asyncio 병렬</span></li><li><b>신호</b><span>BTC 레짐·알파 5개</span></li><li><b>승률 보정</b><span>메타 전략</span></li><li><b>리스크</b><span>변동성 가드·사이징</span></li><li><b>주문</b><span>호가 검사·분할 지정가</span></li><li><b>포지션</b><span>JSON 상태·분할 익절</span></li><li><b>알림</b><span>텔레그램</span></li></ol>
+          <dl class="story"><div><dt>왜</dt><dd>국내 거래소에서도 감정이 아닌 규칙으로, 24시간 매매하는 봇을 직접 운영해 보고 싶었습니다.</dd></div><div><dt>한 일</dt><dd><ul class="checks">
+            <li><b>멀티 타임프레임 진입</b> — 4H 추세, 1H 돌파·눌림목 점수, 15m 거래량 확장이 모두 맞을 때 진입</li>
+            <li><b>알파 점수 엔진(v2)</b> — 알파 5개를 합산하고 BTC 레짐·상대강도 로테이션으로 보정</li>
+            <li><b>리스크·주문</b> — ATR 기반 사이징·손절, 노출 한도, 호가창 깊이·슬리피지 검사 후 분할 지정가 주문, 분할 익절</li>
+            <li><b>운영</b> — asyncio 병렬 수집, 재시작 시 거래소 잔고 대조 복구, 텔레그램 경보, EC2 배포 스크립트</li>
+          </ul></dd></div><div><dt>얻은 것</dt><dd><div class="metrics"><div class="metric"><strong>4,700줄</strong>Python (v2 1,900줄)</div><div class="metric"><strong>v1 → v2</strong>구조 재설계</div><div class="metric"><strong>EC2 24시간</strong>systemd 운영</div></div></dd></div><div><dt>잃은 것</dt><dd>테스트·백테스트·가상 매매 없이 실거래로만 돌려 전략이 맞는지 증명할 수 없었고, 성과 기록도 남기지 못했습니다. v2 일부 알파는 지표가 연결되지 않아 발동하지 않았습니다.</dd></div><div><dt>배운 점</dt><dd>검증 수단을 먼저 만들어야 합니다. 이 경험이 Horizon의 가상 매매 기본값, 테스트 313개, 판정 기준 사전 등록으로 이어졌습니다.</dd></div></dl>
           <div class="chips"><span class="chip">Python</span><span class="chip">pybithumb</span><span class="chip">pandas</span><span class="chip">asyncio</span><span class="chip">Telegram Bot</span><span class="chip">AWS EC2</span><span class="chip">systemd</span></div>
         </div>
       </article>
 
       <article class="proj" id="p-arbor">
         <div class="proj-meta">
-          <span class="tag">Solo</span>
+          <span class="tag">개인</span>
           <span class="period">2025.06 – 2025.09</span>
           <h3>ArborAI</h3>
-          <span class="role">AI quoting &amp; operations SaaS for tree-service companies abroad</span>
-          <a class="repo" href="https://github.com/seoksoomin2003-prog/tree-service-ai-os" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>tree-service-ai-os</b><small>Code and docs on GitHub ↗</small></span></a>
+          <span class="role">해외 수목관리 업체용 AI 견적·업무관리 SaaS</span>
+          <a class="repo" href="https://github.com/seoksoomin2003-prog/tree-service-ai-os" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>tree-service-ai-os</b><small>GitHub에서 코드·문서 보기 ↗</small></span></a>
         </div>
         <div class="proj-body">
-          <figure class="shot gallery" aria-roledescription="carousel" aria-label="ArborAI: 5 real screens"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">localhost:3000 · AI quote step 3</span><span class="count">1 / 5</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 5" data-url="localhost:3000 · AI quote step 3" data-cap="AI quote ①: hazards, crew size and hours diagnosed from site details"><img src="img/ar_ai.jpg" alt="ArborAI screen — AI quote ①: hazards, crew size and hours diagnosed from site details" width="1280" height="755"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 5" data-url="localhost:3000 · AI quote step 4" data-cap="AI quote ②: a deterministic quote priced line by line by the pricing engine"><img src="img/ar_quote.jpg" alt="ArborAI screen — AI quote ②: a deterministic quote priced line by line by the pricing engine" width="1280" height="755" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 5" data-url="localhost:3000 · Jobs" data-cap="Job dispatch: schedule, status and site location"><img src="img/ar_jobs.jpg" alt="ArborAI screen — Job dispatch: schedule, status and site location" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 5" data-url="localhost:3000 · Quotes" data-cap="Quotes: base cost, risk surcharge and status, with PDF generation and conversion to jobs"><img src="img/ar_quotes.jpg" alt="ArborAI screen — Quotes: base cost, risk surcharge and status, with PDF generation and conversion to jobs" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="5 / 5" data-url="localhost:3000 · Customers" data-cap="Customer directory (CRM)"><img src="img/ar_customers.jpg" alt="ArborAI screen — Customer directory (CRM)" width="1280" height="800" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="Previous screen">‹</button><button type="button" class="nav next" aria-label="Next screen">›</button></div><figcaption><span class="cap" aria-live="polite">AI quote ①: hazards, crew size and hours diagnosed from site details</span><span class="src">Running app · local Docker, test data (2026-11-24)</span><span class="dots"></span></figcaption></figure>
-          <ol class="flow" aria-label="Architecture"><li><b>Web &amp; mobile</b><span>Next.js · Expo</span></li><li><b>FastAPI</b><span>tenant resolution · rate limits</span></li><li><b>Gemini</b><span>extracts 28 fields only</span></li><li><b>Pricing engine</b><span>rates for 14 regions</span></li><li><b>PostgreSQL</b><span>RLS</span></li><li><b>Billing &amp; documents</b><span>Stripe · quote PDF</span></li></ol>
-          <dl class="story"><div><dt>Why</dt><dd>Tree-service quotes vary widely with tree height, distance to power lines and equipment, so they are worked out by hand for every site. I wanted site details alone to produce the hazards and a draft quote.</dd></div><div><dt>Built</dt><dd><ul class="checks">
-            <li><b>AI quote preview</b> — Gemini only extracts 28 fields such as tree height, trunk diameter, distance to power lines and required equipment; a deterministic engine computes the price, so there are no hallucinated prices</li>
-            <li><b>Regional pricing engine</b> — 14 regional profiles, line-item amounts with their basis, and snapshots of the exchange rate and inputs so every amount can be reproduced</li>
-            <li><b>Multi-tenancy &amp; security</b> — automatic tenant_id filtering plus PostgreSQL RLS, RBAC with 4 roles, TOTP two-factor login, SSRF protection</li>
-            <li><b>Globalization &amp; mobile</b> — 14 locales (Arabic RTL), Stripe subscriptions, an offline change queue in the Expo crew app</li>
-          </ul></dd></div><div><dt>Gained</dt><dd><div class="metrics">
+          <figure class="shot gallery" aria-roledescription="carousel" aria-label="ArborAI 실제 화면 5장"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">localhost:3000 · AI 견적 3단계</span><span class="count">1 / 5</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 5" data-url="localhost:3000 · AI 견적 3단계" data-cap="AI 견적 ①: 현장 정보에서 위험 요소와 필요 인원·시간 진단"><img src="img/ar_ai.jpg" alt="ArborAI 화면 — AI 견적 ①: 현장 정보에서 위험 요소와 필요 인원·시간 진단" width="1280" height="755"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 5" data-url="localhost:3000 · AI 견적 4단계" data-cap="AI 견적 ②: 가격 엔진이 항목별로 계산한 결정론적 견적서"><img src="img/ar_quote.jpg" alt="ArborAI 화면 — AI 견적 ②: 가격 엔진이 항목별로 계산한 결정론적 견적서" width="1280" height="755" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 5" data-url="localhost:3000 · 작업" data-cap="작업 디스패치: 일정·상태·현장 위치"><img src="img/ar_jobs.jpg" alt="ArborAI 화면 — 작업 디스패치: 일정·상태·현장 위치" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 5" data-url="localhost:3000 · 견적" data-cap="견적 목록: 기본 비용·위험 할증·상태, PDF 생성과 작업 전환"><img src="img/ar_quotes.jpg" alt="ArborAI 화면 — 견적 목록: 기본 비용·위험 할증·상태, PDF 생성과 작업 전환" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="5 / 5" data-url="localhost:3000 · 고객" data-cap="고객 디렉터리(CRM)"><img src="img/ar_customers.jpg" alt="ArborAI 화면 — 고객 디렉터리(CRM)" width="1280" height="800" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="이전 화면">‹</button><button type="button" class="nav next" aria-label="다음 화면">›</button></div><figcaption><span class="cap" aria-live="polite">AI 견적 ①: 현장 정보에서 위험 요소와 필요 인원·시간 진단</span><span class="src">실제 구동 화면 · 로컬 Docker 실행, 테스트 데이터 (2026-11-24)</span><span class="dots"></span></figcaption></figure>
+          <ol class="flow" aria-label="구조도"><li><b>웹·모바일</b><span>Next.js · Expo</span></li><li><b>FastAPI</b><span>테넌트 판별·속도 제한</span></li><li><b>Gemini</b><span>28개 항목만 추출</span></li><li><b>가격 엔진</b><span>14개 지역 단가</span></li><li><b>PostgreSQL</b><span>RLS</span></li><li><b>결제·문서</b><span>Stripe · 견적 PDF</span></li></ol>
+          <dl class="story"><div><dt>왜</dt><dd>수목관리 견적은 나무 높이·전선 거리·장비에 따라 크게 달라 현장마다 손으로 계산합니다. 현장 정보만 넣으면 위험 요소와 견적 초안이 나오게 하고 싶었습니다.</dd></div><div><dt>한 일</dt><dd><ul class="checks">
+            <li><b>AI 견적 미리보기</b> — Gemini는 수고·흉고직경·전선 거리·필요 장비 등 28개 항목만 추출하고, 가격은 결정론적 엔진이 계산해 환각 가격 차단</li>
+            <li><b>지역별 가격 엔진</b> — 14개 지역 프로필, 항목별 금액과 근거, 적용 환율·입력값 스냅샷으로 금액 재현</li>
+            <li><b>멀티테넌트·보안</b> — tenant_id 자동 필터와 PostgreSQL RLS, 4개 역할 RBAC, TOTP 2단계 인증, SSRF 방어</li>
+            <li><b>글로벌화·모바일</b> — 14개 locale(아랍어 RTL), Stripe 구독, Expo 기술자 앱의 오프라인 변경 큐</li>
+          </ul></dd></div><div><dt>얻은 것</dt><dd><div class="metrics">
             <div class="metric"><strong>73</strong>REST API</div>
             <div class="metric"><strong>14</strong>locale</div>
-            <div class="metric"><strong>18,500 lines</strong>backend, web, mobile</div>
-          </div></dd></div><div><dt>Lost</dt><dd>It stopped at the prototype and was never deployed to production. Photos are not analyzed as images, and some crew-app APIs do not match the backend.</dd></div><div><dt>Learned</dt><dd>Give the AI only the extraction and compute money in deterministic code; that is what makes it reproducible and explainable. A wide scope delays the finish, so the core flow has to be completed first.</dd></div></dl>
+            <div class="metric"><strong>18,500줄</strong>백엔드·웹·모바일</div>
+          </div></dd></div><div><dt>잃은 것</dt><dd>프로토타입에서 멈춰 실제 운영 배포는 하지 않았습니다. 사진은 이미지 자체를 분석하지 않고, 기술자 앱 일부 API는 백엔드와 맞지 않습니다.</dd></div><div><dt>배운 점</dt><dd>AI에는 정보 추출만 맡기고 금액은 결정론적 코드로 계산해야 재현하고 설명할 수 있습니다. 범위를 넓게 잡으면 마무리가 늦어져, 핵심 흐름부터 끝내야 합니다.</dd></div></dl>
           <div class="chips"><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">Gemini</span><span class="chip">Next.js 15</span><span class="chip">Expo</span><span class="chip">Stripe</span><span class="chip">Docker</span><span class="chip">AWS ECR</span></div>
         </div>
       </article>
 
       <article class="proj" id="p-gig">
         <div class="proj-meta">
-          <span class="tag team">Team · Planning &amp; integration</span>
-          <span class="tag award">Gwayookton 3rd place · Excellence Award</span>
+          <span class="tag team">팀 · 기획·연동</span>
+          <span class="tag award">과육톤 3등 · 우수상</span>
           <span class="period">2026.11</span>
-          <h3>GigSplitter</h3>
-          <span class="role">Web app for splitting and settling bulk buys of daily goods · Team 6 at Gwayookton, the joint idea-thon of Sahmyook University and Seoul National University of Science and Technology</span>
-          <a class="repo" href="https://github.com/enderpawar/Gwayook-team6" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>Gwayook-team6</b><small>Code and docs on GitHub ↗</small></span></a>
+          <h3>긱스플리터</h3>
+          <span class="role">생필품 공동구매 소분·정산 웹 앱 · 삼육대학교·서울과학기술대학교 연합 아이디어톤(과육톤) 6조</span>
+          <a class="repo" href="https://github.com/enderpawar/Gwayook-team6" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>Gwayook-team6</b><small>GitHub에서 코드·문서 보기 ↗</small></span></a>
         </div>
         <div class="proj-body">
-          <figure class="shot gallery phones" aria-roledescription="carousel" aria-label="GigSplitter: 5 real screens"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">gigsplitter.vercel.app · Product</span><span class="count">1 / 5</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 5" data-url="gigsplitter.vercel.app · Product" data-cap="Home: upload a screenshot or pick a sample; example splitting 30 rolls into 7"><img src="img/gs_home.jpg" alt="GigSplitter screen — Home: upload a screenshot or pick a sample; example splitting 30 rolls into 7" width="540" height="960"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 5" data-url="gigsplitter.vercel.app · Check" data-cap="Check values: the user corrects the extracted product name, pack size and price"><img src="img/gs_check.jpg" alt="GigSplitter screen — Check values: the user corrects the extracted product name, pack size and price" width="540" height="960" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 5" data-url="gigsplitter.vercel.app · Split" data-cap="Split: with 4 people the host gets 9 rolls and each member 7, saving 54.6% per roll"><img src="img/gs_split.jpg" alt="GigSplitter screen — Split: with 4 people the host gets 9 rolls and each member 7, saving 54.6% per roll" width="540" height="960" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 5" data-url="gigsplitter.vercel.app · Split · Settlement" data-cap="Settlement: shares to the won, summing exactly to the amount paid"><img src="img/gs_settle.jpg" alt="GigSplitter screen — Settlement: shares to the won, summing exactly to the amount paid" width="540" height="960" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="5 / 5" data-url="gigsplitter.vercel.app · Post" data-cap="Post: auto-written title and body to paste into Everytime"><img src="img/gs_post.jpg" alt="GigSplitter screen — Post: auto-written title and body to paste into Everytime" width="540" height="960" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="Previous screen">‹</button><button type="button" class="nav next" aria-label="Next screen">›</button></div><figcaption><span class="cap" aria-live="polite">Home: upload a screenshot or pick a sample; example splitting 30 rolls into 7</span><span class="src">Deployed app · demo sample (30 rolls of toilet paper) (2026-11-25)</span><span class="dots"></span></figcaption></figure><ol class="flow" aria-label="Architecture"><li class="mine"><b>PRD &amp; ERD</b><span>PRD v1.1 · 9 tables</span></li><li><b>Store screenshot</b><span>or sample / manual input</span></li><li><b>Gemini extraction</b><span>Node.js API</span></li><li class="mine"><b>Front↔back integration</b><span>matched the response contract</span></li><li><b>Check values · unit prices</b><span>React · Vite</span></li><li><b>Split &amp; settle</b><span>integer math to the won</span></li><li><b>Copy recruiting post</b><span>Everytime · KakaoTalk</span></li></ol><p class="flow-note"><i></i>Blue borders mark the parts I owned.</p>
-          <dl class="story"><div><dt>Why</dt><dd>Students who live alone or in dorms buy expensive small packs because of storage space and upfront cost. Splitting a bulk pack is cheaper, but comparing unit prices, dividing quantities and money, and gathering people is a hassle, so at the idea-thon we built a service that does it all from one screenshot.</dd></div><div><dt>Built</dt><dd><ul class="checks">
-            <li><b>Product requirements (PRD)</b> — wrote v1.0: demo (P0), operations (P1) and expansion (P2) scope, plus the rules for unit price, splitting and settlement</li>
-            <li><b>ERD</b> — expanded to 9 tables to match PRD v1.1: a separate comparison basis, NULL for unconfirmed values, 7 group-buy states, and history of join approvals, settlement versions, transfers and refunds</li>
-            <li><b>Backend–frontend integration</b> — connected the frontend's screenshot extraction to the backend response format (unit and field conversion), made the mock response match the real one, and merged the backend and frontend branches into main</li>
-          </ul></dd></div><div><dt>Gained</dt><dd><div class="metrics"><div class="metric"><strong>3rd place</strong>Gwayookton Excellence Award</div><div class="metric"><strong>9</strong>ERD tables designed</div><div class="metric"><strong>1 day</strong>from planning to integration</div></div></dd></div><div><dt>Lost</dt><dd>The deployment only serves the frontend's static files, so the extraction API returns 404. The demo therefore used samples and manual input instead of screenshot extraction.</dd></div><div><dt>Learned</dt><dd>Even when teammates build separately under time pressure, agreeing on the PRD, ERD and API response format first keeps the cost of merging small.</dd></div></dl>
+          <figure class="shot gallery phones" aria-roledescription="carousel" aria-label="긱스플리터 실제 화면 5장"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">gigsplitter.vercel.app · 상품</span><span class="count">1 / 5</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 5" data-url="gigsplitter.vercel.app · 상품" data-cap="첫 화면: 캡처 올리기·샘플 고르기, 30롤 → 7롤 나누기 예시"><img src="img/gs_home.jpg" alt="긱스플리터 화면 — 첫 화면: 캡처 올리기·샘플 고르기, 30롤 → 7롤 나누기 예시" width="540" height="960"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 5" data-url="gigsplitter.vercel.app · 확인" data-cap="값 확인: 판독한 상품명·구성·가격을 사용자가 고치는 단계"><img src="img/gs_check.jpg" alt="긱스플리터 화면 — 값 확인: 판독한 상품명·구성·가격을 사용자가 고치는 단계" width="540" height="960" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 5" data-url="gigsplitter.vercel.app · 나누기" data-cap="나누기: 4명이면 방장 9롤·참여자 7롤, 1롤당 54.6% 절약"><img src="img/gs_split.jpg" alt="긱스플리터 화면 — 나누기: 4명이면 방장 9롤·참여자 7롤, 1롤당 54.6% 절약" width="540" height="960" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 5" data-url="gigsplitter.vercel.app · 나누기 · 정산표" data-cap="정산표: 1원 단위 부담금, 합계가 결제 금액과 일치"><img src="img/gs_settle.jpg" alt="긱스플리터 화면 — 정산표: 1원 단위 부담금, 합계가 결제 금액과 일치" width="540" height="960" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="5 / 5" data-url="gigsplitter.vercel.app · 모집글" data-cap="모집글: 에브리타임에 붙여 넣을 제목·본문 자동 작성"><img src="img/gs_post.jpg" alt="긱스플리터 화면 — 모집글: 에브리타임에 붙여 넣을 제목·본문 자동 작성" width="540" height="960" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="이전 화면">‹</button><button type="button" class="nav next" aria-label="다음 화면">›</button></div><figcaption><span class="cap" aria-live="polite">첫 화면: 캡처 올리기·샘플 고르기, 30롤 → 7롤 나누기 예시</span><span class="src">실제 배포 화면 · 시연용 샘플(롤휴지 30롤) (2026-11-25)</span><span class="dots"></span></figcaption></figure><ol class="flow" aria-label="구조도"><li class="mine"><b>기능정의서·ERD</b><span>PRD v1.1 · 테이블 9개</span></li><li><b>쇼핑몰 캡처</b><span>또는 샘플·직접 입력</span></li><li><b>Gemini 판독</b><span>Node.js API</span></li><li class="mine"><b>프론트↔백 연동</b><span>판독 응답 계약 맞춤</span></li><li><b>값 확인·단가 비교</b><span>React · Vite</span></li><li><b>소분·정산</b><span>1원 단위 정수 연산</span></li><li><b>모집글 복사</b><span>에브리타임·카톡</span></li></ol><p class="flow-note"><i></i>파란 테두리는 제가 맡은 부분입니다.</p>
+          <dl class="story"><div><dt>왜</dt><dd>자취생·기숙사생은 보관 공간과 초기 지출 때문에 비싼 소용량을 삽니다. 대용량을 나누면 싸지만 단가 비교, 수량·돈 나누기, 사람 모으기가 번거로워 이 과정을 캡처 한 장으로 끝내는 서비스를 아이디어톤에서 만들었습니다.</dd></div><div><dt>한 일</dt><dd><ul class="checks">
+            <li><b>기능정의서(PRD)</b> — v1.0 작성: 시연(P0)·운영(P1)·확장(P2) 범위와 단가·소분·정산 계산 규칙 정리</li>
+            <li><b>ERD</b> — 기능정의서 v1.1에 맞춰 테이블 9개로 확장: 비교 기준 분리, 미확인 값 NULL 허용, 공구 상태 7단계, 참여 승인·정산 버전·송금·환불 이력</li>
+            <li><b>백·프론트 연동</b> — 프론트의 캡처 판독을 백엔드 응답 형식에 연결(단위·필드 변환), 모의 응답을 실제 응답과 같게 맞추고 백엔드·프론트 브랜치를 main에 통합</li>
+          </ul></dd></div><div><dt>얻은 것</dt><dd><div class="metrics"><div class="metric"><strong>3등</strong>과육톤 우수상</div><div class="metric"><strong>9개</strong>ERD 테이블 설계</div><div class="metric"><strong>하루</strong>기획부터 연동까지</div></div></dd></div><div><dt>잃은 것</dt><dd>배포본에는 프론트 정적 파일만 올라가 판독 API가 404입니다. 그래서 시연은 캡처 판독 대신 샘플과 직접 입력으로 진행했습니다.</dd></div><div><dt>배운 점</dt><dd>짧은 시간에 팀원이 따로 만들어도 기능정의서·ERD·API 응답 형식을 먼저 맞춰 두면 합치는 비용이 작아집니다.</dd></div></dl>
           <div class="chips"><span class="chip">React</span><span class="chip">Vite</span><span class="chip">TypeScript</span><span class="chip">Node.js</span><span class="chip">Gemini</span><span class="chip">Mermaid ERD</span><span class="chip">Vercel</span></div>
         </div>
       </article>
 
       <article class="proj" id="p-uni">
         <div class="proj-meta">
-          <span class="tag team">Team · Backend</span>
+          <span class="tag team">팀 · 백엔드</span>
           <span class="period">2026.11</span>
           <h3>UniConnect</h3>
-          <span class="role">Sponsorship matching platform for student groups and brands · 2-person team</span>
-          <a class="repo" href="https://github.com/jennjeong/uniconnect" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>jennjeong/uniconnect</b><small>Code and docs on GitHub ↗</small></span></a>
+          <span class="role">학생단체·브랜드 협찬 매칭 플랫폼 · 2인 팀</span>
+          <a class="repo" href="https://github.com/jennjeong/uniconnect" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>jennjeong/uniconnect</b><small>GitHub에서 코드·문서 보기 ↗</small></span></a>
         </div>
         <div class="proj-body">
-          <figure class="shot gallery" aria-roledescription="carousel" aria-label="UniConnect: 4 real screens"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">uniconnect-pied.vercel.app/analytics</span><span class="count">1 / 4</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 4" data-url="uniconnect-pied.vercel.app/analytics" data-cap="Sponsorship analytics: spend, coupons, store visits, ROAS"><img src="img/uc.jpg" alt="UniConnect screen — Sponsorship analytics: spend, coupons, store visits, ROAS" width="1280" height="900"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 4" data-url="uniconnect-pied.vercel.app/groups" data-cap="Find student groups: matching by recommendation score"><img src="img/uc_find.jpg" alt="UniConnect screen — Find student groups: matching by recommendation score" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 4" data-url="uniconnect-pied.vercel.app/campaigns" data-cap="Event calendar"><img src="img/uc_events.jpg" alt="UniConnect screen — Event calendar" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 4" data-url="uniconnect-pied.vercel.app" data-cap="Home page"><img src="img/uc_home.jpg" alt="UniConnect screen — Home page" width="1280" height="800" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="Previous screen">‹</button><button type="button" class="nav next" aria-label="Next screen">›</button></div><figcaption><span class="cap" aria-live="polite">Sponsorship analytics: spend, coupons, store visits, ROAS</span><span class="src">Live service · demo screens on the deployed site (sample data)</span><span class="dots"></span></figcaption></figure><ol class="flow" aria-label="Architecture"><li><b>React UI</b><span>Vite</span></li><li><b>Express API</b><span>Vercel functions</span></li><li class="mine"><b>Payments</b><span>Toss · idempotent approval &amp; recovery</span></li><li class="mine"><b>Concurrency</b><span>row-level storage · version retries</span></li><li class="mine"><b>Security</b><span>TOTP · audit log · rate limits</span></li><li><b>Neon Postgres</b><span>production DB</span></li></ol><p class="flow-note"><i></i>Blue borders mark the parts I owned.</p>
-          <dl class="story"><div><dt>Why</dt><dd>Student groups struggle to find sponsors, and brands struggle to prove what a sponsorship achieved. This team project handles it all in one place, from finding a partner and signing to on-site measurement and the performance report.</dd></div><div><dt>Built</dt><dd><p>I joined in the later stage and took over backend payments, security, concurrency and operational stability.</p><ul class="checks">
-            <li><b>Concurrency &amp; scalability</b> — moved participation data from document-level to row-level storage and added retries on version conflicts</li>
-            <li><b>Toss payment reliability</b> — payment key saved before approval with an Idempotency-Key, cron-based recovery of unsettled orders, webhook verification, partial refunds</li>
-            <li><b>Security</b> — TOTP two-factor login and an audit log for operators, scrypt hashing, secret encryption, rate limits on write APIs</li>
-          </ul></dd></div><div><dt>Gained</dt><dd><div class="metrics">
-            <div class="metric"><strong>17% → 0%</strong>failure rate under load</div>
-            <div class="metric"><strong>551MB → 5.3MB</strong>DB reads</div>
-            <div class="metric"><strong>10s → 0.16s</strong>catalog response</div>
-          </div></dd></div><div><dt>Lost</dt><dd>Joining late, I had to replace the existing document-level storage while the service was running. Payments are still demonstrated with test keys.</dd></div><div><dt>Learned</dt><dd>Measure before fixing. A load test showed a 17% failure rate, and measuring again after the fix showed 0%, so the improvement is a number.</dd></div></dl>
+          <figure class="shot gallery" aria-roledescription="carousel" aria-label="UniConnect 실제 화면 4장"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">uniconnect-pied.vercel.app/analytics</span><span class="count">1 / 4</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 4" data-url="uniconnect-pied.vercel.app/analytics" data-cap="협찬 성과 분석: 집행액·쿠폰·매장 방문·ROAS"><img src="img/uc.jpg" alt="UniConnect 화면 — 협찬 성과 분석: 집행액·쿠폰·매장 방문·ROAS" width="1280" height="900"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 4" data-url="uniconnect-pied.vercel.app/groups" data-cap="학생단체 찾기: 추천 지수로 매칭"><img src="img/uc_find.jpg" alt="UniConnect 화면 — 학생단체 찾기: 추천 지수로 매칭" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 4" data-url="uniconnect-pied.vercel.app/campaigns" data-cap="행사 일정 캘린더"><img src="img/uc_events.jpg" alt="UniConnect 화면 — 행사 일정 캘린더" width="1280" height="800" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 4" data-url="uniconnect-pied.vercel.app" data-cap="서비스 첫 화면"><img src="img/uc_home.jpg" alt="UniConnect 화면 — 서비스 첫 화면" width="1280" height="800" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="이전 화면">‹</button><button type="button" class="nav next" aria-label="다음 화면">›</button></div><figcaption><span class="cap" aria-live="polite">협찬 성과 분석: 집행액·쿠폰·매장 방문·ROAS</span><span class="src">실제 서비스 화면 · 배포 사이트의 예시 화면(예시 데이터)</span><span class="dots"></span></figcaption></figure><ol class="flow" aria-label="구조도"><li><b>React 화면</b><span>Vite</span></li><li><b>Express API</b><span>Vercel 함수</span></li><li class="mine"><b>결제</b><span>Toss · 멱등 승인·복구</span></li><li class="mine"><b>동시성</b><span>행 단위 저장·버전 재시도</span></li><li class="mine"><b>보안</b><span>TOTP·감사 로그·속도 제한</span></li><li><b>Neon Postgres</b><span>운영 DB</span></li></ol><p class="flow-note"><i></i>파란 테두리는 제가 맡은 부분입니다.</p>
+          <dl class="story"><div><dt>왜</dt><dd>학생단체는 협찬 상대를 찾기 어렵고, 브랜드는 협찬 효과를 증명하기 어렵습니다. 찾기부터 계약, 현장 측정, 성과 리포트까지 한곳에서 처리하려는 팀 프로젝트입니다.</dd></div><div><dt>한 일</dt><dd><p>후반부에 합류해 백엔드의 결제·보안·동시성·운영 안정화를 맡았습니다.</p><ul class="checks">
+            <li><b>동시성·확장성</b> — 참여 데이터를 문서 단위에서 행 단위 저장으로 바꾸고 버전 충돌 재시도 도입</li>
+            <li><b>Toss 결제 안정성</b> — 승인 전 결제키 저장과 Idempotency-Key, cron 기반 미정산 주문 복구, 웹훅 검증, 부분환불</li>
+            <li><b>보안</b> — 운영자 TOTP 2단계 로그인과 감사 로그, scrypt 해시, 시크릿 암호화, 쓰기 API 속도 제한</li>
+          </ul></dd></div><div><dt>얻은 것</dt><dd><div class="metrics">
+            <div class="metric"><strong>17% → 0%</strong>부하 시 실패율</div>
+            <div class="metric"><strong>551MB → 5.3MB</strong>DB 읽기량</div>
+            <div class="metric"><strong>10s → 0.16s</strong>카탈로그 응답</div>
+          </div></dd></div><div><dt>잃은 것</dt><dd>후반부에 합류해 이미 만들어진 문서 단위 저장 구조를 서비스가 돌아가는 중에 바꿔야 했습니다. 결제는 아직 테스트 키로 시연하는 단계입니다.</dd></div><div><dt>배운 점</dt><dd>고치기 전에 먼저 측정합니다. 부하 테스트로 실패율 17%를 확인하고, 고친 뒤 0%를 다시 측정해 개선을 숫자로 보였습니다.</dd></div></dl>
           <div class="chips"><span class="chip">TypeScript</span><span class="chip">Express 5</span><span class="chip">Neon Postgres</span><span class="chip">Vercel</span><span class="chip">Toss Payments</span><span class="chip">Playwright</span></div>
         </div>
       </article>
 
       <article class="proj" id="p-taxi">
         <div class="proj-meta">
-          <span class="tag team">Team · PM · Backend</span>
+          <span class="tag team">팀 · PM · 백엔드</span>
           <span class="period">2026.06 – 2026.12</span>
-          <h3>SYU Taxi &amp; Delivery Pooling</h3>
-          <span class="role">Campus ride- and order-sharing web service · 5-person team</span>
-          <a class="repo" href="https://github.com/SYU-Taxi-Delivery/taxi-delivery-sharing" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>SYU-Taxi-Delivery</b><small>Code and docs on GitHub ↗</small></span></a>
+          <h3>삼육대 택시·배달 합승</h3>
+          <span class="role">교내 합승 모집 웹 서비스 · 5인 팀</span>
+          <a class="repo" href="https://github.com/SYU-Taxi-Delivery/taxi-delivery-sharing" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg><span><b>SYU-Taxi-Delivery</b><small>GitHub에서 코드·문서 보기 ↗</small></span></a>
         </div>
         <div class="proj-body">
-          <figure class="shot gallery phones" aria-roledescription="carousel" aria-label="Duyupot: 4 real screens"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">Duyupot · Post details</span><span class="count">1 / 4</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 4" data-url="Duyupot · Post details" data-cap="Post details: origin, destination, departure time, capacity"><img src="img/tx_detail.jpg" alt="Duyupot screen — Post details: origin, destination, departure time, capacity" width="360" height="640"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 4" data-url="Duyupot · Close a pool" data-cap="The author's confirmation dialog for closing a pool"><img src="img/tx_close.jpg" alt="Duyupot screen — The author's confirmation dialog for closing a pool" width="360" height="640" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 4" data-url="Duyupot · My pools" data-cap="My pools: a pool card after leaving it"><img src="img/tx_my.jpg" alt="Duyupot screen — My pools: a pool card after leaving it" width="360" height="902" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 4" data-url="Duyupot · Session expired" data-cap="Prompt to sign in again after the session expires"><img src="img/tx_expired.jpg" alt="Duyupot screen — Prompt to sign in again after the session expires" width="375" height="812" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="Previous screen">‹</button><button type="button" class="nav next" aria-label="Next screen">›</button></div><figcaption><span class="cap" aria-live="polite">Post details: origin, destination, departure time, capacity</span><span class="src">Running app · mobile captures from team QA (Playwright)</span><span class="dots"></span></figcaption></figure><ol class="flow" aria-label="Architecture"><li><b>Next.js UI</b><span>Duyupot</span></li><li class="mine"><b>Spring Boot API</b><span>project skeleton</span></li><li class="mine"><b>School email auth</b><span>@syu.ac.kr · 5 s SMTP</span></li><li><b>Pool &amp; join rules</b><span>capacity · time · duplicate checks</span></li><li><b>MySQL</b><span>JPA · Flyway</span></li><li class="mine"><b>Deploy</b><span>Docker → Render</span></li></ol><p class="flow-note"><i></i>Blue borders mark the parts I owned.</p>
-          <dl class="story"><div><dt>Why</dt><dd>Gathering people in group chats keeps leading to over-full pools, expired posts and confusion over who is in. In this 5-person team project the server enforces those rules automatically.</dd></div><div><dt>Built</dt><dd><ul class="checks">
-            <li><b>PM</b> — coordinated the schedule and roles of a 5-person team, set collaboration rules with PR templates and CI, and agreed and documented API retry rules with the frontend</li>
-            <li><b>Design &amp; auth</b> — first design and implementation of the project skeleton and of the sign-up and login API verified by school email (@syu.ac.kr)</li>
-            <li><b>Reliability &amp; performance</b> — capped the endless SMTP wait with a 5-second timeout, moved bcrypt outside the lock, removed N+1 queries</li>
-            <li><b>Consistency &amp; deploy</b> — fixed transaction consistency for closing and cancelling, multi-stage Dockerfile (deployed on Render)</li>
-          </ul></dd></div><div><dt>Gained</dt><dd><div class="metrics"><div class="metric"><strong>20 / 49</strong>backend commits written</div><div class="metric"><strong>5 people</strong>team PM</div><div class="metric"><strong>∞ → 5 s</strong>SMTP wait capped</div></div></dd></div><div><dt>Lost</dt><dd>Comments, password reset and the admin screens were not connected to the real API in time and remain on mock responses.</dd></div><div><dt>Learned</dt><dd>For five people to mesh, agreements have to live in documents and CI. External dependencies (SMTP) need a timeout by default so one request can't stall everything.</dd></div></dl>
+          <figure class="shot gallery phones" aria-roledescription="carousel" aria-label="두유팟 실제 화면 4장"><div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">두유팟 · 모집글 상세</span><span class="count">1 / 4</span></div><div class="stage"><div class="slides" tabindex="0"><div class="slide" role="group" aria-roledescription="slide" aria-label="1 / 4" data-url="두유팟 · 모집글 상세" data-cap="모집글 상세: 출발지·도착지·출발 시간·정원"><img src="img/tx_detail.jpg" alt="두유팟 화면 — 모집글 상세: 출발지·도착지·출발 시간·정원" width="360" height="640"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="2 / 4" data-url="두유팟 · 모집 마감" data-cap="작성자의 모집 마감 확인 창"><img src="img/tx_close.jpg" alt="두유팟 화면 — 작성자의 모집 마감 확인 창" width="360" height="640" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="3 / 4" data-url="두유팟 · 내 참여·모집" data-cap="내 참여·모집: 참여 취소된 합승 카드"><img src="img/tx_my.jpg" alt="두유팟 화면 — 내 참여·모집: 참여 취소된 합승 카드" width="360" height="902" loading="lazy"></div><div class="slide" role="group" aria-roledescription="slide" aria-label="4 / 4" data-url="두유팟 · 로그인 만료" data-cap="로그인 만료 시 다시 로그인 안내"><img src="img/tx_expired.jpg" alt="두유팟 화면 — 로그인 만료 시 다시 로그인 안내" width="375" height="812" loading="lazy"></div></div><button type="button" class="nav prev" aria-label="이전 화면">‹</button><button type="button" class="nav next" aria-label="다음 화면">›</button></div><figcaption><span class="cap" aria-live="polite">모집글 상세: 출발지·도착지·출발 시간·정원</span><span class="src">실제 구동 화면 · 팀 QA(Playwright) 모바일 캡처</span><span class="dots"></span></figcaption></figure><ol class="flow" aria-label="구조도"><li><b>Next.js 화면</b><span>두유팟</span></li><li class="mine"><b>Spring Boot API</b><span>프로젝트 골격</span></li><li class="mine"><b>웹메일 인증</b><span>@syu.ac.kr · SMTP 5초</span></li><li><b>모집·참여 규칙</b><span>정원·시간·중복 검증</span></li><li><b>MySQL</b><span>JPA · Flyway</span></li><li class="mine"><b>배포</b><span>Docker → Render</span></li></ol><p class="flow-note"><i></i>파란 테두리는 제가 맡은 부분입니다.</p>
+          <dl class="story"><div><dt>왜</dt><dd>단체 채팅방으로 합승 인원을 모으면 정원 초과, 시간 지난 모집, 참여 확정 혼선이 반복됩니다. 이 규칙을 서버가 자동으로 검증하게 하려는 5인 팀 프로젝트입니다.</dd></div><div><dt>한 일</dt><dd><ul class="checks">
+            <li><b>PM</b> — 5인 팀의 일정·역할 조율, PR 템플릿과 CI로 협업 규칙 정립, 프론트엔드와 API 재시도 기준을 협의해 문서화</li>
+            <li><b>설계·인증</b> — 프로젝트 골격과 학교 웹메일(@syu.ac.kr) 인증 회원가입·로그인 API 최초 설계·구현</li>
+            <li><b>안정성·성능</b> — SMTP 무한 대기를 5초 타임아웃으로 차단, bcrypt를 락 밖으로 이동, N+1 쿼리 해소</li>
+            <li><b>정합성·배포</b> — 마감·취소 트랜잭션 정합성 수정, 멀티스테이지 Dockerfile(Render 배포)</li>
+          </ul></dd></div><div><dt>얻은 것</dt><dd><div class="metrics"><div class="metric"><strong>20 / 49</strong>백엔드 커밋 작성</div><div class="metric"><strong>5인</strong>팀 PM</div><div class="metric"><strong>무한 → 5초</strong>SMTP 대기 차단</div></div></dd></div><div><dt>잃은 것</dt><dd>댓글·비밀번호 재설정·관리자 화면은 일정 안에 실제 API 연결을 마치지 못해 모의 응답으로 남았습니다.</dd></div><div><dt>배운 점</dt><dd>5명이 맞물리려면 합의를 문서와 CI로 남겨야 합니다. 외부 의존(SMTP)에는 타임아웃을 기본으로 두어야 한 요청이 전체를 멈추지 않습니다.</dd></div></dl>
           <div class="chips"><span class="chip">Java 17</span><span class="chip">Spring Boot</span><span class="chip">JPA</span><span class="chip">MySQL</span><span class="chip">Flyway</span><span class="chip">Testcontainers</span><span class="chip">Docker</span></div>
         </div>
       </article>
@@ -619,42 +628,85 @@ footer { padding-block: 40px 56px; color: var(--mute); font-size: 13px; }
 
 <section class="band" id="skills">
   <div class="wrap">
-    <div class="sec-head"><h2>Skills</h2></div>
+    <div class="sec-head"><h2>기술</h2></div>
     <dl class="skills">
-      <div><dt>Languages</dt><dd>Python, Java, TypeScript, JavaScript, SQL</dd></div>
-      <div><dt>Backend</dt><dd>FastAPI, Spring Boot, Spring Data JPA, Spring Security, Node.js, Express</dd></div>
-      <div><dt>Web</dt><dd>React, Vite, Next.js</dd></div>
-      <div><dt>Design</dt><dd>Product requirements (PRD), ERD (Mermaid)</dd></div>
-      <div><dt>Data &amp; quant</dt><dd>pandas, numpy, yfinance, ccxt, factor models, ridge regression, portfolio optimization</dd></div>
+      <div><dt>언어</dt><dd>Python, Java, TypeScript, JavaScript, SQL</dd></div>
+      <div><dt>백엔드</dt><dd>FastAPI, Spring Boot, Spring Data JPA, Spring Security, Node.js, Express</dd></div>
+      <div><dt>웹</dt><dd>React, Vite, Next.js</dd></div>
+      <div><dt>설계</dt><dd>기능정의서(PRD), ERD(Mermaid)</dd></div>
+      <div><dt>데이터·퀀트</dt><dd>pandas, numpy, yfinance, ccxt, 팩터 모델, 릿지 회귀, 포트폴리오 최적화</dd></div>
       <div><dt>DB</dt><dd>PostgreSQL(RLS, Neon), MySQL, Flyway, Alembic</dd></div>
-      <div><dt>Testing</dt><dd>pytest, JUnit 5, Mockito, Testcontainers, Vitest, Playwright</dd></div>
-      <div><dt>Infrastructure</dt><dd>Docker, GitHub Actions, Vercel, Render, AWS ECR, launchd, systemd</dd></div>
-      <div><dt>AI tools</dt><dd>Claude Code, Codex (pair programming, code review)</dd></div>
-      <div><dt>External APIs</dt><dd>Gemini, Stripe, Toss Payments, Binance, Bithumb, SEC EDGAR, FRED, KRX, OpenDART</dd></div>
+      <div><dt>테스트</dt><dd>pytest, JUnit 5, Mockito, Testcontainers, Vitest, Playwright</dd></div>
+      <div><dt>인프라</dt><dd>Docker, GitHub Actions, Vercel, Render, AWS ECR, launchd, systemd</dd></div>
+      <div><dt>AI 도구</dt><dd>Claude Code, Codex (페어 프로그래밍, 코드 리뷰)</dd></div>
+      <div><dt>외부 API</dt><dd>Gemini, Stripe, Toss Payments, Binance, Bithumb, SEC EDGAR, FRED, KRX, OpenDART</dd></div>
     </dl>
   </div>
 </section>
 
 <section id="education">
   <div class="wrap">
-    <div class="sec-head"><h2>Education &amp; Awards</h2></div>
+    <div class="sec-head"><h2>학력·수상</h2></div>
     <div class="edu">
-      <span class="period">Enrolled</span>
-      <div><b>Sahmyook University, Computer Software Engineering</b><p>3rd year</p></div>
+      <span class="period">재학 중</span>
+      <div><b>삼육대학교 컴퓨터공학과</b><p>3학년</p></div>
     </div>
     <div class="edu">
       <span class="period">2026.11</span>
-      <div><b>Gwayookton Excellence Award (3rd place)</b><p>Joint idea-thon of Sahmyook University and Seoul National University of Science and Technology · GigSplitter (planning, ERD, frontend–backend integration)</p></div>
+      <div><b>과육톤 우수상(3등)</b><p>삼육대학교·서울과학기술대학교 연합 아이디어톤 · 긱스플리터 (기획·ERD·프론트↔백 연동)</p></div>
     </div>
   </div>
 </section>
 
-<dialog class="lightbox" id="lightbox" aria-label="Enlarged screen"><img alt=""></dialog>
+<dialog class="lightbox" id="lightbox" aria-label="화면 크게 보기"><img alt=""></dialog>
 
 <footer>
-  <div class="wrap">Soomin Seok · seoksoomin2003@gmail.com · github.com/seoksoomin2003-prog</div>
+  <div class="wrap">석수민 · seoksoomin2003@gmail.com · github.com/seoksoomin2003-prog</div>
 </footer>
 
+<script>
+/* Korean/English switch. The page is written in Korean; this swaps every translated text node and attribute
+   in place (strings taken from the English resume), then tells the carousels and the network to relabel. */
+(() => {
+  const D = {"t": [[3, "Soomin Seok"], [6, "Strengths"], [8, "Projects"], [10, "Skills"], [12, "Education"], [25, "I'm Soomin Seok,"], [26, "a developer who builds verifiable systems."], [28, "I set the criteria before I see the results, and I build backends that keep their data through failures."], [30, "I designed and built a stock recommendation system, crypto trading bots (Binance and Bithumb) and a SaaS for tree-service companies abroad. I use AI coding tools such as Claude Code and Codex as pair programmers to build faster; every design and verification decision is mine. In team projects I led a five-person team as PM and took on the hard backend parts: payments, authentication and concurrency."], [33, "See projects →"], [45, "Interests → Projects → Tech · Quant"], [48, "Interest"], [50, "Project"], [52, "Tech"], [54, "Quant concept"], [81, "This preview app blocks scripts, so the network only shows as a rotating picture. Open the file in a browser such as Safari or Chrome to rotate it with your finger, zoom in and tap nodes to see their links."], [85, "School"], [86, "Sahmyook University, Computer Software Engineering, 3rd year"], [88, "Email"], [95, "Interests"], [96, "Backend · Quant · Data systems"], [103, "Strengths"], [107, "I design the verification first"], [109, "I fix the pass/fail criteria in writing before seeing results and block look-ahead leaks with tests. Models that miss the bar are recorded "], [110, "along with the rejection"], [111, "."], [115, "Backends that survive failures"], [117, "Event sourcing, idempotency, atomic writes and payment recovery prevent data loss. I cut the failure rate under load from "], [118, "17% to 0%"], [119, "."], [123, "Quality held by tests"], [125, "I write and maintain "], [126, "about 2,400"], [127, " pytest tests across my own projects and run them in CI alongside security checks."], [135, "Projects"], [136, "4 solo · 3 team"], [141, "Solo"], [145, "Quant Terminal"], [147, "US & Korean stock recommendation system"], [150, "Code and docs on GitHub ↗"], [154, "127.0.0.1:8765 · Today"], [158, "Today: market state, to-do alerts and today's candidate stocks"], [159, "Running app · local web terminal (2026-11-24)"], [160, "Public data"], [162, "Normalize"], [163, "source & status per value"], [164, "Gates"], [165, "data · bear market · sector"], [166, "Frozen-model scoring"], [167, "factor z-scores"], [169, "reasons to pick or drop"], [170, "Hash-chained ledger"], [171, "tracks picks afterward"], [172, "Web terminal"], [173, "Telegram alerts"], [175, "Why"], [176, "I needed a tool that explains \"why this stock\" with evidence, without paid data, and lets me check later whether each pick was actually right. I left out auto-trading on purpose. The system only provides the evidence and the record, and a person checks and decides every buy and sell. This "], [177, "human-in-the-loop"], [178, " design keeps a data error or a model mistake from turning straight into an order."], [179, "Built"], [181, "Data collection & normalization"], [182, " — collects Yahoo, SEC EDGAR, FRED, KRX, OpenDART and ECOS, tags every value with its source and status, and never fills gaps with zero"], [184, "Recommendation model"], [185, " — momentum, quality, value and low-volatility factor z-scores, a bear-market filter, sector caps and ATR-based position sizing produce a Top 5"], [187, "Investment committee"], [188, " — five rule engines in the style of Buffett, Munger, Graham, Lynch and Druckenmiller judge each stock separately; the committee decides by rule, not by averaging, and builds six simulated portfolios (kept apart from the score, no orders)"], [190, "Verification"], [191, " — pre-registration, automatic look-ahead leak checks, and 5-year backtests against a challenger model and an SPY baseline"], [193, "Operations"], [194, " — local web terminal (about 89 APIs), daily launchd automation, atomic writes via fsync and rename"], [196, "Gained"], [199, "tests passing"], [202, "actual coverage of the 80% price range"], [205, "earnings-date estimates (KR/US)"], [207, "Lost"], [208, "It has not yet shown that its ranking predicts returns. The Korean model is still experimental, and free data meant ever more handling for delays and gaps."], [209, "Learned"], [210, "\"Recommending\" and \"predicting returns\" are different claims. Recording results in advance, where they can't be changed, is what keeps me from fooling myself later."], [224, "Solo"], [230, "Binance spot & futures trading bot + coin direction predictor"], [233, "Code and docs on GitHub ↗"], [237, "127.0.0.1:8791 · Top-coin ledger"], [241, "Top-coin paper ledger (v18): 7-day expected-return and risk scores per coin, with buy and sell conditions"], [242, "Running app · read-only dashboard, recording live (2026-11-24)"], [243, "Binance"], [244, "ccxt prices & orders"], [245, "Regime detection"], [247, "Conviction"], [248, "0–4 points"], [249, "Risk approval"], [250, "limits · drawdown"], [251, "Slippage check"], [252, "order-book based"], [253, "Order execution"], [254, "stop-loss · take-profit"], [255, "State"], [256, "event sourcing · 15 s reconciliation"], [257, "Dashboard"], [258, "read-only"], [260, "Why"], [261, "My earlier Bithumb bot had no tests and no paper trading, so I could not prove its strategy worked. I built a new bot that paper-trades by default and is verified against criteria set in advance."], [262, "Built"], [264, "Regime-based strategy"], [265, " — ADX and ATR split the market into trending, ranging and low-volatility regimes, each with its own entry rules and a 0–4 conviction score"], [267, "Risk management"], [268, " — 0.75% risk per trade and a 5% total cap, scaling down at 5% drawdown and stopping at 10%, an order-book slippage limit"], [270, "Order consistency"], [271, " — event-sourced state, 15-second exchange reconciliation, stop-loss recovery after restarts, idempotent take-profits"], [273, "Prediction & portfolio"], [274, " — ridge regression in numpy (walk-forward) and a cost-aware closed-form portfolio optimizer"], [276, "Gained"], [279, "8-hour hit rate, top 10% conviction"], [281, "38,407 cases"], [282, "+0.227% net per case"], [285, "pytest tests"], [287, "Lost"], [288, "The hit rate held up, but after costs no profit was left. The v12–v18 trading tests all failed their gates, so the predictor only records and is not connected to trading."], [289, "Learned"], [290, "Hit rate is not profit. Costs and turnover belong in the criteria, and rejected results have to be kept as they are for the next test to be honest."], [303, "Solo"], [309, "Bithumb KRW spot trading bot"], [312, "Code and docs on GitHub ↗"], [316, "Candle collection"], [317, "parallel asyncio"], [318, "Signals"], [319, "BTC regime · 5 alphas"], [320, "Win-rate adjustment"], [321, "meta strategy"], [322, "Risk"], [323, "volatility guard · sizing"], [324, "Orders"], [325, "book check · split limit orders"], [326, "Positions"], [327, "JSON state · partial take-profit"], [328, "Alerts"], [329, "Telegram"], [331, "Why"], [332, "I wanted to run my own bot that trades a Korean exchange around the clock by rules, not emotion."], [333, "Built"], [335, "Multi-timeframe entries"], [336, " — enters only when the 4H trend, the 1H breakout/pullback score and 15m volume expansion all agree"], [338, "Alpha score engine (v2)"], [339, " — sums five alphas and adjusts them by BTC regime and relative-strength rotation"], [341, "Risk & orders"], [342, " — ATR-based sizing and stops, exposure limits, order-book depth and slippage checks before split limit orders, partial take-profits"], [344, "Operations"], [345, " — parallel asyncio collection, recovery by reconciling exchange balances on restart, Telegram alerts, EC2 deploy scripts"], [347, "Gained"], [348, "4,700 lines"], [349, "Python (v2: 1,900)"], [351, "architecture redesign"], [352, "EC2 24/7"], [353, "run with systemd"], [354, "Lost"], [355, "It ran only with real money, with no tests, backtests or paper trading, so I could not prove the strategy worked and kept no performance record. Some v2 alphas never fired because their indicators were not wired in."], [356, "Learned"], [357, "Build the means of verification first. This led directly to Horizon's paper-trading default, its 313 tests and its pre-registered criteria."], [371, "Solo"], [377, "AI quoting & operations SaaS for tree-service companies abroad"], [380, "Code and docs on GitHub ↗"], [384, "localhost:3000 · AI quote step 3"], [388, "AI quote ①: hazards, crew size and hours diagnosed from site details"], [389, "Running app · local Docker, test data (2026-11-24)"], [391, "Web & mobile"], [394, "tenant resolution · rate limits"], [396, "extracts 28 fields only"], [397, "Pricing engine"], [398, "rates for 14 regions"], [401, "Billing & documents"], [402, "Stripe · quote PDF"], [404, "Why"], [405, "Tree-service quotes vary widely with tree height, distance to power lines and equipment, so they are worked out by hand for every site. I wanted site details alone to produce the hazards and a draft quote."], [406, "Built"], [408, "AI quote preview"], [409, " — Gemini only extracts 28 fields such as tree height, trunk diameter, distance to power lines and required equipment; a deterministic engine computes the price, so there are no hallucinated prices"], [411, "Regional pricing engine"], [412, " — 14 regional profiles, line-item amounts with their basis, and snapshots of the exchange rate and inputs so every amount can be reproduced"], [414, "Multi-tenancy & security"], [415, " — automatic tenant_id filtering plus PostgreSQL RLS, RBAC with 4 roles, TOTP two-factor login, SSRF protection"], [417, "Globalization & mobile"], [418, " — 14 locales (Arabic RTL), Stripe subscriptions, an offline change queue in the Expo crew app"], [420, "Gained"], [428, "18,500 lines"], [429, "backend, web, mobile"], [431, "Lost"], [432, "It stopped at the prototype and was never deployed to production. Photos are not analyzed as images, and some crew-app APIs do not match the backend."], [433, "Learned"], [434, "Give the AI only the extraction and compute money in deterministic code; that is what makes it reproducible and explainable. A wide scope delays the finish, so the core flow has to be completed first."], [449, "Team · Planning & integration"], [451, "Gwayookton 3rd place · Excellence Award"], [455, "GigSplitter"], [457, "Web app for splitting and settling bulk buys of daily goods · Team 6 at Gwayookton, the joint idea-thon of Sahmyook University and Seoul National University of Science and Technology"], [460, "Code and docs on GitHub ↗"], [464, "gigsplitter.vercel.app · Product"], [468, "Home: upload a screenshot or pick a sample; example splitting 30 rolls into 7"], [469, "Deployed app · demo sample (30 rolls of toilet paper) (2026-11-25)"], [470, "PRD & ERD"], [471, "PRD v1.1 · 9 tables"], [472, "Store screenshot"], [473, "or sample / manual input"], [474, "Gemini extraction"], [476, "Front↔back integration"], [477, "matched the response contract"], [478, "Check values · unit prices"], [480, "Split & settle"], [481, "integer math to the won"], [482, "Copy recruiting post"], [483, "Everytime · KakaoTalk"], [484, "Blue borders mark the parts I owned."], [486, "Why"], [487, "Students who live alone or in dorms buy expensive small packs because of storage space and upfront cost. Splitting a bulk pack is cheaper, but comparing unit prices, dividing quantities and money, and gathering people is a hassle, so at the idea-thon we built a service that does it all from one screenshot."], [488, "Built"], [490, "Product requirements (PRD)"], [491, " — wrote v1.0: demo (P0), operations (P1) and expansion (P2) scope, plus the rules for unit price, splitting and settlement"], [494, " — expanded to 9 tables to match PRD v1.1: a separate comparison basis, NULL for unconfirmed values, 7 group-buy states, and history of join approvals, settlement versions, transfers and refunds"], [496, "Backend–frontend integration"], [497, " — connected the frontend's screenshot extraction to the backend response format (unit and field conversion), made the mock response match the real one, and merged the backend and frontend branches into main"], [499, "Gained"], [500, "3rd place"], [501, "Gwayookton Excellence Award"], [502, "9"], [503, "ERD tables designed"], [504, "1 day"], [505, "from planning to integration"], [506, "Lost"], [507, "The deployment only serves the frontend's static files, so the extraction API returns 404. The demo therefore used samples and manual input instead of screenshot extraction."], [508, "Learned"], [509, "Even when teammates build separately under time pressure, agreeing on the PRD, ERD and API response format first keeps the cost of merging small."], [523, "Team · Backend"], [529, "Sponsorship matching platform for student groups and brands · 2-person team"], [532, "Code and docs on GitHub ↗"], [540, "Sponsorship analytics: spend, coupons, store visits, ROAS"], [541, "Live service · demo screens on the deployed site (sample data)"], [542, "React UI"], [545, "Vercel functions"], [546, "Payments"], [547, "Toss · idempotent approval & recovery"], [548, "Concurrency"], [549, "row-level storage · version retries"], [550, "Security"], [551, "TOTP · audit log · rate limits"], [553, "production DB"], [554, "Blue borders mark the parts I owned."], [556, "Why"], [557, "Student groups struggle to find sponsors, and brands struggle to prove what a sponsorship achieved. This team project handles it all in one place, from finding a partner and signing to on-site measurement and the performance report."], [558, "Built"], [559, "I joined in the later stage and took over backend payments, security, concurrency and operational stability."], [561, "Concurrency & scalability"], [562, " — moved participation data from document-level to row-level storage and added retries on version conflicts"], [564, "Toss payment reliability"], [565, " — payment key saved before approval with an Idempotency-Key, cron-based recovery of unsettled orders, webhook verification, partial refunds"], [567, "Security"], [568, " — TOTP two-factor login and an audit log for operators, scrypt hashing, secret encryption, rate limits on write APIs"], [570, "Gained"], [573, "failure rate under load"], [576, "DB reads"], [579, "catalog response"], [581, "Lost"], [582, "Joining late, I had to replace the existing document-level storage while the service was running. Payments are still demonstrated with test keys."], [583, "Learned"], [584, "Measure before fixing. A load test showed a 17% failure rate, and measuring again after the fix showed 0%, so the improvement is a number."], [597, "Team · PM · Backend"], [601, "SYU Taxi & Delivery Pooling"], [603, "Campus ride- and order-sharing web service · 5-person team"], [606, "Code and docs on GitHub ↗"], [610, "Duyupot · Post details"], [614, "Post details: origin, destination, departure time, capacity"], [615, "Running app · mobile captures from team QA (Playwright)"], [616, "Next.js UI"], [617, "Duyupot"], [619, "project skeleton"], [620, "School email auth"], [621, "@syu.ac.kr · 5 s SMTP"], [622, "Pool & join rules"], [623, "capacity · time · duplicate checks"], [626, "Deploy"], [628, "Blue borders mark the parts I owned."], [630, "Why"], [631, "Gathering people in group chats keeps leading to over-full pools, expired posts and confusion over who is in. In this 5-person team project the server enforces those rules automatically."], [632, "Built"], [635, " — coordinated the schedule and roles of a 5-person team, set collaboration rules with PR templates and CI, and agreed and documented API retry rules with the frontend"], [637, "Design & auth"], [638, " — first design and implementation of the project skeleton and of the sign-up and login API verified by school email (@syu.ac.kr)"], [640, "Reliability & performance"], [641, " — capped the endless SMTP wait with a 5-second timeout, moved bcrypt outside the lock, removed N+1 queries"], [643, "Consistency & deploy"], [644, " — fixed transaction consistency for closing and cancelling, multi-stage Dockerfile (deployed on Render)"], [646, "Gained"], [648, "backend commits written"], [649, "5 people"], [650, "team PM"], [651, "∞ → 5 s"], [652, "SMTP wait capped"], [653, "Lost"], [654, "Comments, password reset and the admin screens were not connected to the real API in time and remain on mock responses."], [655, "Learned"], [656, "For five people to mesh, agreements have to live in documents and CI. External dependencies (SMTP) need a timeout by default so one request can't stall everything."], [673, "Skills"], [676, "Languages"], [679, "Backend"], [682, "Web"], [685, "Design"], [686, "Product requirements (PRD), ERD (Mermaid)"], [688, "Data & quant"], [689, "pandas, numpy, yfinance, ccxt, factor models, ridge regression, portfolio optimization"], [694, "Testing"], [697, "Infrastructure"], [700, "AI tools"], [701, "Claude Code, Codex (pair programming, code review)"], [703, "External APIs"], [711, "Education & Awards"], [714, "Enrolled"], [716, "Sahmyook University, Computer Software Engineering"], [717, "3rd year"], [723, "Gwayookton Excellence Award (3rd place)"], [724, "Joint idea-thon of Sahmyook University and Seoul National University of Science and Technology · GigSplitter (planning, ERD, frontend–backend integration)"], [731, "Soomin Seok · seoksoomin2003@gmail.com · github.com/seoksoomin2003-prog"]], "a": [[0, "aria-label", "Sections"], [14, "aria-label", "Choose language"], [30, "alt", "A 3D network linking interests → projects → tech and quant, slowly rotating"], [31, "aria-label", "3D network graph: 3 interests (backend, quant, data systems) link to 7 projects, which link to 50 technologies and 18 quant concepts. Rotate with the arrow keys, zoom with +/−, and toggle full screen with F."], [43, "aria-label", "Zoom the graph"], [44, "aria-label", "View full screen"], [44, "title", "Full screen (F)"], [49, "aria-label", "Zoom in"], [49, "title", "Zoom in (+)"], [50, "aria-label", "Zoom out"], [50, "title", "Zoom out (−)"], [51, "aria-label", "Reset zoom"], [51, "title", "Reset zoom (0)"], [53, "aria-label", "Pan the zoomed graph"], [54, "aria-label", "Look up"], [54, "title", "Look up (↑)"], [55, "aria-label", "Look left"], [55, "title", "Look left (←)"], [56, "aria-label", "Look right"], [56, "title", "Look right (→)"], [57, "aria-label", "Look down"], [57, "title", "Look down (↓)"], [109, "aria-label", "Quant Terminal: 8 real screens"], [118, "data-url", "127.0.0.1:8765 · Today"], [118, "data-cap", "Today: market state, to-do alerts and today's candidate stocks"], [119, "alt", "Quant Terminal screen — Today: market state, to-do alerts and today's candidate stocks"], [120, "data-url", "127.0.0.1:8765 · Rankings"], [120, "data-cap", "Rankings: top 50 swing scores and why each score moved"], [121, "alt", "Quant Terminal screen — Rankings: top 50 swing scores and why each score moved"], [122, "data-url", "127.0.0.1:8765 · Investment committee · MSFT"], [122, "data-cap", "Investment committee: five investor rule sets judge MSFT separately, and the committee decides by rule"], [123, "alt", "Quant Terminal screen — five opinions in the style of Buffett, Munger, Graham, Lynch and Druckenmiller, and the combined committee verdict (MSFT)"], [124, "data-url", "127.0.0.1:8765 · Investment committee · Portfolios"], [124, "data-cap", "Portfolios: six portfolios built, showing MSFT's weight and the reason (simulated, no orders)"], [125, "alt", "Quant Terminal screen — MSFT's weight and reasons in six portfolios"], [126, "data-url", "127.0.0.1:8765 · Chart analysis"], [126, "data-cap", "Chart analysis: moving averages, Bollinger bands, RSI and signal explanations"], [127, "alt", "Quant Terminal screen — Chart analysis: moving averages, Bollinger bands, RSI and signal explanations"], [128, "data-url", "127.0.0.1:8765 · Market map"], [128, "data-cap", "Market map: stock heatmap and sector rotation chart"], [129, "alt", "Quant Terminal screen — Market map: stock heatmap and sector rotation chart"], [130, "data-url", "127.0.0.1:8765 · Model"], [130, "data-cap", "Model: the frozen model's top picks, forward tracking and challenger comparison"], [131, "alt", "Quant Terminal screen — Model: the frozen model's top picks, forward tracking and challenger comparison"], [132, "data-url", "127.0.0.1:8765 · Lab"], [132, "data-cap", "Lab: historical simulation and performance metrics (reference only)"], [133, "alt", "Quant Terminal screen — Lab: historical simulation and performance metrics (reference only)"], [134, "aria-label", "Previous screen"], [135, "aria-label", "Next screen"], [140, "aria-label", "Architecture"], [218, "aria-label", "Horizon: 4 real screens"], [227, "data-url", "127.0.0.1:8791 · Top-coin ledger"], [227, "data-cap", "Top-coin paper ledger (v18): 7-day expected-return and risk scores per coin, with buy and sell conditions"], [228, "alt", "Horizon screen — Top-coin paper ledger (v18): 7-day expected-return and risk scores per coin, with buy and sell conditions"], [229, "data-url", "127.0.0.1:8791 · Direction predictions"], [229, "data-cap", "Live scoring of direction predictions: hit rate over 3,970 calls and for the most confident ones"], [230, "alt", "Horizon screen — Live scoring of direction predictions: hit rate over 3,970 calls and for the most confident ones"], [231, "data-url", "127.0.0.1:8791 · How much will it rise"], [231, "data-cap", "Scoring by horizon of the \"how much will it rise\" predictions for 30 large coins"], [232, "alt", "Horizon screen — Scoring by horizon of the \"how much will it rise\" predictions for 30 large coins"], [233, "data-url", "127.0.0.1:8791 · Recent predictions"], [233, "data-cap", "Recent predictions: the 15 most confident of 60 coins"], [234, "alt", "Horizon screen — Recent predictions: the 15 most confident of 60 coins"], [235, "aria-label", "Previous screen"], [236, "aria-label", "Next screen"], [241, "aria-label", "Architecture"], [318, "aria-label", "Architecture"], [393, "aria-label", "ArborAI: 5 real screens"], [402, "data-url", "localhost:3000 · AI quote step 3"], [402, "data-cap", "AI quote ①: hazards, crew size and hours diagnosed from site details"], [403, "alt", "ArborAI screen — AI quote ①: hazards, crew size and hours diagnosed from site details"], [404, "data-url", "localhost:3000 · AI quote step 4"], [404, "data-cap", "AI quote ②: a deterministic quote priced line by line by the pricing engine"], [405, "alt", "ArborAI screen — AI quote ②: a deterministic quote priced line by line by the pricing engine"], [406, "data-url", "localhost:3000 · Jobs"], [406, "data-cap", "Job dispatch: schedule, status and site location"], [407, "alt", "ArborAI screen — Job dispatch: schedule, status and site location"], [408, "data-url", "localhost:3000 · Quotes"], [408, "data-cap", "Quotes: base cost, risk surcharge and status, with PDF generation and conversion to jobs"], [409, "alt", "ArborAI screen — Quotes: base cost, risk surcharge and status, with PDF generation and conversion to jobs"], [410, "data-url", "localhost:3000 · Customers"], [410, "data-cap", "Customer directory (CRM)"], [411, "alt", "ArborAI screen — Customer directory (CRM)"], [412, "aria-label", "Previous screen"], [413, "aria-label", "Next screen"], [418, "aria-label", "Architecture"], [492, "aria-label", "GigSplitter: 5 real screens"], [501, "data-url", "gigsplitter.vercel.app · Product"], [501, "data-cap", "Home: upload a screenshot or pick a sample; example splitting 30 rolls into 7"], [502, "alt", "GigSplitter screen — Home: upload a screenshot or pick a sample; example splitting 30 rolls into 7"], [503, "data-url", "gigsplitter.vercel.app · Check"], [503, "data-cap", "Check values: the user corrects the extracted product name, pack size and price"], [504, "alt", "GigSplitter screen — Check values: the user corrects the extracted product name, pack size and price"], [505, "data-url", "gigsplitter.vercel.app · Split"], [505, "data-cap", "Split: with 4 people the host gets 9 rolls and each member 7, saving 54.6% per roll"], [506, "alt", "GigSplitter screen — Split: with 4 people the host gets 9 rolls and each member 7, saving 54.6% per roll"], [507, "data-url", "gigsplitter.vercel.app · Split · Settlement"], [507, "data-cap", "Settlement: shares to the won, summing exactly to the amount paid"], [508, "alt", "GigSplitter screen — Settlement: shares to the won, summing exactly to the amount paid"], [509, "data-url", "gigsplitter.vercel.app · Post"], [509, "data-cap", "Post: auto-written title and body to paste into Everytime"], [510, "alt", "GigSplitter screen — Post: auto-written title and body to paste into Everytime"], [511, "aria-label", "Previous screen"], [512, "aria-label", "Next screen"], [517, "aria-label", "Architecture"], [592, "aria-label", "UniConnect: 4 real screens"], [601, "data-cap", "Sponsorship analytics: spend, coupons, store visits, ROAS"], [602, "alt", "UniConnect screen — Sponsorship analytics: spend, coupons, store visits, ROAS"], [603, "data-cap", "Find student groups: matching by recommendation score"], [604, "alt", "UniConnect screen — Find student groups: matching by recommendation score"], [605, "data-cap", "Event calendar"], [606, "alt", "UniConnect screen — Event calendar"], [607, "data-cap", "Home page"], [608, "alt", "UniConnect screen — Home page"], [609, "aria-label", "Previous screen"], [610, "aria-label", "Next screen"], [615, "aria-label", "Architecture"], [687, "aria-label", "Duyupot: 4 real screens"], [696, "data-url", "Duyupot · Post details"], [696, "data-cap", "Post details: origin, destination, departure time, capacity"], [697, "alt", "Duyupot screen — Post details: origin, destination, departure time, capacity"], [698, "data-url", "Duyupot · Close a pool"], [698, "data-cap", "The author's confirmation dialog for closing a pool"], [699, "alt", "Duyupot screen — The author's confirmation dialog for closing a pool"], [700, "data-url", "Duyupot · My pools"], [700, "data-cap", "My pools: a pool card after leaving it"], [701, "alt", "Duyupot screen — My pools: a pool card after leaving it"], [702, "data-url", "Duyupot · Session expired"], [702, "data-cap", "Prompt to sign in again after the session expires"], [703, "alt", "Duyupot screen — Prompt to sign in again after the session expires"], [704, "aria-label", "Previous screen"], [705, "aria-label", "Next screen"], [710, "aria-label", "Architecture"], [820, "aria-label", "Enlarged screen"]], "title": {"ko": "석수민 이력서", "en": "Soomin Seok — Resume"}, "netCap": {"ko": "드래그해서 돌려 보세요. +/− 버튼, ⌘/Ctrl+스크롤, 트랙패드·휴대폰 핀치로 확대할 수 있고, 확대하면 드래그하거나 왼쪽 아래 화살표로 위아래·양옆을 둘러볼 수 있고, 그때는 Shift+드래그로 돌립니다. 오른쪽 아래 전체화면 버튼으로 전체화면을 켜고, 한 번 더 누르면 원래 크기로 돌아옵니다. 노드에 마우스를 올리면 연결이 보이고, 프로젝트 노드를 누르면 해당 카드로 이동합니다.", "en": "Drag to rotate. Zoom with the +/− buttons, ⌘/Ctrl+scroll or a trackpad or phone pinch; once zoomed, drag or use the arrows at bottom left to look around, and Shift+drag to rotate. The full-screen button at bottom right turns full screen on, and pressing it again returns to normal size. Hover a node to see its links; click a project node to jump to its card."}};
+  function walk(root) {
+    const els = [], texts = [];
+    const rec = n => {
+      for (const c of n.childNodes) {
+        if (c.nodeType === 3) texts.push(c);
+        else if (c.nodeType === 1) {
+          const t = c.tagName;
+          if (t === 'SCRIPT' || t === 'STYLE' || t === 'NOSCRIPT' || t === 'TEMPLATE' || c.id === 'net-cap') continue;
+          els.push(c); rec(c);
+        }
+      }
+    };
+    rec(root);
+    return { els, texts };
+  }
+  const { els, texts } = walk(document.body);
+  const T = D.t.map(([i, en]) => [texts[i], texts[i].nodeValue, en]);
+  const A = D.a.map(([i, name, en]) => [els[i], name, els[i].getAttribute(name), en]);
+  const root = document.documentElement, btns = document.querySelectorAll('.lang button');
+  window.resumeI18n = { netCap: D.netCap };
+  function set(l, quiet) {
+    const en = l === 'en';
+    T.forEach(([n, ko, e]) => { n.nodeValue = en ? e : ko; });
+    A.forEach(([el, name, ko, e]) => { const v = en ? e : ko; if (v == null) el.removeAttribute(name); else el.setAttribute(name, v); });
+    root.lang = l; root.setAttribute('data-lang', l); document.title = D.title[l];
+    btns.forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === l));
+    if (!quiet) document.dispatchEvent(new CustomEvent('resumelang', { detail: l }));
+  }
+  btns.forEach(b => b.addEventListener('click', () => {
+    const l = b.dataset.lang;
+    if (l === root.lang) return;
+    set(l);
+    try { const u = new URL(location.href); u.searchParams.set('lang', l); history.replaceState(null, '', u); } catch (e) {}
+  }));
+  set(root.getAttribute('data-lang') || 'ko', true);
+  root.classList.remove('lang-pending');
+})();
+</script>
 <script>
 /* Screenshot carousels: one screen at a time, ‹ › buttons, dots, swipe or arrow keys. */
 (() => {
@@ -663,9 +715,10 @@ footer { padding-block: 40px 56px; color: var(--mute); font-size: 13px; }
     const track = g.querySelector('.slides'), slides = [...track.children], n = slides.length;
     const url = g.querySelector('.bar .url'), count = g.querySelector('.count'), cap = g.querySelector('.cap');
     let i = 0, settleT = 0;
+    const dotLabel = k => document.documentElement.lang === 'en' ? 'Screen ' + (k + 1) : (k + 1) + '번째 화면';
     const dots = slides.map((_, k) => {
       const b = document.createElement('button');
-      b.type = 'button'; b.setAttribute('aria-label', 'Screen ' + (k + 1));
+      b.type = 'button'; b.setAttribute('aria-label', dotLabel(k));
       b.addEventListener('click', () => go(k));
       g.querySelector('.dots').appendChild(b);
       return b;
@@ -693,6 +746,7 @@ footer { padding-block: 40px 56px; color: var(--mute); font-size: 13px; }
     }, { passive: true });
     new ResizeObserver(() => { track.scrollLeft = i * track.clientWidth; }).observe(track);
     show(0);
+    document.addEventListener('resumelang', () => { dots.forEach((b, k) => b.setAttribute('aria-label', dotLabel(k))); show(i); });
   });
 })();
 /* Click a screenshot to see it full size; click again or press Esc to close. */
@@ -716,16 +770,119 @@ footer { padding-block: 40px 56px; color: var(--mute); font-size: 13px; }
   const ctx = cv.getContext('2d');
   const cap = document.getElementById('net-cap');
   const touch = matchMedia('(pointer: coarse)').matches;
-  if (touch) cap.innerHTML = 'Swipe sideways to rotate. Spread two fingers or use the + button to zoom; once zoomed, drag with one finger or use the arrows at bottom left to look around (press ↺ to rotate again). Tap a node to see its links, and tap a project node again to jump to its card. The first button at bottom right toggles full screen.';
-  const capDefault = cap.innerHTML;
+  const isEn = () => document.documentElement.lang === 'en';
+  const TOUCH_CAP = { ko: '옆으로 밀어서 돌려 보세요. 두 손가락으로 벌리거나 + 버튼으로 확대하고, 확대한 뒤에는 한 손가락으로 끌거나 왼쪽 아래 화살표로 위아래·양옆을 둘러봅니다(↺를 누르면 다시 돌릴 수 있어요). 노드를 누르면 연결이 보이고, 프로젝트 노드를 한 번 더 누르면 해당 카드로 이동합니다. 오른쪽 아래 첫 버튼으로 전체화면을 켜고 끕니다.', en: 'Swipe sideways to rotate. Spread two fingers or use the + button to zoom; once zoomed, drag with one finger or use the arrows at bottom left to look around (press ↺ to rotate again). Tap a node to see its links, and tap a project node again to jump to its card. The first button at bottom right toggles full screen.' };
+  const capFor = () => (touch ? TOUCH_CAP : window.resumeI18n.netCap)[isEn() ? 'en' : 'ko'];
+  let capDefault = capFor();
+  cap.innerHTML = capDefault;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const INTERESTS = [
+    ['be', '백엔드', '결제·인증·동시성처럼 데이터가 틀리면 안 되는 서버'],
+    ['qu', '퀀트', '계량 모델로 종목·코인을 채점하고 매매 규칙을 검증'],
+    ['ds', '데이터 시스템', '수집·기록·검증을 재현할 수 있는 데이터 흐름'],
+  ];
+  const PROJECTS = [
+    ['qt', '퀀트 터미널', '미국·한국 주식 추천 시스템', 'p-quant'],
+    ['hz', 'Horizon', '바이낸스 현물·선물 자동매매 봇 + 방향 예측기', 'p-horizon'],
+    ['qb', 'Quantum Bithumb', '빗썸 KRW 현물 자동매매 봇', 'p-bithumb'],
+    ['ar', 'ArborAI', '해외 수목관리 AI 견적·업무관리 SaaS', 'p-arbor'],
+    ['uc', 'UniConnect', '학생단체·브랜드 협찬 매칭 플랫폼 (팀)', 'p-uni'],
+    ['tx', '택시·배달 합승', '교내 합승 모집 서비스 (팀 · PM)', 'p-taxi'],
+    ['gs', '긱스플리터', '생필품 공동구매 소분·정산 앱 (팀 · 과육톤 우수상)', 'p-gig'],
+  ];
+  const I2P = { be: ['hz', 'ar', 'uc', 'tx', 'gs'], qu: ['qt', 'hz', 'qb'], ds: ['qt', 'hz', 'uc'] };
+  // Every entry of the resume's skills table, grouped as there, with the projects that use it.
+  const TECH = [
+    ['py', 'Python', '언어', ['qt', 'hz', 'qb', 'ar']],
+    ['java', 'Java', '언어', ['tx']],
+    ['ts', 'TypeScript', '언어', ['uc', 'ar', 'gs']],
+    ['js', 'JavaScript', '언어', ['qt', 'hz', 'gs']],
+    ['sql', 'SQL', '언어', ['ar', 'uc', 'tx']],
+    ['fa', 'FastAPI', '백엔드', ['ar']],
+    ['sb', 'Spring Boot', '백엔드', ['tx']],
+    ['jpa', 'Spring Data JPA', '백엔드', ['tx']],
+    ['ssec', 'Spring Security', '백엔드', ['tx']],
+    ['node', 'Node.js', '백엔드', ['uc', 'gs']],
+    ['ex', 'Express', '백엔드', ['uc']],
+    ['nx', 'Next.js', '웹', ['ar']],
+    ['rx', 'React', '웹', ['uc', 'gs']],
+    ['vite', 'Vite', '웹', ['uc', 'gs']],
+    ['erd', 'ERD·PRD 설계', '설계', ['gs']],
+    ['pd', 'pandas', '데이터', ['qt', 'hz', 'qb']],
+    ['np', 'numpy', '데이터', ['qt', 'hz', 'qb']],
+    ['yf', 'yfinance', '데이터', ['qt']],
+    ['cx', 'ccxt', '데이터', ['hz']],
+    ['pg', 'PostgreSQL', 'DB', ['ar', 'uc']],
+    ['rls', 'RLS', 'DB', ['ar']],
+    ['neon', 'Neon', 'DB', ['uc']],
+    ['my', 'MySQL', 'DB', ['tx']],
+    ['fw', 'Flyway', 'DB', ['tx']],
+    ['al', 'Alembic', 'DB', ['ar']],
+    ['pt', 'pytest', '테스트', ['qt', 'hz', 'ar']],
+    ['ju', 'JUnit 5', '테스트', ['tx']],
+    ['mk', 'Mockito', '테스트', ['tx']],
+    ['tc', 'Testcontainers', '테스트', ['tx']],
+    ['vt', 'Vitest', '테스트', ['uc']],
+    ['pw', 'Playwright', '테스트', ['ar', 'uc']],
+    ['dk', 'Docker', '인프라', ['ar', 'tx']],
+    ['gha', 'GitHub Actions', '인프라', ['ar', 'tx']],
+    ['vc', 'Vercel', '인프라', ['uc', 'gs']],
+    ['rd', 'Render', '인프라', ['tx']],
+    ['ecr', 'AWS ECR', '인프라', ['ar']],
+    ['ec2', 'AWS EC2', '인프라', ['qb']],
+    ['ld', 'launchd', '인프라', ['qt']],
+    ['sd', 'systemd', '인프라', ['hz', 'qb']],
+    ['cc', 'Claude Code', 'AI 도구', ['qt', 'hz', 'qb', 'ar', 'gs']],
+    ['cdx', 'Codex', 'AI 도구', ['qt', 'hz', 'qb', 'ar']],
+    ['gm', 'Gemini', '외부 API', ['ar', 'gs']],
+    ['stp', 'Stripe', '외부 API', ['ar']],
+    ['toss', 'Toss Payments', '외부 API', ['uc']],
+    ['bnc', 'Binance', '외부 API', ['hz']],
+    ['bth', 'Bithumb', '외부 API', ['qb']],
+    ['edgar', 'SEC EDGAR', '외부 API', ['qt']],
+    ['fred', 'FRED', '외부 API', ['qt']],
+    ['krx', 'KRX', '외부 API', ['qt']],
+    ['dart', 'OpenDART', '외부 API', ['qt']],
+  ];
+  // Quant ideas the projects rely on, whether or not they are software.
+  const QUANT = [
+    ['fac', '팩터 모델', '모멘텀·퀄리티·가치·저변동성 요인을 z점수로 합산', ['qt', 'hz']],
+    ['ridge', '릿지 회귀', 'L2 벌점으로 과적합을 줄인 방향 예측 모델', ['hz']],
+    ['opt', '포트폴리오 최적화', '기대수익 − 위험 − 거래비용을 닫힌 형태로 풀어 비중 결정', ['hz']],
+    ['ic', 'IC(정보 계수)', '예측과 실제 수익률의 상관으로 신호 세기를 측정', ['hz']],
+    ['beta', '베타·공분산', 'BTC 베타를 요인으로 한 위험 모델', ['hz']],
+    ['wf', '워크포워드 검증', '매달 지난 데이터로만 다시 학습하고 다음 구간에서 시험', ['hz']],
+    ['prereg', '사전 등록', '결과를 보기 전에 판정 기준을 문서로 고정', ['qt', 'hz']],
+    ['leak', '미래 정보 누출 방지', '그 시점에 몰랐던 값이 섞이지 않는지 테스트로 검사', ['qt', 'hz']],
+    ['btest', '백테스트', '도전자 모델·SPY 기준선과 5년 성과 비교', ['qt']],
+    ['regime', '시장 국면 판단', 'ADX·ATR 국면, BTC 레짐, 약세장 필터', ['qt', 'hz', 'qb']],
+    ['atr', 'ATR 포지션 사이징', '변동성이 클수록 작게 사는 포지션 크기', ['qt', 'hz', 'qb']],
+    ['dd', '낙폭 관리', '낙폭이 커지면 위험을 줄이고 거래를 멈춤', ['hz', 'qb']],
+    ['cost', '슬리피지·거래비용', '호가로 예상 체결가를 계산해 한도를 넘으면 주문하지 않음', ['hz', 'qb']],
+    ['ind', '기술 지표', 'EMA·RSI·MACD·ADX·Supertrend', ['qb', 'hz']],
+    ['exit', '분할 익절·트레일링', 'R 배수 분할 익절과 ATR 트레일링 스탑', ['qb', 'hz']],
+    ['perp', '무기한 선물·펀딩비', '레버리지·청산가·펀딩비를 고려한 선물 매매', ['hz']],
+    ['mn', '시장 중립(롱·숏)', '시장 대비 예측을 롱·숏 묶음으로 시험', ['hz']],
+    ['pi', '예측 구간 보정', '80% 가격 범위가 실제로 80%를 포함하는지 확인', ['qt']],
+  ];
+
+  const nodes = [], byId = {}, edges = [];
+  const add = (id, layer, label, extra) => {
+    const n = Object.assign({ id, layer, label, up: [], down: [] }, extra);
+    nodes.push(n); byId[id] = n;
+  };
+  INTERESTS.forEach(([id, l, desc]) => add(id, 0, l, { desc }));
+  PROJECTS.forEach(([id, l, desc, href]) => add(id, 1, l, { desc, href }));
+  TECH.forEach(([id, l, group]) => add(id, 2, l, { group }));
+  QUANT.forEach(([id, l, desc]) => add(id, 3, l, { desc }));
+  // English labels for the language switch, keyed by node id (same arrays as the English resume).
+  const EN_INTERESTS = [
     ['be', 'Backend', 'servers where data must not be wrong: payments, auth, concurrency'],
     ['qu', 'Quant', 'scoring stocks and coins with quantitative models and testing trading rules'],
     ['ds', 'Data systems', 'data flows whose collection, records and checks can be reproduced'],
   ];
-  const PROJECTS = [
+  const EN_PROJECTS = [
     ['qt', 'Quant Terminal', 'US &amp; Korean stock recommendation system', 'p-quant'],
     ['hz', 'Horizon', 'Binance spot & futures bot + direction predictor', 'p-horizon'],
     ['qb', 'Quantum Bithumb', 'Bithumb KRW spot trading bot', 'p-bithumb'],
@@ -734,9 +891,7 @@ footer { padding-block: 40px 56px; color: var(--mute); font-size: 13px; }
     ['tx', 'Taxi & Delivery Pooling', 'Campus pooling service (team · PM)', 'p-taxi'],
     ['gs', 'GigSplitter', 'Bulk-buy splitting & settlement app (team · Gwayookton award)', 'p-gig'],
   ];
-  const I2P = { be: ['hz', 'ar', 'uc', 'tx', 'gs'], qu: ['qt', 'hz', 'qb'], ds: ['qt', 'hz', 'uc'] };
-  // Every entry of the resume's skills table, grouped as there, with the projects that use it.
-  const TECH = [
+  const EN_TECH = [
     ['py', 'Python', 'Language', ['qt', 'hz', 'qb', 'ar']],
     ['java', 'Java', 'Language', ['tx']],
     ['ts', 'TypeScript', 'Language', ['uc', 'ar', 'gs']],
@@ -788,8 +943,7 @@ footer { padding-block: 40px 56px; color: var(--mute); font-size: 13px; }
     ['krx', 'KRX', 'External API', ['qt']],
     ['dart', 'OpenDART', 'External API', ['qt']],
   ];
-  // Quant ideas the projects rely on, whether or not they are software.
-  const QUANT = [
+  const EN_QUANT = [
     ['fac', 'Factor model', 'momentum, quality, value and low-volatility factors summed as z-scores', ['qt', 'hz']],
     ['ridge', 'Ridge regression', 'direction model with an L2 penalty against overfitting', ['hz']],
     ['opt', 'Portfolio optimization', 'weights from expected return − risk − trading cost, solved in closed form', ['hz']],
@@ -809,16 +963,14 @@ footer { padding-block: 40px 56px; color: var(--mute); font-size: 13px; }
     ['mn', 'Market neutral (long/short)', 'testing market-relative predictions as long/short baskets', ['hz']],
     ['pi', 'Interval calibration', 'checking that the 80% price range really contains 80%', ['qt']],
   ];
-
-  const nodes = [], byId = {}, edges = [];
-  const add = (id, layer, label, extra) => {
-    const n = Object.assign({ id, layer, label, up: [], down: [] }, extra);
-    nodes.push(n); byId[id] = n;
-  };
-  INTERESTS.forEach(([id, l, desc]) => add(id, 0, l, { desc }));
-  PROJECTS.forEach(([id, l, desc, href]) => add(id, 1, l, { desc, href }));
-  TECH.forEach(([id, l, group]) => add(id, 2, l, { group }));
-  QUANT.forEach(([id, l, desc]) => add(id, 3, l, { desc }));
+  const EN = {};
+  EN_INTERESTS.forEach(([id, label, desc]) => { EN[id] = { label, desc }; });
+  EN_PROJECTS.forEach(([id, label, desc]) => { EN[id] = { label, desc }; });
+  EN_TECH.forEach(([id, label, group]) => { EN[id] = { label, group }; });
+  EN_QUANT.forEach(([id, label, desc]) => { EN[id] = { label, desc }; });
+  nodes.forEach(n => { n.ko = { label: n.label, desc: n.desc, group: n.group }; n.en = Object.assign({}, n.ko, EN[n.id]); });
+  const relabel = () => nodes.forEach(n => Object.assign(n, isEn() ? n.en : n.ko));
+  relabel();
   const link = (a, b) => { edges.push([byId[a], byId[b]]); byId[a].down.push(byId[b]); byId[b].up.push(byId[a]); };
   Object.entries(I2P).forEach(([i, ps]) => ps.forEach(p => link(i, p)));
   TECH.forEach(([id, , , ps]) => ps.forEach(p => link(p, id)));
@@ -1042,7 +1194,21 @@ footer { padding-block: 40px 56px; color: var(--mute); font-size: 13px; }
     if (visible) start(); else last = 0;
   }
 
-  function describe(n) {
+  function describeKo(n) {
+    const names = list => list.map(x => x.label).join(', ');
+    if (!n) { cap.innerHTML = capDefault; return; }
+    if (n.layer === 0) {
+      const quant = [...new Set(n.down.flatMap(p => p.down.filter(x => x.layer === 3)))];
+      cap.innerHTML = `<b>${n.label}</b> · ${n.desc}<br>프로젝트: ${names(n.down)}` +
+        (n.id === 'qu' ? `<br>퀀트 개념: ${names(quant)}` : '');
+    } else if (n.layer === 1) {
+      const tech = n.down.filter(x => x.layer === 2), quant = n.down.filter(x => x.layer === 3);
+      cap.innerHTML = `<b>${n.label}</b> · ${n.desc} · 누르면 카드로 이동<br>기술: ${names(tech)}` +
+        (quant.length ? `<br>퀀트 개념: ${names(quant)}` : '');
+    } else if (n.layer === 2) cap.innerHTML = `<b>${n.label}</b> · ${n.group}<br>쓴 프로젝트: ${names(n.up)}`;
+    else cap.innerHTML = `<b>${n.label}</b> · 퀀트 개념 — ${n.desc}<br>쓴 프로젝트: ${names(n.up)}`;
+  }
+  function describeEn(n) {
     const names = list => list.map(x => x.label).join(', ');
     if (!n) { cap.innerHTML = capDefault; return; }
     if (n.layer === 0) {
@@ -1056,6 +1222,7 @@ footer { padding-block: 40px 56px; color: var(--mute); font-size: 13px; }
     } else if (n.layer === 2) cap.innerHTML = `<b>${n.label}</b> · ${n.group}<br>Used in: ${names(n.up)}`;
     else cap.innerHTML = `<b>${n.label}</b> · Quant concept — ${n.desc}<br>Used in: ${names(n.up)}`;
   }
+  function describe(n) { return isEn() ? describeEn(n) : describeKo(n); }
   function hit(e) {
     const r = cv.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
     const slop = e.pointerType && e.pointerType !== 'mouse' ? 9 : 0; // fingers are less precise than a cursor
@@ -1124,12 +1291,16 @@ footer { padding-block: 40px 56px; color: var(--mute); font-size: 13px; }
   // an iframe or unsupported on iPhone), and falls back to a fixed overlay either way.
   const fullBtn = stage.querySelector('.net-full');
   const isFull = () => stage.classList.contains('is-full');
+  function fullLabel(on) {
+    const e = isEn();
+    fullBtn.setAttribute('aria-label', on ? (e ? 'Exit full screen' : '전체화면 끝내기') : (e ? 'View full screen' : '전체화면으로 보기'));
+    fullBtn.title = on ? (e ? 'Exit full screen (Esc)' : '전체화면 끝내기 (Esc)') : (e ? 'Full screen (F)' : '전체화면 (F)');
+  }
   function setFull(on) {
     stage.classList.toggle('is-full', on);
     document.documentElement.classList.toggle('net-lock', on);
     fullBtn.setAttribute('aria-pressed', on);
-    fullBtn.setAttribute('aria-label', on ? 'Exit full screen' : 'View full screen');
-    fullBtn.title = on ? 'Exit full screen (Esc)' : 'Full screen (F)';
+    fullLabel(on);
     resetView(); resize(); draw(0);
   }
   function toggleFull() {
@@ -1234,6 +1405,7 @@ footer { padding-block: 40px 56px; color: var(--mute); font-size: 13px; }
   const media = matchMedia('(prefers-color-scheme: dark)');
   const recolor = () => { colorAge = 1e9; if (reduce) draw(0); };
   media.addEventListener && media.addEventListener('change', recolor);
+  document.addEventListener('resumelang', () => { relabel(); capDefault = capFor(); describe(hover); fullLabel(isFull()); draw(0); });
   new MutationObserver(recolor).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme', 'class'] });
   new ResizeObserver(() => { resize(); draw(0); }).observe(cv);
   resize(); readColors();
